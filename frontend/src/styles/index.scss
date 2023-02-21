@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap');
+
+:root {
+  $font-stack: Karla, sans-serif;
+  $black: #161819;
+  $grey: #232526;
+  $grey-light: #484A4B;
+  $red: #E90E26;
+  $orange: #FC4F0C;
+  $orange-light: #FF7402;
+  $orange-extra-light: #FF9842;
+  $blue: #0066CD;
+  $blue-sky: #0092E7;
+  $blue-light: #00B7D9;
+  $turquoise: #00CBD3;
+  $green: #00ff00;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body {
+  font-family: Karla -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue" sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
