@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
-// import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
-      {/* <Navbar /> */}
+      <Navbar />
     </>
   );
 }
