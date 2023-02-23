@@ -8,15 +8,15 @@ import {
   BookmarkOutline,
   BookmarkSharp,
 } from "react-ionicons";
-import "../styles/Navbar.scss";
+import styles from "../styles/Navbar.module.scss";
 
 export default function Navbar() {
   const location = useLocation();
 
   return (
-    <div className="cont">
-      <nav className="nav-cont">
-        <ul>
+    <div className={styles.cont}>
+      <nav className={styles["nav-cont"]}>
+        <ul className={styles.navul}>
           <li>
             <NavLink to="/">
               {location.pathname === "/" ? (

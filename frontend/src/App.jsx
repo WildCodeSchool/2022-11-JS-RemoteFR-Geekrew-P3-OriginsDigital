@@ -6,11 +6,12 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
