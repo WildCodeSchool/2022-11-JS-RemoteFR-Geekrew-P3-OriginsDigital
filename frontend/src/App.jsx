@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
+import Categories from "./pages/Categories";
+import Footer from "./components/Footer";
 // import Navbar from "./components/Navbar";
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
+      <Footer />
       {/* <Navbar /> */}
     </>
   );
