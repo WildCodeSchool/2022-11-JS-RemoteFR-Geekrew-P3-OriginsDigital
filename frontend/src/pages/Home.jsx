@@ -21,6 +21,7 @@ export default function Home() {
           autoplay={{
             delay: 3000,
           }}
+          spaceBetween={20}
           modules={[Pagination, Autoplay]}
           className="main-carousel"
         >
@@ -41,7 +42,9 @@ export default function Home() {
         </NavLink>
       </div>
       <div className="category right">
-        <h1 className="category-name">Recent</h1>
+        <NavLink to="/category" className="category-name">
+          Recent
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -49,7 +52,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">HTML</h1>
+        <NavLink to="/category" className="category-name">
+          HTML
+        </NavLink>
         <div className="thumbnails left">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -57,7 +62,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">React</h1>
+        <NavLink to="/category" className="category-name">
+          React
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -65,7 +72,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Javascript</h1>
+        <NavLink to="/category" className="category-name">
+          Javascript
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -73,7 +82,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">CSS</h1>
+        <NavLink to="/category" className="category-name">
+          CSS
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -81,7 +92,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Node.js</h1>
+        <NavLink to="/category" className="category-name">
+          Node.js
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -89,7 +102,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Next.js</h1>
+        <NavLink to="/category" className="category-name">
+          Next.js
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -97,7 +112,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Typescript</h1>
+        <NavLink to="/category" className="category-name">
+          Typescript
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -105,7 +122,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Express.js</h1>
+        <NavLink to="/category" className="category-name">
+          Express.js
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -113,7 +132,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">PHP</h1>
+        <NavLink to="/category" className="category-name">
+          PHP
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -121,7 +142,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">Java</h1>
+        <NavLink to="/category" className="category-name">
+          Java
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -129,7 +152,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">SQL</h1>
+        <NavLink to="/category" className="category-name">
+          SQL
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
@@ -137,7 +162,9 @@ export default function Home() {
         </div>
       </div>
       <div className="category">
-        <h1 className="category-name">NoSQL</h1>
+        <NavLink to="/category" className="category-name">
+          NoSQL
+        </NavLink>
         <div className="thumbnails">
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
