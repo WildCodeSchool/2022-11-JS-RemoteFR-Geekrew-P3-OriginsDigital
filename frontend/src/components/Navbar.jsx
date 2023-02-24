@@ -37,7 +37,7 @@ export default function Navbar() {
           </li>
           <li>
             <NavLink to="/favoris">
-              {location.pathname === "/favoris" ? (
+              {location.pathname === "/favorites" ? (
                 <BookmarkSharp color="#ffffff" height="35px" width="35px" />
               ) : (
                 <BookmarkOutline color="#ffffff" height="35px" width="35px" />
