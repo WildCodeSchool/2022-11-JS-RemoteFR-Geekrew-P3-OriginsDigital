@@ -1,0 +1,30 @@
+@import 'variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.search-bar {
+  background-color: $black;
+  border: 0.2rem solid $grey-light;
+  border-radius: 0.3rem;
+  margin: 5rem;
+  padding: 0.2rem;
+  color: inherit;
+  // font-size: 1rem;
+}
+
+.select {
+  background-color: $black;
+  border: 0.2rem solid $grey-light;
+  border-radius: 0.3rem;
+  color: inherit;
+  padding: 0.2rem;
+  margin: 5rem;
+}
+
+.search-bar::placeholder, .select {
+  color: #757575;
+}

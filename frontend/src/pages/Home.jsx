@@ -8,14 +8,15 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/autoplay";
-import "../styles/Home.scss";
+import "../styles/swiperconfig.scss";
+import styles from "../styles/Home.module.scss";
 
 import javascriptNul from "../assets/thumbnails/javascript-nul.png";
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className="carousel-container">
+    <div className={styles.container}>
+      <div className={styles["carousel-container"]}>
         <Swiper
           pagination
           autoplay={{
@@ -23,149 +24,161 @@ export default function Home() {
           }}
           spaceBetween={20}
           modules={[Pagination, Autoplay]}
-          className="main-carousel"
+          className={styles["main-carousel"]}
         >
           <SwiperSlide>
-            <img src={javascriptNul} alt="" className="main-carousel" />
+            <img
+              src={javascriptNul}
+              alt=""
+              className={styles["main-carousel"]}
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={javascriptNul} alt="" className="main-carousel" />
+            <img
+              src={javascriptNul}
+              alt=""
+              className={styles["main-carousel"]}
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={javascriptNul} alt="" className="main-carousel" />
+            <img
+              src={javascriptNul}
+              alt=""
+              className={styles["main-carousel"]}
+            />
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="dropdown-menu">
-        <NavLink to="/categories" className="categories">
+      <div className={styles["dropdown-menu"]}>
+        <NavLink to="/categories" className={styles.categories}>
           Browse Categories
         </NavLink>
       </div>
-      <div className="category right">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Recent
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           HTML
         </NavLink>
-        <div className="thumbnails left">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           React
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Javascript
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           CSS
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Node.js
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Next.js
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Typescript
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Express.js
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           PHP
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           Java
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           SQL
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
       </div>
-      <div className="category">
-        <NavLink to="/category" className="category-name">
+      <div className={styles.category}>
+        <NavLink to="/search" className={styles["category-name"]}>
           NoSQL
         </NavLink>
-        <div className="thumbnails">
+        <div className={styles.thumbnails}>
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
