@@ -1,0 +1,21 @@
+@import 'variables';
+
+.container {
+  display: flex;
+}
+
+.follow,
+.origins {
+  height: 5rem;
+  width: 100%;
+  background-color: $grey;
+}
+
+.follow {
+  margin-bottom: 1rem;
+}
+
+.follow-title, .origins-title {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
