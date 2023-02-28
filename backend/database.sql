@@ -136,9 +136,9 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `avatar_id` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`, `avatar`),
-  KEY `fk_user_avatar_idx` (`avatar`),
+  `avatar_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`, `avatar_id`),
+  KEY `fk_user_avatar_idx` (`avatar_id`),
   CONSTRAINT `fk_user_avatar` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
