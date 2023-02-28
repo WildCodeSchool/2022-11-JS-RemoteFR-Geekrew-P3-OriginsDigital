@@ -49,11 +49,6 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className={styles["dropdown-menu"]}>
-        <NavLink to="/categories" className={styles.categories}>
-          Browse Categories
-        </NavLink>
-      </div>
       <div className={styles.category}>
         <NavLink to="/search" className={styles["category-name"]}>
           Recent
