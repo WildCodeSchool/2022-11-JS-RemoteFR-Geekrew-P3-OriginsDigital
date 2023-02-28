@@ -5,6 +5,12 @@ class VideoManager extends AbstractManager {
     super({ table: "video" });
   }
 
+  findAllByCategory() {
+    return this.database.query(
+      `select * from  ${this.table} JOIN category ON category.id = ${this.table}.category_id ORDER BY category_id `
+    );
+  }
+
   insert(video) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [
       video.title,
