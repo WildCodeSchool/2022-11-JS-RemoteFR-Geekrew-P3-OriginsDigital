@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "../styles/SignUpConfirmation.module.scss";
 
 function SignUpConfirmation() {
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/sign-in");
+  };
   return (
     <div className={styles["confirmation-page"]}>
       <h1 className={styles["confirmation-title"]}>Congratulations</h1>
@@ -18,9 +24,15 @@ function SignUpConfirmation() {
         chicken corned beef spare ribs.
       </p>
       <p className={styles["confirmation-illustration"]}>😄</p>
-      <button className={styles["confirmation-btn"]} type="submit">
-        Sign In
-      </button>
+      <div className={styles["button-sign-up-confirmation"]}>
+        <button
+          className={styles["confirmation-btn"]}
+          type="button"
+          onClick={handleSignIn}
+        >
+          Sign in
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "../styles/SignUp.module.scss";
 
@@ -10,6 +11,7 @@ function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,6 +40,10 @@ function SignUp() {
   function handleCheckboxChange(event) {
     setIsChecked(event.target.checked);
   }
+
+  const handleSignUpconfirmation = () => {
+    navigate("/sign-up-confirmation");
+  };
 
   return (
     <div className={styles["sign-up-page"]}>
@@ -127,7 +133,11 @@ function SignUp() {
           </label>
         </div>
       </div>
-      <button className={styles["sign-up-btn"]} type="submit">
+      <button
+        className={styles["sign-up-btn"]}
+        type="button"
+        onClick={handleSignUpconfirmation}
+      >
         SIGN UP
       </button>
     </div>

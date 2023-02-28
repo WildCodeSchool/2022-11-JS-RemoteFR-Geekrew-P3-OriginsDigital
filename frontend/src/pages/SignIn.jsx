@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "../styles/SignIn.module.scss";
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,6 +18,12 @@ function SignIn() {
 
   const handlePasswordClick = () => {
     setPassword("");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
+  const handleSignUp = () => {
+    navigate("/sign-up");
   };
 
   return (
@@ -45,16 +53,24 @@ function SignIn() {
           onClick={handlePasswordClick}
         />
       </form>
-      <a href="true" className={styles["button-sign-in"]}>
+      <div href="/" className={styles["button-sign-in"]}>
         <label htmlFor="my-button"> </label>
-        <button className={styles["sign-in-btn1"]} type="submit">
+        <button
+          className={styles["sign-in-btn1"]}
+          type="button"
+          onClick={handleHome}
+        >
           SIGN IN
         </button>
         <label htmlFor="button"> </label>
-        <button className={styles["sign-in-btn2"]} type="submit">
+        <button
+          className={styles["sign-in-btn2"]}
+          type="button"
+          onClick={handleSignUp}
+        >
           SIGN UP
         </button>
-      </a>
+      </div>
       <p className={styles["sign-in-p"]}>Forgot your password?</p>
     </div>
   );
