@@ -1,0 +1,38 @@
+@import "variables";
+
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  align-content: center;
+  height: 85%;
+  width: 85%;
+  background-color: #232526;
+  border-radius: 2rem;
+  border: solid 1px #ff7402;
+
+  .confirmation-title {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+  }
+  .confirmation-p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .confirmation-illustration {
+    border: none;
+  }
+  .confirmation-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
