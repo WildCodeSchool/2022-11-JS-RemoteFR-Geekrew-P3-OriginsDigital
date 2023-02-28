@@ -136,7 +136,10 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  `avatar_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`, `avatar_id`),
+  KEY `fk_user_avatar_idx` (`avatar_id`),
+  CONSTRAINT `fk_user_avatar` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -207,6 +210,30 @@ CREATE TABLE `video_tags` (
 LOCK TABLES `video_tags` WRITE;
 /*!40000 ALTER TABLE `video_tags` DISABLE KEYS */;
 /*!40000 ALTER TABLE `video_tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `avatar`
+--
+
+DROP TABLE IF EXISTS `avatar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `avatar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `icons` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `avatar`
+--
+
+LOCK TABLES `avatar` WRITE;
+/*!40000 ALTER TABLE `avatar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `avatar` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
