@@ -78,4 +78,23 @@ const destroy = (req, res) => {
     });
 };
 
-module.exports = { browse, read, edit, add, destroy };
+const browseByCategory = (req, res) => {
+  models.video
+    .findAllByCategory()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+module.exports = {
+  browse,
+  read,
+  edit,
+  add,
+  destroy,
+  browseByCategory,
+};
