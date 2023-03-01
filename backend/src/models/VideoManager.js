@@ -17,6 +17,12 @@ class VideoManager extends AbstractManager {
       [video.title, video.id]
     );
   }
+
+  findAllByCategory() {
+    return this.database.query(
+      `select ${this.table}.*, c.name AS category_name from ${this.table} JOIN category AS c ON ${this.table}.category_id = c.id`
+    );
+  }
 }
 
 module.exports = VideoManager;
