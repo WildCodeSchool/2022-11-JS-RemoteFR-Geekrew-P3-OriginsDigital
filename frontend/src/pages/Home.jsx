@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { NavLink } from "react-router-dom";
@@ -11,9 +12,32 @@ import "swiper/scss/autoplay";
 import "../styles/swiperconfig.scss";
 import styles from "../styles/Home.module.scss";
 
-import javascriptNul from "../assets/thumbnails/javascript-nul.png";
-
 export default function Home() {
+  const [videos, setVideos] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedImages, setSelectedImages] = useState(videos.slice(0, 3));
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
+      .then((res) => res.data)
+      .then((data) => {
+        setVideos(data);
+        const categoriesSet = new Set(data.map((video) => video.category_name));
+        setCategories(Array.from(categoriesSet));
+      });
+  }, []);
+
+  const handleRandomize = () => {
+    const randomIndex = Math.floor(Math.random() * 31);
+    const randomizedImages = videos.slice(randomIndex, randomIndex + 3);
+    setSelectedImages(randomizedImages);
+  };
+
+  useEffect(() => {
+    handleRandomize();
+  }, [videos]);
+
   return (
     <div className={styles.container}>
       <div className={styles["carousel-container"]}>
@@ -26,159 +50,37 @@ export default function Home() {
           modules={[Pagination, Autoplay]}
           className={styles["main-carousel"]}
         >
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
+          {selectedImages.map((video) => (
+            <SwiperSlide key={video.id}>
+              <img
+                src={video.thumbnail}
+                alt={video.description}
+                className={styles["main-carousel"]}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Recent
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          HTML
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          React
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Javascript
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          CSS
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Node.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Next.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Typescript
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Express.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          PHP
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Java
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          SQL
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          NoSQL
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
+      {categories.map((category) => {
+        return (
+          <div key={category} className={styles.category}>
+            <NavLink to="/search" className={styles["category-name"]}>
+              {category}
+            </NavLink>
+            <div className={styles.thumbnails}>
+              {videos
+                .filter((video) => video.category_name === category)
+                .map((video) => (
+                  <img
+                    key={video.id}
+                    src={video.thumbnail}
+                    alt={video.description}
+                  />
+                ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
