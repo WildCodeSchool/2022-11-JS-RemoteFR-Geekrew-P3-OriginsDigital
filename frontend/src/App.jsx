@@ -26,7 +26,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-up-confirmation" element={<SignUpConfirmation />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/video" element={<Video />} />
+        <Route path="/video/:id" element={<Video />} />
       </Routes>
       <Navbar />
       {/* <Footer /> */}
