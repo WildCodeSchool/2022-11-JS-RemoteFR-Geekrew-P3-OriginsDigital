@@ -18,19 +18,21 @@ export default function Home() {
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  const categoryArr = [];
-  console.error("category arr = ", categoryArr);
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
       .then((res) => res.data)
       .then((data) => {
-        console.error(data);
         setVideos(data);
+        const categoriesSet = new Set();
+        data.forEach((video) => {
+          categoriesSet.add(video.name);
+        });
+        const uniqueCategories = Array.from(categoriesSet);
+        setCategories(uniqueCategories);
       });
   }, []);
-
+  console.info(videos);
   return (
     <div className={styles.container}>
       <div className={styles["carousel-container"]}>
@@ -66,38 +68,36 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      {console.error("video ===", videos)}
-      {videos.map((video) => {
-        console.error(video.name);
-        setCategories(video.name);
-        console.error("categories ==", categories);
-        if (!categoryArr.includes(video.name)) {
-          categoryArr.push(video.name);
-        }
+      {categories.map((cat) => {
         return (
-          <div className={styles.category}>
+          <div key={cat} className={styles.category}>
             <NavLink to="/search" className={styles["category-name"]}>
-              {video.name}
+              {cat}
             </NavLink>
             <div className={styles.thumbnails}>
-              <img src={javascriptNul} alt="" />
-              <img src={javascriptNul} alt="" />
-              <img src={javascriptNul} alt="" />
+              {videos
+                .filter((e) => e.name === cat)
+                .map((vid) => (
+                  <img key={vid.id} src={vid.thumbnail} alt="" />
+                ))}
             </div>
           </div>
         );
       })}
-      {/* <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Recent
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
+      {/*  <div className={styles.category}>
+        /*    <NavLink to="/search" className={styles["category-name"]}>
+        /*      Recent
+        /*    </NavLink>
+        /*    <div className={styles.thumbnails}>
+        /*      <img
+        /*        src="https://i.ytimg.com/vi/Y6aYx_KKM7A/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD5mNY27Tb_awlkrSyKCoLz2XBkQA"
+        /*        alt=""
+        /*      />
+        /*      <img src={javascriptNul} alt="" />
+        /*      <img src={javascriptNul} alt="" />
+        /*    </div>
+        /*  </div>
+         <div className={styles.category}>
         <NavLink to="/search" className={styles["category-name"]}>
           HTML
         </NavLink>
