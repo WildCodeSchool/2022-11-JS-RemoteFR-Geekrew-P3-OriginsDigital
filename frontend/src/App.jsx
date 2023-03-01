@@ -13,6 +13,7 @@ import Video from "./pages/Video";
 // import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/sign-up-confirmation" element={<SignUpConfirmation />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/video" element={<Video />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Navbar />
       {/* <Footer /> */}
