@@ -12,11 +12,10 @@ import "swiper/scss/autoplay";
 import "../styles/swiperconfig.scss";
 import styles from "../styles/Home.module.scss";
 
-import javascriptNul from "../assets/thumbnails/javascript-nul.png";
-
 export default function Home() {
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [selectedImages, setSelectedImages] = useState(videos.slice(0, 3));
 
   useEffect(() => {
     axios
@@ -24,14 +23,20 @@ export default function Home() {
       .then((res) => res.data)
       .then((data) => {
         setVideos(data);
-        const categoriesSet = new Set();
-        data.forEach((video) => {
-          categoriesSet.add(video.category_name);
-        });
-        const uniqueCategories = Array.from(categoriesSet);
-        setCategories(uniqueCategories);
+        const categoriesSet = new Set(data.map((video) => video.category_name));
+        setCategories(Array.from(categoriesSet));
       });
   }, []);
+
+  const handleRandomize = () => {
+    const randomIndex = Math.floor(Math.random() * 31);
+    const randomizedImages = videos.slice(randomIndex, randomIndex + 3);
+    setSelectedImages(randomizedImages);
+  };
+
+  useEffect(() => {
+    handleRandomize();
+  }, [videos]);
 
   return (
     <div className={styles.container}>
@@ -45,27 +50,15 @@ export default function Home() {
           modules={[Pagination, Autoplay]}
           className={styles["main-carousel"]}
         >
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={javascriptNul}
-              alt=""
-              className={styles["main-carousel"]}
-            />
-          </SwiperSlide>
+          {selectedImages.map((video) => (
+            <SwiperSlide key={video.id}>
+              <img
+                src={video.thumbnail}
+                alt={video.description}
+                className={styles["main-carousel"]}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       {categories.map((category) => {
