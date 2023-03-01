@@ -5,12 +5,6 @@ class VideoManager extends AbstractManager {
     super({ table: "video" });
   }
 
-  findAllByCategory() {
-    return this.database.query(
-      `select * from  ${this.table} JOIN category ON category.id = ${this.table}.category_id ORDER BY category_id `
-    );
-  }
-
   insert(video) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [
       video.title,
@@ -21,6 +15,12 @@ class VideoManager extends AbstractManager {
     return this.database.query(
       `update ${this.table} set title = ? where id = ?`,
       [video.title, video.id]
+    );
+  }
+
+  findAllByCategory() {
+    return this.database.query(
+      `select ${this.table}.*, c.name AS category_name from ${this.table} JOIN category AS c ON ${this.table}.category_id = c.id`
     );
   }
 }

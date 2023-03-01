@@ -26,13 +26,13 @@ export default function Home() {
         setVideos(data);
         const categoriesSet = new Set();
         data.forEach((video) => {
-          categoriesSet.add(video.name);
+          categoriesSet.add(video.category_name);
         });
         const uniqueCategories = Array.from(categoriesSet);
         setCategories(uniqueCategories);
       });
   }, []);
-  console.info(videos);
+
   return (
     <div className={styles.container}>
       <div className={styles["carousel-container"]}>
@@ -68,155 +68,26 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      {categories.map((cat) => {
+      {categories.map((category) => {
         return (
-          <div key={cat} className={styles.category}>
+          <div key={category} className={styles.category}>
             <NavLink to="/search" className={styles["category-name"]}>
-              {cat}
+              {category}
             </NavLink>
             <div className={styles.thumbnails}>
               {videos
-                .filter((e) => e.name === cat)
-                .map((vid) => (
-                  <img key={vid.id} src={vid.thumbnail} alt="" />
+                .filter((video) => video.category_name === category)
+                .map((video) => (
+                  <img
+                    key={video.id}
+                    src={video.thumbnail}
+                    alt={video.description}
+                  />
                 ))}
             </div>
           </div>
         );
       })}
-      {/*  <div className={styles.category}>
-        /*    <NavLink to="/search" className={styles["category-name"]}>
-        /*      Recent
-        /*    </NavLink>
-        /*    <div className={styles.thumbnails}>
-        /*      <img
-        /*        src="https://i.ytimg.com/vi/Y6aYx_KKM7A/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD5mNY27Tb_awlkrSyKCoLz2XBkQA"
-        /*        alt=""
-        /*      />
-        /*      <img src={javascriptNul} alt="" />
-        /*      <img src={javascriptNul} alt="" />
-        /*    </div>
-        /*  </div>
-         <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          HTML
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          React
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Javascript
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          CSS
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Node.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Next.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Typescript
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Express.js
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          PHP
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          Java
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          SQL
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div>
-      <div className={styles.category}>
-        <NavLink to="/search" className={styles["category-name"]}>
-          NoSQL
-        </NavLink>
-        <div className={styles.thumbnails}>
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-          <img src={javascriptNul} alt="" />
-        </div>
-      </div> */}
     </div>
   );
 }
