@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
@@ -15,12 +15,19 @@ import styles from "../styles/Home.module.scss";
 import javascriptNul from "../assets/thumbnails/javascript-nul.png";
 
 export default function Home() {
+  const [videos, setVideos] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const categoryArr = [];
+  console.error("category arr = ", categoryArr);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
       .then((res) => res.data)
       .then((data) => {
         console.error(data);
+        setVideos(data);
       });
   }, []);
 
@@ -59,7 +66,28 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className={styles.category}>
+      {console.error("video ===", videos)}
+      {videos.map((video) => {
+        console.error(video.name);
+        setCategories(video.name);
+        console.error("categories ==", categories);
+        if (!categoryArr.includes(video.name)) {
+          categoryArr.push(video.name);
+        }
+        return (
+          <div className={styles.category}>
+            <NavLink to="/search" className={styles["category-name"]}>
+              {video.name}
+            </NavLink>
+            <div className={styles.thumbnails}>
+              <img src={javascriptNul} alt="" />
+              <img src={javascriptNul} alt="" />
+              <img src={javascriptNul} alt="" />
+            </div>
+          </div>
+        );
+      })}
+      {/* <div className={styles.category}>
         <NavLink to="/search" className={styles["category-name"]}>
           Recent
         </NavLink>
@@ -188,7 +216,7 @@ export default function Home() {
           <img src={javascriptNul} alt="" />
           <img src={javascriptNul} alt="" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
