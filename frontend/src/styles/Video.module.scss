@@ -1,0 +1,25 @@
+.contvid {
+    display: flex;
+    flex-direction: column;
+}
+
+.videobox {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+.cattitle {
+    margin-left: 1.2rem;
+}
+.videotitle {
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+}
+.boxlike {
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+}
+.descvid {
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+}

@@ -2,29 +2,39 @@
 
 .container {
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.search-bar {
+.search-bar, .select {
   background-color: $black;
   border: 0.2rem solid $grey-light;
   border-radius: 0.3rem;
-  margin: 5rem;
-  padding: 0.2rem;
   color: inherit;
-  // font-size: 1rem;
+  font-size: 0.9rem;
+}
+
+.search-bar {
+  padding: 0.4rem;
+  padding-left: 0.4rem;
+  width: 15.5rem;
+  margin-top: 5rem;
 }
 
 .select {
-  background-color: $black;
-  border: 0.2rem solid $grey-light;
-  border-radius: 0.3rem;
-  color: inherit;
-  padding: 0.2rem;
-  margin: 5rem;
+  padding: 0.33rem;
+  width: 11rem;
+  margin-top: 2.5rem;
 }
 
 .search-bar::placeholder, .select {
-  color: #757575;
+  color: rgba(255, 255, 255, 0.6)
+}
+
+.browse {
+  font-weight: 300;
+  margin: 2rem;
+  margin-top: 2.8rem;
+  font-size: 1.5rem;
+  align-self: flex-start;
 }

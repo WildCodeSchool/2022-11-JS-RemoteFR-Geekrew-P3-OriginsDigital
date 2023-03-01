@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "../styles/Search.module.scss";
 
 export default function Search() {
+  const [selectedFilter, setSelectedFilter] = useState("");
+
   return (
     <div className={styles.container}>
       <input
@@ -10,7 +12,12 @@ export default function Search() {
         placeholder="Search"
         className={styles["search-bar"]}
       />
-      <select name="filters" className={styles.select}>
+      <select
+        name="filters"
+        value={selectedFilter}
+        onChange={(e) => setSelectedFilter(e.target.value)}
+        className={styles.select}
+      >
         <option value="">Categories</option>
         <option value="HTML">HTML</option>
         <option value="React">React</option>
@@ -25,6 +32,7 @@ export default function Search() {
         <option value="SQL">SQL</option>
         <option value="NoSQL">NoSQL</option>
       </select>
+      {selectedFilter !== "" && <h1 className={styles.browse}>Browse</h1>}
     </div>
   );
 }
