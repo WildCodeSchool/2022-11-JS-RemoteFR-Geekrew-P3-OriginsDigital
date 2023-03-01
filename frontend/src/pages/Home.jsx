@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { NavLink } from "react-router-dom";
@@ -14,6 +15,15 @@ import styles from "../styles/Home.module.scss";
 import javascriptNul from "../assets/thumbnails/javascript-nul.png";
 
 export default function Home() {
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
+      .then((res) => res.data)
+      .then((data) => {
+        console.error(data);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles["carousel-container"]}>
