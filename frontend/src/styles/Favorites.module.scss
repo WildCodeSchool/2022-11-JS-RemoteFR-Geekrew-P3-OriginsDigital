@@ -11,3 +11,30 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
+.favorites {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.favorites {
+    img {
+        margin: 1rem; 
+        height: auto;
+        width: 20rem;
+        border-radius: 0.4rem;
+    }
+}
+
+.title-container {
+  width: 80%;
+  flex-direction: row;
+}
+
+.trashbin {
+  display: flex;
+  justify-content: flex-end;
+}
