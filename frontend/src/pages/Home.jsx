@@ -52,11 +52,13 @@ export default function Home() {
         >
           {selectedImages.map((video) => (
             <SwiperSlide key={video.id}>
-              <img
-                src={video.thumbnail}
-                alt={video.description}
-                className={styles["main-carousel"]}
-              />
+              <NavLink key={video.id} to={`/video/${video.id}`}>
+                <img
+                  src={video.thumbnail}
+                  alt={video.description}
+                  className={styles["main-carousel"]}
+                />
+              </NavLink>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -72,11 +74,13 @@ export default function Home() {
                 .filter((video) => video.category_name === category)
                 .map((video) => (
                   <div key={video.title} className={styles.imgContainer}>
-                    <img
-                      key={video.id}
-                      src={video.thumbnail}
-                      alt={video.description}
-                    />
+                    <NavLink key={video.id} to={`/video/${video.id}`}>
+                      <img
+                        key={video.id}
+                        src={video.thumbnail}
+                        alt={video.description}
+                      />{" "}
+                    </NavLink>
                     <p className={styles.title}>{video.title}</p>
                   </div>
                 ))}
