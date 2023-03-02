@@ -6,8 +6,6 @@ import styles from "../styles/Favorites.module.scss";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
-  console.log("favorites ==", favorites);
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
