@@ -1,62 +1,41 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-function Profile() {
-  const [activeTab, setActivTab] = useState("account");
-  const handleTabClick = (tab) => {
-    setActivTab(tab);
-  };
+import styles from "../styles/Profile.module.scss";
 
+export default function Profile() {
   return (
-    <div className="user-profile">
-      <div className="avatar">
-        <Link to="/">
-          <img src="/path/to/avatar" alt="avatar" />
-        </Link>
+    <div className={styles["user-profile"]}>
+      <div className={styles.avatar}>
+        <img src="/path/to/avatar" alt="avatar" />
       </div>
-      <div className="tabs">
-        <button
-          className={activeTab === "account" ? "active" : ""}
-          onClick={() => handleTabClick("account")}
-          type="button"
-        >
-          ACCOUNT
-        </button>
-        <button
-          className={activeTab === "subscribe" ? "active" : ""}
-          onClick={() => handleTabClick("subscribe")}
-          type="button"
-        >
-          SUBSCRIBE
-        </button>
-        <button
-          className={activeTab === "help" ? "active" : ""}
-          onClick={() => handleTabClick("help")}
-          type="button"
-        >
-          HELP
-        </button>
-        <button
-          className={activeTab === "legal" ? "active" : ""}
-          onClick={() => handleTabClick("legal")}
-          type="button"
-        >
-          LEGAL SPACE
-        </button>
-        <button onClick={() => handleTabClick("logout")} type="button">
-          LOGOUT
-        </button>
-      </div>
-      <div className="tab-content">
-        <Router>
-          <Route path="/account" />
-          <Route path="/subscription" />
-          <Route path="/help" />
-          <Route path="/legal" />
-        </Router>
+      <div className={styles.tabs}>
+        <div className={styles.btnlink}>
+          <NavLink to="/account" className={styles["btnlink-name"]}>
+            Account
+          </NavLink>
+        </div>
+        <div className={styles.btnlink}>
+          <NavLink to="/subscribe" className={styles["btnlink-name"]}>
+            Subscribe
+          </NavLink>
+        </div>
+        <div className={styles.btnlink}>
+          <NavLink to="/help" className={styles["btnlink-name"]}>
+            Help
+          </NavLink>
+        </div>
+        <div className={styles.btnlink}>
+          <NavLink to="/legal" className={styles["btnlink-name"]}>
+            Legal space
+          </NavLink>
+        </div>
+        <div className={styles.btnlink}>
+          <NavLink to="/" className={styles["btnlink-name"]}>
+            Logout
+          </NavLink>
+        </div>
       </div>
     </div>
   );
 }
-
-export default Profile;
