@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { ThumbsUpOutline, ThumbsDownOutline } from "react-ionicons";
-import javascriptNul from "../assets/thumbnails/javascript-nul.png";
 import styles from "../styles/Video.module.scss";
 
 function Video() {
   const [likeCount, setLikeCount] = useState(10);
   const [dislikeCount, setDislikeCount] = useState(2);
+  const { id } = useParams();
+  const [video, setVideo] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/video/${id}`)
+      .then((res) => res.data)
+      .then((data) => {
+        setVideo(data);
+      });
+  }, [id]);
 
   return (
     <div className={styles.contvid}>
       <div className={styles.videobox}>
-        <img src={javascriptNul} alt="" className={styles.video} />
+        <img src={video.thumbnail} alt="" className={styles.video} />
       </div>
-      <h3 className={styles.cattitle}>Catégorie</h3>
-      <h2 className={styles.videotitle}>Titre</h2>
+      <h3 className={styles.cattitle}>{video.category_name}</h3>
+      <h2 className={styles.videotitle}>{video.title}</h2>
       <div className={styles.boxlike}>
         <ThumbsUpOutline
           color="#ffffff"
@@ -30,12 +42,7 @@ function Video() {
         />
         <span>{dislikeCount}</span>
       </div>
-      <p className={styles.descvid}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex quam
-        laborum repellendus enim itaque culpa, iure, quo cum accusantium
-        deserunt obcaecati esse voluptatum dolorum asperiores modi dolor est
-        commodi nam!
-      </p>
+      <p className={styles.descvid}>{video.description}</p>
     </div>
   );
 }
