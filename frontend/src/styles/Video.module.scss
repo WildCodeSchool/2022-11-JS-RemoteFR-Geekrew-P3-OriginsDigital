@@ -8,6 +8,10 @@
     justify-content: center;
     margin: 2rem;
 }
+.video {
+    box-sizing: border-box;
+    width: 100%;
+}
 .cattitle {
     margin-left: 1.2rem;
 }
@@ -16,10 +20,11 @@
     margin-left: 1.2rem;
 }
 .boxlike {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-left: 1.2rem;
 }
 .descvid {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }

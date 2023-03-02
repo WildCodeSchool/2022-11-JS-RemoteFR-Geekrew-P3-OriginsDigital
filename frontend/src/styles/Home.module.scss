@@ -55,7 +55,9 @@
 }
 
 .thumbnails {
-  img:last-child {
-    margin-right: 0rem;
+  a:last-child {
+    img {
+      margin-right: 0rem;
+    }
   }
 }
