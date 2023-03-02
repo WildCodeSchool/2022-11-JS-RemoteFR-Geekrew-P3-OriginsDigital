@@ -11,7 +11,6 @@ export default function Favorites() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
       .then((res) => res.data)
       .then((data) => {
-        // console.log(data);
         setFavorites(data);
       });
   }, []);
@@ -31,12 +30,7 @@ export default function Favorites() {
               <p>
                 {favorite.title}
                 <div className={styles.trashbin}>
-                  <TrashBinOutline
-                    color="#00000"
-                    // title={}
-                    height="25px"
-                    width="25px"
-                  />
+                  <TrashBinOutline color="#00000" height="25px" width="25px" />
                 </div>
               </p>
             </div>
