@@ -6,7 +6,7 @@
   flex-direction: column;
   margin: auto;
   align-content: center;
-  height: 90%;
+  max-height: 90%;
   width: 85%;
   background-color: #232526;
   border-radius: 2rem;
@@ -17,7 +17,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: #ffffff;
 }
 
@@ -25,13 +25,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
 }
 .sign-up-input {
   justify-items: center;
   text-align: center;
   background-color: #484a4b;
-  height: 3rem;
+  height: 2.5rem;
   width: 60%;
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -51,10 +50,10 @@
   .sign-up-p {
     display: inline-block;
     vertical-align: top;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     max-width: 60%;
-
     margin-left: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -65,9 +64,9 @@
   width: 35%;
   margin: auto;
   padding: 0.75rem;
-  border:none;
+  border: none;
   border-radius: 1rem;
-  padding-top:1rem;
+  padding-top: 1rem;
   margin-bottom: 2rem;
   cursor: pointer;
   background-color: #ff7402;

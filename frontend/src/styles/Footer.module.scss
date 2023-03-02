@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .container {
   display: flex;
@@ -15,7 +15,8 @@
   margin-bottom: 1rem;
 }
 
-.follow-title, .origins-title {
+.follow-title,
+.origins-title {
   margin-top: 1rem;
   margin-left: 1rem;
 }

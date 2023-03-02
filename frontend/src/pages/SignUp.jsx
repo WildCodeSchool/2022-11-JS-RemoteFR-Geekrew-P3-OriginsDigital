@@ -1,119 +1,81 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+// import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import styles from "../styles/SignUp.module.scss";
+import { useFormContext } from "../contexts/FormContext";
+import { useSignInContext } from "../contexts/SignInContext";
+
+import Password from "../components/Password";
+import FirstName from "../components/FirstName";
+import LastName from "../components/LastName";
+import UserName from "../components/UserName";
+import Email from "../components/Email";
+import ConfirmPassword from "../components/ConfirmPassword";
 
 function SignUp() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isChecked, setIsChecked] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  const handleEmailClick = () => {
-    setEmail("");
-  };
-  const handlePasswordClick = () => {
-    setPassword("");
-  };
-  const handleFirstNameClick = () => {
-    setPassword("");
-  };
-
-  const handleLastNameClick = () => {
-    setPassword("");
-  };
-  const handleUserNameClick = () => {
-    setPassword("");
-  };
-  const handleConfirmPasswordClick = () => {
-    setPassword("");
-  };
+  const [setResponse] = useState(null);
+  const {
+    lastName,
+    setLastName,
+    firstName,
+    setFirstName,
+    userName,
+    setUserName,
+    confirmPassword,
+    setConfirmPassword,
+  } = useFormContext();
+  const { password, setPassword, email, setEmail } = useSignInContext();
 
   function handleCheckboxChange(event) {
     setIsChecked(event.target.checked);
   }
 
-  const handleSignUpconfirmation = () => {
-    navigate("/sign-up-confirmation");
+  // const navigate = useNavigate();
+  // const handleSignUpconfirmation = () => {
+  // navigate("/sign-up-confirmation");
+  // };
+
+  const data = JSON.stringify({
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    userName,
+    setUserName,
+    confirmPassword,
+    setConfirmPassword,
+    email,
+    setEmail,
+    password,
+    setPassword,
+  });
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(`${BACKEND_URL}/api/sign-up`, data);
+      setResponse(response.data);
+    } catch (error) {
+      console.error(error);
+      toast.warning("please pay attention to the provided information");
+    }
   };
 
   return (
     <div className={styles["sign-up-page"]}>
       <h1 className={styles["sign-up-title"]}>SIGN UP</h1>
-      <form className={styles["sign-up-forms"]} onSubmit={handleSubmit}>
-        <label htmlFor="firstName"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="firstName"
-          name="firstName"
-          type="text"
-          placeholder="FirstName"
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
-          onClick={handleFirstNameClick}
-        />
-        <label htmlFor="lastName"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="lastName"
-          name="lastName"
-          type="text"
-          placeholder="LastName"
-          value={lastName}
-          onChange={(event) => setLastName(event.target.value)}
-          onClick={handleLastNameClick}
-        />
-        <label htmlFor="userName"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="userName"
-          name="userName"
-          type="text"
-          placeholder="userName"
-          value={userName}
-          onChange={(event) => setUserName(event.target.value)}
-          onClick={handleUserNameClick}
-        />
-        <label htmlFor="email"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="email"
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          onClick={handleEmailClick}
-        />
-        <label htmlFor="password"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          onClick={handlePasswordClick}
-        />
-        <label htmlFor="confirmPassword"> </label>
-        <input
-          className={styles["sign-up-input"]}
-          id="confirmPassword"
-          name="confirmPassword"
-          type="confirmPassword"
-          placeholder="confirmPassword"
-          value={confirmPassword}
-          onChange={(event) => setConfirmPassword(event.target.value)}
-          onClick={handleConfirmPasswordClick}
+      <form className={styles["sign-up-forms"]} onSubmit={handleSignUp}>
+        <FirstName setFirstName={setFirstName} firstName={firstName} />
+        <LastName setLastName={setLastName} lastName={lastName} />
+        <UserName setUserName={setUserName} userName={userName} />
+        <Email setEmail={setEmail} email={email} />
+        <Password setPassword={setPassword} password={password} />
+        <ConfirmPassword
+          setConfirmPassword={setConfirmPassword}
+          confirmPassword={confirmPassword}
+          password={password}
         />
       </form>
       <div className={styles["check-btn"]}>
@@ -125,6 +87,7 @@ function SignUp() {
               name="option1"
               checked={isChecked}
               onChange={handleCheckboxChange}
+              required
             />
             <p className={styles["sign-up-p"]}>
               I certify that I have read and accept the General Terms and
@@ -136,7 +99,7 @@ function SignUp() {
       <button
         className={styles["sign-up-btn"]}
         type="button"
-        onClick={handleSignUpconfirmation}
+        onClick={handleSignUp}
       >
         SIGN UP
       </button>
