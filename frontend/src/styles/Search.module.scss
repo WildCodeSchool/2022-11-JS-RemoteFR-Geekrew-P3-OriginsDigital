@@ -27,6 +27,12 @@
   margin-top: 2.5rem;
 }
 
+.select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
 .search-bar::placeholder, .select {
   color: rgba(255, 255, 255, 0.6)
 }
