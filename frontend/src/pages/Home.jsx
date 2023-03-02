@@ -71,11 +71,14 @@ export default function Home() {
               {videos
                 .filter((video) => video.category_name === category)
                 .map((video) => (
-                  <img
-                    key={video.id}
-                    src={video.thumbnail}
-                    alt={video.description}
-                  />
+                  <div key={video.title} className={styles.imgContainer}>
+                    <img
+                      key={video.id}
+                      src={video.thumbnail}
+                      alt={video.description}
+                    />
+                    <p className={styles.title}>{video.title}</p>
+                  </div>
                 ))}
             </div>
           </div>
