@@ -73,13 +73,16 @@ export default function Home() {
               {videos
                 .filter((video) => video.category_name === category)
                 .map((video) => (
-                  <NavLink key={video.id} to={`/video/${video.id}`}>
-                    <img
-                      key={video.id}
-                      src={video.thumbnail}
-                      alt={video.description}
-                    />
-                  </NavLink>
+                  <div key={video.title} className={styles.imgContainer}>
+                    <NavLink key={video.id} to={`/video/${video.id}`}>
+                      <img
+                        key={video.id}
+                        src={video.thumbnail}
+                        alt={video.description}
+                      />{" "}
+                    </NavLink>
+                    <p className={styles.title}>{video.title}</p>
+                  </div>
                 ))}
             </div>
           </div>

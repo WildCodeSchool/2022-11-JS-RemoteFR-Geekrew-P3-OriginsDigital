@@ -25,8 +25,10 @@
 }
 
 .category-name {
-  font-weight: 300;
+  font-weight: 400;
   margin: 1.5rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 
 .category-name:hover,
@@ -37,8 +39,8 @@
 
 .category {
   .thumbnails {
+    display: flex;
     flex-direction: row;
-    white-space: nowrap;
     width: 90%;
     overflow-x: scroll;
     margin-left: 1.5rem;
@@ -58,6 +60,27 @@
   a:last-child {
     img {
       margin-right: 0rem;
+    }
+  }
+}
+
+.category {
+  .thumbnails {
+    .title {
+      display: flex;
+      font-size: 1rem;
+      width: 18rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.category {
+  .thumbnails {
+    .imgContainer {
+      display: flex;
+      flex-direction: column;
+      width: 18rem;
     }
   }
 }
