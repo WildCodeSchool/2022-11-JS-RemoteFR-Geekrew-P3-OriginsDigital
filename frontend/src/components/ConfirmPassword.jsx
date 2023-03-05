@@ -14,26 +14,30 @@ function ConfirmPassword({ setConfirmPassword, confirmPassword, password }) {
   };
   return (
     <div>
-      <label htmlFor="password"> </label>
-      <input
-        className={styles["sign-up-input"]}
-        id="confirmPassword"
-        type={passwordVisible ? "text" : "password"}
-        placeholder="Confirm password"
-        value={confirmPassword}
-        onChange={handleChangeConfirmPassword}
-        autoComplete="new-password"
-        required
-      />
-      <button
-        type="button"
-        className={styles["show-password-button"]}
-        onClick={handleTogglePasswordVisibility}
-      >
-        {passwordVisible ? "🚫" : "👁️"}
-      </button>
+      <div className={styles["form-group"]}>
+        <label htmlFor="password"> </label>
+        <div className={styles["password-container"]}>
+          <input
+            className={styles["sign-up-input"]}
+            id="confirmPassword"
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={handleChangeConfirmPassword}
+            autoComplete="new-password"
+            required
+          />
+          <button
+            type="button"
+            className={styles["password-button"]}
+            onClick={handleTogglePasswordVisibility}
+          >
+            {passwordVisible ? "👁️" : "🚫"}
+          </button>
+        </div>
+      </div>
       {!passwordsMatch && (
-        <span className={styles["error-message"]}>Passwords do not match</span>
+        <span className={styles["sign-span"]}>Passwords do not match</span>
       )}
     </div>
   );

@@ -32,7 +32,7 @@ function Email({ email, setEmail }) {
         onChange={handleChangeEmail}
       />
       {!isValidEmail && (
-        <span style={{ color: "red" }}>Please enter a valid email</span>
+        <span className={styles["sign-span"]}>Please enter a valid email</span>
       )}
     </div>
   );

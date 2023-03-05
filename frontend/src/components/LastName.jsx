@@ -31,8 +31,8 @@ function LastName({ lastName, setLastName }) {
         onChange={handleChangeLastName}
       />
       {!isValidLastName && (
-        <span style={{ color: "red" }}>
-          Your lastname lenght must be at least 3 caracter{" "}
+        <span className={styles["sign-span"]}>
+          Your lastname lenght must be at least 3 caracter
         </span>
       )}
     </div>

@@ -27,26 +27,30 @@ function Password({ password, setPassword }) {
 
   return (
     <div>
-      <label htmlFor="password"> </label>
-      <input
-        className={styles["sign-up-input"]}
-        id="password"
-        name="password"
-        type={passwordVisible ? "text" : "password"}
-        placeholder="Password"
-        value={password}
-        onChange={handleChangePassword}
-        autoComplete="new-password"
-      />
-      <button
-        type="button"
-        className={styles["show-password-button"]}
-        onClick={handleTogglePasswordVisibility}
-      >
-        {passwordVisible ? "🚫" : "👁️"}
-      </button>
+      <div className={styles["form-group"]}>
+        <label htmlFor="password"> </label>
+        <div className={styles["password-container"]}>
+          <input
+            className={styles["sign-up-input"]}
+            id="password"
+            name="password"
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={handleChangePassword}
+            autoComplete="new-password"
+          />
+          <button
+            type="button"
+            className={styles["password-button"]}
+            onClick={handleTogglePasswordVisibility}
+          >
+            {passwordVisible ? "👁️" : "🚫"}
+          </button>
+        </div>
+      </div>
       {wrongPassword && (
-        <span style={{ color: "red" }}>Wrong password format </span>
+        <span className={styles["sign-span"]}>Wrong password format </span>
       )}
     </div>
   );

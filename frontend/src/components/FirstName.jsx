@@ -31,8 +31,8 @@ function FirstName({ setFirstName, firstName }) {
         onChange={handleChangeFirstName}
       />
       {!isValidFirstName && (
-        <span style={{ color: "red" }}>
-          Your firstname lenght must be at least 3 caracter{" "}
+        <span className={styles["sign-span"]}>
+          Your firstname lenght must be at least 3 caracter
         </span>
       )}
     </div>

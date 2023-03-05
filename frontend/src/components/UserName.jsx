@@ -31,8 +31,8 @@ function UserName({ userName, setUserName }) {
         onChange={handleChangeUserName}
       />
       {!isValidUserName && (
-        <span style={{ color: "red" }}>
-          Your username lenght must be at least 3 caracter{" "}
+        <span className={styles["sign-span"]}>
+          Your username lenght must be at least 3 caracter
         </span>
       )}
     </div>
