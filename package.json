@@ -31,6 +31,10 @@
     "husky": "^8.0.3"
   },
   "dependencies": {
-    "react-toastify": "^9.1.1"
+    "argon2": "^0.30.3",
+    "express-validator": "^6.15.0",
+    "jsonwebtoken": "^9.0.0",
+    "react-toastify": "^9.1.1",
+    "yup": "^1.0.2"
   }
 }

@@ -38,7 +38,7 @@ function SignUp() {
   // navigate("/sign-up-confirmation");
   // };
 
-  const data = JSON.stringify({
+  const data = {
     firstName,
     setFirstName,
     lastName,
@@ -51,11 +51,11 @@ function SignUp() {
     setEmail,
     password,
     setPassword,
-  });
+  };
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/sign-up`, data);
+      const response = await axios.post(`${BACKEND_URL}/sign-up`, data);
       setResponse(response.data);
     } catch (error) {
       console.error(error);

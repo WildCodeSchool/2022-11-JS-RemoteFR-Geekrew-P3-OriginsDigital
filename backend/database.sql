@@ -135,13 +135,15 @@ CREATE TABLE `user` (
   `lastname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `avatar_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `avatar_id` int(11) NOT NULL, 
   PRIMARY KEY (`id`, `avatar_id`),
   KEY `fk_user_avatar_idx` (`avatar_id`),
   CONSTRAINT `fk_user_avatar` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+ALTER TABLE origins_digital.`user` MODIFY COLUMN avatar_id int DEFAULT 1 NOT NULL;
+ALTER TABLE origins_digital.`user` MODIFY COLUMN status TINYINT DEFAULT '0' NOT NULL;
 
 --
 -- Dumping data for table `user`
