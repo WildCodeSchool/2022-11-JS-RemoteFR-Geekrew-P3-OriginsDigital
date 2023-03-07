@@ -16,7 +16,7 @@ import ConfirmPassword from "../components/ConfirmPassword";
 function SignUp() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isChecked, setIsChecked] = useState(false);
-  const [setResponse] = useState(null);
+  const [responses, setResponses] = useState(null);
   const {
     lastName,
     setLastName,
@@ -55,8 +55,9 @@ function SignUp() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${BACKEND_URL}/sign-up`, data);
-      setResponse(response.data);
+      await axios.post(`${BACKEND_URL}/sign-up`, data);
+      setResponses(data);
+      console.info(responses);
     } catch (error) {
       console.error(error);
       toast.warning("please pay attention to the provided information");
