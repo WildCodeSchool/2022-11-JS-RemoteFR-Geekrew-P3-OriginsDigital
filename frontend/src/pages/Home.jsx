@@ -71,7 +71,6 @@ export default function Home() {
         </Swiper>
       </div>
       {categories.map((category) => {
-        // console.log(category);
         return (
           <div key={category} className={styles.category}>
             <div

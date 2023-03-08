@@ -20,18 +20,14 @@ export default function Search() {
         setVideos(data);
       });
 
-    if (categoryName !== null) {
+    if (searchValue !== "") {
+      setSelectedFilter("");
+    } else if (categoryName !== null) {
       setSelectedFilter(categoryName);
     } else {
       setSelectedFilter("");
     }
-  }, []);
-
-  useEffect(() => {
-    if (searchValue !== "") {
-      setSelectedFilter("");
-    }
-  }, [searchValue]);
+  }, [searchValue, categoryName]);
 
   return (
     <div className={styles.container}>
