@@ -17,7 +17,7 @@ export default function Favorites() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Favorites videos</div>
+      <div className={styles.title}>My favorites videos</div>
       <div className={styles.favorites}>
         {favorites.map((favorite) => (
           <>
@@ -27,12 +27,10 @@ export default function Favorites() {
               alt={favorite.description}
             />
             <div className={styles["title-container"]}>
-              <p>
-                {favorite.title}
-                <div className={styles.trashbin}>
-                  <TrashBinOutline color="#00000" height="25px" width="25px" />
-                </div>
-              </p>
+              {favorite.title}
+              <div className={styles.trashbin}>
+                <TrashBinOutline color="#00000" height="25px" width="25px" />
+              </div>
             </div>
           </>
         ))}

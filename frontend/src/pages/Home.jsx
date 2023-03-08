@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -16,6 +16,7 @@ export default function Home() {
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedImages, setSelectedImages] = useState(videos.slice(0, 3));
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -37,6 +38,12 @@ export default function Home() {
   useEffect(() => {
     handleRandomize();
   }, [videos]);
+
+  const onPressCategory = (e) => {
+    const category = e.target.textContent;
+    const path = `/search?category-name=${category}`;
+    navigate(path);
+  };
 
   return (
     <div className={styles.container}>
@@ -66,9 +73,16 @@ export default function Home() {
       {categories.map((category) => {
         return (
           <div key={category} className={styles.category}>
-            <NavLink to="/search" className={styles["category-name"]}>
+            <div
+              className={styles["category-name"]}
+              onClick={(e) => onPressCategory(e)}
+              onKeyDown={(e) => onPressCategory(e)}
+              role="button"
+              tabIndex="0"
+              value={category}
+            >
               {category}
-            </NavLink>
+            </div>
             <div className={styles.thumbnails}>
               {videos
                 .filter((video) => video.category_name === category)
@@ -79,7 +93,7 @@ export default function Home() {
                         key={video.id}
                         src={video.thumbnail}
                         alt={video.description}
-                      />{" "}
+                      />
                     </NavLink>
                     <p className={styles.title}>{video.title}</p>
                   </div>
