@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import styles from "../styles/SignUp.module.scss";
@@ -16,7 +16,7 @@ import ConfirmPassword from "../components/ConfirmPassword";
 function SignUp() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isChecked, setIsChecked] = useState(false);
-  const [responses, setResponses] = useState(null);
+  const [response, setResponse] = useState(null);
   const {
     lastName,
     setLastName,
@@ -33,10 +33,7 @@ function SignUp() {
     setIsChecked(event.target.checked);
   }
 
-  // const navigate = useNavigate();
-  // const handleSignUpconfirmation = () => {
-  // navigate("/sign-up-confirmation");
-  // };
+  const navigate = useNavigate();
 
   const data = {
     firstName,
@@ -55,9 +52,9 @@ function SignUp() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`${BACKEND_URL}/sign-up`, data);
-      setResponses(data);
-      console.info(responses);
+      await axios.post(`${BACKEND_URL}/sign-up`, data, response);
+      setResponse(data);
+      navigate("/sign-up-confirmation");
     } catch (error) {
       console.error(error);
       toast.warning("please pay attention to the provided information");
