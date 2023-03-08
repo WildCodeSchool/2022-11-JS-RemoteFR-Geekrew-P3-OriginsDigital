@@ -90,6 +90,24 @@ const browseByCategory = (req, res) => {
     });
 };
 
+const readVideoById = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  models.video
+    .findById(id)
+    .then(([result]) => {
+      if (result.length) {
+        res.json(result[0]);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
@@ -97,4 +115,5 @@ module.exports = {
   add,
   destroy,
   browseByCategory,
+  readVideoById,
 };
