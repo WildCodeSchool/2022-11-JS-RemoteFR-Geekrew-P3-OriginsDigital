@@ -1,0 +1,148 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.3rem;
+}
+
+.accordion-arrows {
+	margin: 0;
+	width: 100%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+    padding: 5% 5% 3.2rem 5%;
+    box-sizing: border-box;
+}
+
+.accordion-arrows input {
+	display: none;
+}
+
+.header-box {
+	color: $white;
+	font-size: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.headbox-title {
+    font-family: $title-font;
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem 0;
+    text-align: center;
+    text-shadow: 2px 0 10px $orange;
+}
+
+.headbox-content{
+    font-family: $text-font;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+}
+
+.box {
+	display: block;
+	margin-top: 0.7rem;
+	position: relative;
+  	height: auto;
+    width: 100%;
+    transition: all .15s ease-in-out;
+	border-radius: 1rem;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    
+}
+
+.box-title {
+	background-color: $grey;
+	border-radius: 1rem 1rem 0 0;
+	margin: 0;
+	font-size: 1rem;
+	color: $orange-light;
+	cursor: initial;
+	text-align:left;
+	width: 90%;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	
+}
+
+.box-content {
+	width: 99%;
+	padding: 30px 20px;
+	font-size: 0.8rem;
+    line-height: 1.5rem;
+	color: $white;
+	display: none;
+	background-color: $grey-light;
+	border-radius: 0 0 1rem 1rem;
+	overflow: hidden;
+	
+}
+
+.box-close {
+	position: absolute;
+	height: 64px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	display: none;
+}
+
+input:checked + .box {
+	height: auto;
+	margin: 16px 0;
+  	box-shadow: 5px 5px 5px $orange;
+}
+
+input:checked + .box .box-title {
+	border-bottom: 1px solid $orange;
+}
+
+input:checked + .box .box-content,
+input:checked + .box .box-close {
+	display: inline-block;
+}
+
+.accordion-arrows .box-title {
+	padding-left: 44px;
+	width: 100%;
+}
+
+.accordion-arrows .box-title:before {
+	position: absolute;
+	display: block;
+	content: '\00bb';
+	font-size: 28pt;
+	left: 20px;
+	top: 4px;
+	transition: transform .20s ease-in-out;
+	color: $orange-light;
+}
+
+input:checked + .box .box-title:before {
+	transform: rotate(90deg);
+}
