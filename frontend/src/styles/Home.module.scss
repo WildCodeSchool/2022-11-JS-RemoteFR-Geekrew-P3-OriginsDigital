@@ -12,6 +12,7 @@
 
 .main-carousel {
   width: 100%;
+  height: 100%;
 }
 
 .categories, .category-name {
@@ -29,6 +30,7 @@
   margin: 1.5rem;
   text-decoration: underline;
   text-underline-offset: 0.25rem;
+  font-size: 1.4rem;
 }
 
 .category-name:hover,
@@ -83,4 +85,4 @@
       width: 18rem;
     }
   }
-}
+} 
