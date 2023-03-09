@@ -1,0 +1,44 @@
+@import 'variables';
+
+.legal-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+    padding: 1rem;
+    align-content: center;
+    min-height: 70%;
+    width: auto;
+    background-color: $grey;
+    border-radius: 2rem;
+    border: solid 1px $orange-light;
+}
+
+.box {
+    align-self: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.btnlink  {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 1px $white;
+    box-sizing: content-box;
+    width: 100%;
+    text-align: center;
+}
+
+.btnlink-gtc {
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+.btnlink:hover, .btnlonk-gtc:hover {
+    color: $orange-extra-light;
+    cursor: pointer;
+}

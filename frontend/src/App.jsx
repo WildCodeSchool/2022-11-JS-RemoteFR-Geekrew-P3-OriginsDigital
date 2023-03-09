@@ -14,6 +14,7 @@ import Video from "./pages/Video";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
+import LegalSpace from "./pages/LegalSpace";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/video/:id" element={<Video />} />
         <Route path="/video" element={<Video />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/legal" element={<LegalSpace />} />
       </Routes>
       <Navbar />
       {/* <Footer /> */}
