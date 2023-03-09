@@ -2,6 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
+const { hashingPassword, passwordCheck } = require("./middleware/auth");
+const { login } = require("./controllers/authController");
+
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
 
@@ -19,8 +22,12 @@ router.put("/video/:id", videoControllers.edit);
 router.post("/video", videoControllers.add);
 router.delete("/video/:id", videoControllers.destroy);
 
+router.get("/sign-in", login, passwordCheck, userControllers.getUserByEmail);
+
+router.use(login);
 router.put("/sign-up", userControllers.updateUser);
-router.post("/sign-up", userControllers.addUser);
-// router.delete("/sign-up", userControllers.browse);
+router.post("/sign-up", hashingPassword, userControllers.addUser);
+// router.post("/log-out", logout .userControllers.)
+// router.delete("/sign-up", logout userControllers.browse);
 
 module.exports = router;

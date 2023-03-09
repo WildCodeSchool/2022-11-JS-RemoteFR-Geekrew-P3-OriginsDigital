@@ -28,4 +28,20 @@ const updateUser = (req, res) => {
     });
 };
 
-module.exports = { addUser, updateUser };
+const getUserByEmail = (req, res, next) => {
+  models.user
+    .findByMail(req.body)
+    .then(([user]) => {
+      if (user[0] != null) {
+        [req.user] = user;
+        res.location(`/user/${user.insertId}`).sendStatus(201);
+        next();
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+module.exports = { addUser, updateUser, getUserByEmail };

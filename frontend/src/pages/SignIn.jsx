@@ -11,20 +11,21 @@ import Password from "../components/Password";
 function SignIn() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const { email, setEmail, password, setPassword } = useSignInContext();
-  const [setResponse] = useState({});
+  const [response, setResponse] = useState("");
 
   const navigate = useNavigate();
   const handleSignUp = () => {
     navigate("/sign-up");
   };
 
-  const data = JSON.stringify({ email, setEmail, password, setPassword });
+  const data = { email, setEmail, password, setPassword };
 
   const handleSignIn = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post(`${BACKEND_URL}/api/sign-in`, data);
+      const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
       setResponse(res.data);
+      navigate("/");
     } catch (error) {
       console.error(error);
       toast.warning("Please signup");
