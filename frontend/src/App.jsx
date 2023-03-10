@@ -13,12 +13,14 @@ import Video from "./pages/Video";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
+import Subscribe from "./pages/Subscribe";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
+        <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/sign-in" element={<SignIn />} />
