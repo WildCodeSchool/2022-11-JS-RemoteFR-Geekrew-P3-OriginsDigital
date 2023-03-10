@@ -13,6 +13,9 @@ import Video from "./pages/Video";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
+import LegalSpace from "./pages/LegalSpace";
+import GTCU from "./pages/GTCU";
+import GTCS from "./pages/GTCS";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
         <Route path="/video" element={<Video />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Home />} />
+        <Route path="/legal" element={<LegalSpace />} />
+        <Route path="/gtcu" element={<GTCU />} />
+        <Route path="/gtcs" element={<GTCS />} />
       </Routes>
       {/* <Footer /> */}
       <Navbar />
