@@ -3,6 +3,10 @@
 
 @import "variables";
 
+:root {
+  --swiper-theme-color: #ff9842;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,4 +35,8 @@ body {
 
 a {
   display: inline-block;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

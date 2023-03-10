@@ -1,14 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import ProfilePicture from "../components/ProfilePicture";
+import useModal from "../components/useModal";
+import Modal from "../components/Modal";
+
 import styles from "../styles/Profile.module.scss";
 
 export default function Profile() {
+  const { isShowing, toggle } = useModal();
+
   return (
     <div className={styles["user-profile"]}>
-      <div className={styles.avatar}>
-        <img src="/path/to/avatar" alt="avatar" />
-      </div>
+      <ProfilePicture />
+      <h1 className={styles.username}>username</h1>
       <div className={styles.tabs}>
         <div className={styles.btnlink}>
           <NavLink to="/account" className={styles["btnlink-name"]}>
@@ -31,11 +36,19 @@ export default function Profile() {
           </NavLink>
         </div>
         <div className={styles.btnlink}>
-          <NavLink to="/" className={styles["btnlink-name"]}>
+          <div
+            to="/"
+            className={styles["btnlink-name"]}
+            onClick={toggle}
+            onKeyDown={toggle}
+            role="button"
+            tabIndex="0"
+          >
             Logout
-          </NavLink>
+          </div>
         </div>
       </div>
+      <Modal isShowing={isShowing} hide={toggle} />
     </div>
   );
 }
