@@ -102,9 +102,6 @@ export default function Home() {
           </div>
         );
       })}
-      <div>
-        <p>Blablablablabla</p>
-      </div>
     </div>
   );
 }
