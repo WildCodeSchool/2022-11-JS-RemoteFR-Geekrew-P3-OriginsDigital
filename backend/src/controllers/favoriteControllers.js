@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.video
+  models.favorite
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -14,7 +14,7 @@ const browse = (req, res) => {
 const read = (req, res) => {
   const id = parseInt(req.params.id, 10);
 
-  models.video
+  models.favorite
     .find(id)
     .then(([result]) => {
       if (result.length) {
@@ -29,12 +29,12 @@ const read = (req, res) => {
     });
 };
 const edit = (req, res) => {
-  const video = req.body;
+  const favorite = req.body;
 
-  video.id = parseInt(req.params.id, 10);
+  favorite.id = parseInt(req.params.id, 10);
 
-  models.video
-    .update(video)
+  models.favorite
+    .update(favorite)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -49,12 +49,12 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const video = req.body;
+  const favorite = req.body;
 
-  models.video
-    .insert(video)
+  models.favorite
+    .insert(favorite)
     .then(([result]) => {
-      res.location(`/video/${result.insertId}`).sendStatus(201);
+      res.location(`/favorite/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -63,7 +63,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.video
+  models.favorite
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -78,42 +78,4 @@ const destroy = (req, res) => {
     });
 };
 
-const browseByCategory = (req, res) => {
-  models.video
-    .findAllByCategory()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const readVideoById = (req, res) => {
-  const id = parseInt(req.params.id, 10);
-
-  models.video
-    .findById(id)
-    .then(([result]) => {
-      if (result.length) {
-        res.json(result[0]);
-      } else {
-        res.sendStatus(404);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-module.exports = {
-  browse,
-  read,
-  edit,
-  add,
-  destroy,
-  browseByCategory,
-  readVideoById,
-};
+module.exports = { browse, read, edit, add, destroy };

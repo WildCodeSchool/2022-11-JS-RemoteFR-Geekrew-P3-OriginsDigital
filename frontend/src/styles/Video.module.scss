@@ -1,3 +1,5 @@
+@import "variables";
+
 .contvid {
   display: flex;
   flex-direction: column;
@@ -8,18 +10,38 @@
   justify-content: center;
   margin: 2rem;
 }
+.video {
+    top: 0;
+    left: 0;
+}
+.videoThumbnail {
+    box-sizing: border-box;
+    width: 100%;
+}
 .cattitle {
-  margin-left: 1.2rem;
+    font-weight: 400;
+    color: $orange;
+    margin-left: 1.2rem;
 }
 .videotitle {
-  margin-top: 0.5rem;
-  margin-left: 1.2rem;
+    font: $title-font;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
 .boxlike {
-  margin-top: 0.5rem;
-  margin-left: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
 .descvid {
-  margin-top: 0.5rem;
-  margin-left: 1.2rem;
+    font: $text-font;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
