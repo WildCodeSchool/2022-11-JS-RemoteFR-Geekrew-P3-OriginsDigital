@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const { hashingPassword } = require("./middleware/auth");
-const { login } = require("./controllers/authController");
+const { login, logout } = require("./controllers/authController");
 
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
@@ -29,9 +29,10 @@ router.put("/sign-up", userControllers.updateUser);
 router.post("/sign-up", hashingPassword, userControllers.addUser);
 
 router.post("/sign-in", login);
+router.post("/log-out", userControllers.browse);
+router.post("/log-out", logout, userControllers.updateUser);
+router.delete("/account-delete", userControllers.deleteUser);
 
-// router.post("/log-out", logout .userControllers.)
-// router.delete("/sign-up", logout userControllers.browse);
 router.get("/category", categoryControllers.browse);
 router.get("/category/:id", categoryControllers.read);
 router.put("/category/:id", categoryControllers.edit);

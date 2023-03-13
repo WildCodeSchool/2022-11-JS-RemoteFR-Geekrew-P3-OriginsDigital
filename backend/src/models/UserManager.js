@@ -24,13 +24,13 @@ class UserManager extends AbstractManager {
       SET firstname = ?, lastname = ?, username = ?, email = ?, password = ?, avatar_id = ?
       WHERE id = ?`,
       [
-        (user.firstName,
+        user.firstName,
         user.lastName,
         user.userName,
         user.email,
         user.password,
         user.avatar_id,
-        user.id),
+        user.id,
       ]
     );
   }
@@ -40,5 +40,18 @@ class UserManager extends AbstractManager {
       user.email,
     ]);
   }
+
+  delete(user) {
+    return this.database.query(`delete from ${this.table} where id = ?`, [
+      user.firstName,
+      user.lastName,
+      user.userName,
+      user.email,
+      user.password,
+      user.avatar_id,
+      user.id,
+    ]);
+  }
 }
+
 module.exports = UserManager;
