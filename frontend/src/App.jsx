@@ -35,7 +35,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/video" element={<Video />} />
         </Routes>
-        <ToastContainer />
+        <ToastContainer theme="dark" />
         <Navbar />
         {/* <Footer /> */}
       </FormContextProvider>

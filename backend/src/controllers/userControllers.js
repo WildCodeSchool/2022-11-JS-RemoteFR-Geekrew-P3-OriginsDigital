@@ -18,6 +18,7 @@ const updateUser = (req, res) => {
   const user = req.body;
 
   models.user
+
     .update(user)
     .then(([result]) => {
       res.location(`/user/${result.insertId}`).sendStatus(201);

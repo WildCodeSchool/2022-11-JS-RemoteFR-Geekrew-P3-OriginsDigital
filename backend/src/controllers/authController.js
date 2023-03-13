@@ -1,4 +1,4 @@
-const { findByMail } = require("../models/UserManager");
+const models = require("../models");
 const { passwordCheck } = require("../middleware/auth");
 const { encodeJWT } = require("../helpers/jwt.helper");
 const validateSignIn = require("../validator/signIn.validator");
@@ -8,22 +8,25 @@ const { CredentialsError } = require("../errors/CredentialsError");
 const login = async (req, res) => {
   try {
     const errors = await validateSignIn(req.body);
+
     if (errors) {
       throw new ValidatorError(errors);
     }
 
-    const [user] = await findByMail(req.body.email);
+    const [user] = await models.user.findByMail({ email: req.body.email });
+
     if (!user) throw new CredentialsError();
 
     const passwordVerification = passwordCheck(
-      user.password,
+      user[0].password,
       req.body.password
     );
+
     if (!passwordVerification) throw new CredentialsError();
 
     delete user.password;
 
-    const token = encodeJWT(user);
+    const token = encodeJWT(user[0]);
 
     res.cookie("auth_token", token, { httpOnly: true, secure: false });
 

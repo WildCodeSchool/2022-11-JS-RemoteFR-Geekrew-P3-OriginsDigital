@@ -1,23 +1,24 @@
-const Yup = require("yup");
+const Joi = require("joi");
 
 const validateSignIn = (user) => {
-  const schema = Yup.object().shape({
-    email: Yup.string().email().required(),
-    password: Yup.string()
-      .required("Le mot de passe est requis")
-      .matches(
-        /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ])[a-zA-Z\d@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ]{8,20}$/,
-        "Le mot de passe doit contenir au moins une lettre, un chiffre et un caractère spécial (@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ) et doit être compris entre 8 et 20 caractères"
-      ),
-  });
-  const isValid = schema.isValidSync(user, { abortEarly: false });
-  if (!isValid) {
-    const errorMessages = schema
-      .validateSync(user, { abortEarly: false })
-      .errors.map((error) => ({ message: error }));
-    return { errorCount: errorMessages.length, errorMessages };
-  }
-  return isValid;
+  const schema = Joi.object({
+    email: Joi.string().email().presence("required"),
+    password: Joi.string()
+      .min(8)
+      .max(30)
+      // .pattern(
+      // // eslint-disable-next-line prefer-regex-literals
+      // new RegExp(
+      //   "^(?=.*[a-zA-Z])(?=.*d)(?=.*[@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ])[a-zA-Zd@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ]{8,20}$"
+      // )
+      // )
+      .presence("required"),
+  })
+    .required()
+    // .min(1)
+    .validate(user, { abortEarly: false }).error;
+
+  return schema;
 };
 
 module.exports = validateSignIn;

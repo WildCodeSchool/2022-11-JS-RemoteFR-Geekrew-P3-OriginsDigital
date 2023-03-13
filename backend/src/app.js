@@ -2,7 +2,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-
+const cookieParser = require("cookie-parser");
 // create express app
 
 const express = require("express");
@@ -11,6 +11,7 @@ const app = express();
 
 // use some application-level middlewares
 
+app.use(cookieParser());
 app.use(express.json());
 
 const cors = require("cors");

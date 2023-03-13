@@ -2,6 +2,12 @@
 
 @import "variables";
 
+:root {
+  --toastify-color-success: #fc4f0c;
+  --toastify-color-warning: #fc4f0c;
+  --toastify-color-error: #fc4f0c;
+  --toastify-color-info: #fc4f0c;
+}
 * {
   box-sizing: border-box;
   margin: 0;

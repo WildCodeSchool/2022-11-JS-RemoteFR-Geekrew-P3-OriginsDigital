@@ -18,18 +18,20 @@ function SignIn() {
     navigate("/sign-up");
   };
 
-  const data = { email, setEmail, password, setPassword };
+  const data = { email, password };
 
   const handleSignIn = async (event) => {
     event.preventDefault();
-    try {
-      const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
-      setResponse(res.data);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-      toast.warning("Please signup");
-    }
+    if (email && password)
+      try {
+        const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
+        setResponse(res.data);
+        navigate("/");
+        toast.success("✨ Welcome ✨");
+      } catch (error) {
+        console.error(error);
+        toast.warning("Please signup");
+      }
   };
 
   return (
