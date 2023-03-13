@@ -35,7 +35,7 @@ export default function Header() {
             />
           </div>
         )}
-        {!isVideoPage && (
+        {!isVideoPage && location.pathname !== "/subscribe" && (
           <div
             className={styles.divlogo}
             onClick={handleHome}

@@ -22,8 +22,8 @@ function Subscribe() {
             Recommended <br /> <br />
             Pro Plan <br />
             <strong>10$</strong>/month <br /> <br />
-            <p className={styles.textPop}>get access to all content!</p>
           </p>
+          <p className={styles.textPop}>get access to all content!</p>
         </div>
         <button className={styles.btnSub} type="button">
           Select Plan
