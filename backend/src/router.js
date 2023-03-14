@@ -4,6 +4,7 @@ const router = express.Router();
 
 const { hashingPassword } = require("./middleware/auth");
 const { login, logout } = require("./controllers/authController");
+// const signUp = require("./controllers/signUpController");
 
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
