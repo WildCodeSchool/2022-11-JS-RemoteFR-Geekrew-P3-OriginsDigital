@@ -19,6 +19,7 @@ import Profile from "./pages/Profile";
 import LegalSpace from "./pages/LegalSpace";
 import TermsOfUse from "./pages/TermsOfUse";
 import TermsOfSale from "./pages/TermsOfSale";
+import Account from "./pages/Account";
 import Help from "./pages/Help";
 
 function App() {
@@ -36,9 +37,10 @@ function App() {
             path="/sign-up-confirmation"
             element={<SignUpConfirmation />}
           />
-          <Route path="/video/:id" element={<Video />} />
-          <Route path="/video" element={<Video />} />
+          <Route path="/videos/:id" element={<Video />} />
+          <Route path="/videos" element={<Video />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/legal" element={<LegalSpace />} />
           <Route path="/gtcu" element={<TermsOfUse />} />
           <Route path="/gtcs" element={<TermsOfSale />} />
