@@ -29,7 +29,8 @@ router.put("/sign-up", userControllers.updateUser);
 router.post("/sign-up", hashingPassword, userControllers.addUser);
 
 router.post("/sign-in", login);
-router.post("/log-out", userControllers.browse);
+router.post("/profile", login, userControllers.getUserByEmail);
+router.get("/log-out", userControllers.getUserByEmail);
 router.post("/log-out", logout, userControllers.updateUser);
 router.delete("/account-delete", userControllers.deleteUser);
 
