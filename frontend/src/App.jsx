@@ -20,6 +20,7 @@ import Profile from "./pages/Profile";
 import LegalSpace from "./pages/LegalSpace";
 import GTCU from "./pages/GTCU";
 import GTCS from "./pages/GTCS";
+import Help from "./pages/Help";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/legal" element={<LegalSpace />} />
           <Route path="/gtcu" element={<GTCU />} />
           <Route path="/gtcs" element={<GTCS />} />
+          <Route path="/help" element={<Help />} />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
