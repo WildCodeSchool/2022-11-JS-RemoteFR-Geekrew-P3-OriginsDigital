@@ -18,8 +18,8 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
 import LegalSpace from "./pages/LegalSpace";
-import GTCU from "./pages/GTCU";
-import GTCS from "./pages/GTCS";
+import TermsOfUse from "./pages/TermsOfUse";
+import TermsOfSale from "./pages/TermsOfSale";
 import Help from "./pages/Help";
 
 function App() {
@@ -42,8 +42,8 @@ function App() {
           <Route path="/video" element={<Video />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/legal" element={<LegalSpace />} />
-          <Route path="/gtcu" element={<GTCU />} />
-          <Route path="/gtcs" element={<GTCS />} />
+          <Route path="/gtcu" element={<TermsOfUse />} />
+          <Route path="/gtcs" element={<TermsOfSale />} />
           <Route path="/help" element={<Help />} />
         </Routes>
         <ToastContainer theme="dark" />
