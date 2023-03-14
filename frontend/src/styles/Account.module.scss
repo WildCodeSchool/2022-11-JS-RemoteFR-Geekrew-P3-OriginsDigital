@@ -27,6 +27,8 @@
 }
 
 .tabs {
+  display: flex;
+  flex-direction: column;
   align-self: center;
   padding: 2rem;
   margin-top: 1rem;
@@ -42,7 +44,6 @@
   padding-bottom: 1rem;
   border-bottom: solid 1px $white;
   box-sizing: content-box;
-  // width: 100%;
 }
 
 .btnlink-name {
@@ -50,7 +51,61 @@
   color: inherit;
 }
 
-.btnlink-name:hover {
-  color: $orange-extra-light;
-  cursor: pointer;
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.close-icon {
+  position: absolute;
+  top: 64%;
+  right: 2px;
+  transform: translateY(-50%);
+}
+
+.password {
+  align-self: flex-end;
+}
+
+.passwords-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: inherit;
+}
+
+.input {
+  background-color: $black;
+  border: 0.2rem solid $grey-light;
+  border-radius: 0.3rem;
+  color: inherit;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  padding-left: 0.4rem;
+}
+
+.passwords-input {
+  gap: 1rem;
+}
+
+.btn-apply {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: none;
+  border-radius: 0.7rem;
+  border: solid 1px #ff7402;
+  color: #ff7402;
+  font-family: $text-font;
+  align-self: flex-end;
+}
+
+.applied {
+  margin-top: 3rem;
+  text-align: center;
 }

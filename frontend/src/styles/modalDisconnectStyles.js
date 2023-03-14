@@ -1,17 +1,4 @@
-import React, { useLayoutEffect } from "react";
-import ReactDom from "react-dom";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
-
-function Modal({ isShowing, hide }) {
-  const navigate = useNavigate();
-
-  useLayoutEffect(() => {
-    if (!isShowing) {
-      document.getElementById("root").classList.remove("no-scroll");
-    } else document.getElementById("root").classList.add("no-scroll");
-  });
-  const newLocal = `
+const newLocal = `
             .modal-overlay {
               position: fixed;
               top: 0;
@@ -39,7 +26,7 @@ function Modal({ isShowing, hide }) {
 
             .modal {
               z-index: 100;
-              background: #232526;
+              background: #0a0b0bcc;
               position: relative;
               margin: auto;
               border: 0.15rem solid #fc4f0c;
@@ -100,52 +87,5 @@ function Modal({ isShowing, hide }) {
               border: none;
             }
           `;
-  return isShowing
-    ? ReactDom.createPortal(
-        <>
-          <div className="modal-overlay">
-            <div className="modal-wrapper">
-              <div className="modal">
-                <div className="modal-header">
-                  <h4 className="modal-name">Disconnect</h4>
-                  <button
-                    type="button"
-                    className="modal-close-button"
-                    onClick={hide}
-                  >
-                    <span>&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  Really want to leave us already ?
-                </div>
-                <div className="buttons-confirm">
-                  <button
-                    type="button"
-                    className="yes"
-                    onClick={() => {
-                      navigate("/");
-                    }}
-                  >
-                    Yes
-                  </button>
-                  <button type="button" className="no" onClick={hide}>
-                    Im staying !
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <style>{newLocal}</style>
-        </>,
-        document.body
-      )
-    : null;
-}
-
-Modal.propTypes = {
-  isShowing: PropTypes.bool.isRequired,
-  hide: PropTypes.func.isRequired,
-};
-export default Modal;
+export default newLocal;

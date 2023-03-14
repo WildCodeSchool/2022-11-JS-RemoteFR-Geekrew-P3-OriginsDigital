@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import ProfilePicture from "../components/ProfilePicture";
 import useModal from "../components/useModal";
-import Modal from "../components/Modal";
+import Modal from "../components/ModalDisconnect";
 
 import styles from "../styles/Profile.module.scss";
 

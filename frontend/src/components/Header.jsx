@@ -21,7 +21,7 @@ export default function Header() {
           onClick={handleHome}
           onKeyDown={handleHome}
           role="button"
-          tabIndex={0}
+          tabIndex="0"
         >
           <img className={styles.logohead} src={logo} alt="logo" />
         </div>
