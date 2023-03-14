@@ -8,7 +8,7 @@ export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/videos`)
       .then((res) => res.data)
       .then((data) => {
         setFavorites(data);

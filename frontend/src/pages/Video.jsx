@@ -17,7 +17,7 @@ function Video() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/video/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/videos/${id}`)
       .then((res) => res.data)
       .then((data) => {
         setVideo(data);

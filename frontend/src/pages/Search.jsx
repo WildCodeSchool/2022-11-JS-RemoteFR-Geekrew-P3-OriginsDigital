@@ -14,7 +14,7 @@ export default function Search() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/videos`)
       .then((res) => res.data)
       .then((data) => {
         setVideos(data);
@@ -67,7 +67,7 @@ export default function Search() {
             )
             .map((vid) => (
               <div key={vid.title} className={styles.imgContainer}>
-                <NavLink key={vid.id} to={`/video/${vid.id}`}>
+                <NavLink key={vid.id} to={`/videos/${vid.id}`}>
                   <img key={vid.id} src={vid.thumbnail} alt={vid.description} />
                 </NavLink>
               </div>
@@ -81,7 +81,7 @@ export default function Search() {
               .filter((video) => video.category_name === selectedFilter)
               .map((video) => (
                 <div key={video.title} className={styles.imgContainer}>
-                  <NavLink key={video.id} to={`/video/${video.id}`}>
+                  <NavLink key={video.id} to={`/videos/${video.id}`}>
                     <img
                       key={video.id}
                       src={video.thumbnail}
