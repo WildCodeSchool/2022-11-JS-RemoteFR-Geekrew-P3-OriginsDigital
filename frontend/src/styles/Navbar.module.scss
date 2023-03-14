@@ -26,3 +26,22 @@
     }
 }
 
+@media screen and (min-width: 993px) {
+    .cont {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav-cont {
+        display: flex;
+        position: fixed;
+        top: 0;
+        height: 3rem;
+        background-color: none;
+        align-items: flex-end;
+        width: 100%;
+    }
+    
+}

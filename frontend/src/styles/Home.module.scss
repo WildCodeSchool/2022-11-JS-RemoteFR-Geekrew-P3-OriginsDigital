@@ -43,7 +43,6 @@
   .thumbnails {
     display: flex;
     flex-direction: row;
-    width: 90%;
     overflow-x: scroll;
     margin-left: 1.5rem;
   }
@@ -86,3 +85,7 @@
     }
   }
 } 
+
+@media screen and (min-width: 993px) {
+  
+}
