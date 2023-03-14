@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "../styles/GTC.module.scss";
+import styles from "../styles/GeneralTerms.module.scss";
 
 export default function TermsOfSale() {
   return (
