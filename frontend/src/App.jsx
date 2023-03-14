@@ -38,8 +38,8 @@ function App() {
             element={<SignUpConfirmation />}
           />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/video/:id" element={<Video />} />
-          <Route path="/video" element={<Video />} />
+          <Route path="/videos/:id" element={<Video />} />
+          <Route path="/videos" element={<Video />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/legal" element={<LegalSpace />} />
           <Route path="/gtcu" element={<GTCU />} />
