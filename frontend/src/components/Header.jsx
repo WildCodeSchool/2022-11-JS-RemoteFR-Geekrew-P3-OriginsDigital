@@ -20,7 +20,6 @@ export default function Header() {
   };
 
   const isVideoPage = location.pathname.includes("/video");
-  // const isAccountPage = location.pathname.includes("/account/");
 
   return (
     <div className={styles.contheader}>
