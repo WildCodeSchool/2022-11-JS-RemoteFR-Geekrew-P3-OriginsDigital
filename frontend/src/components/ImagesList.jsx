@@ -11,6 +11,6 @@ export default function ImagesList({ avatars, url }) {
 }
 
 ImagesList.propTypes = {
-  avatars: PropTypes.string.isRequired,
+  avatars: PropTypes.arrayOf(PropTypes.string).isRequired,
   url: PropTypes.string.isRequired,
 };
