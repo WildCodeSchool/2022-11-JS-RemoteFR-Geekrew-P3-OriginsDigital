@@ -17,8 +17,8 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
 import LegalSpace from "./pages/LegalSpace";
-import TermsOfSale from "./pages/TermsOfSale";
 import TermsOfUse from "./pages/TermsOfUse";
+import TermsOfSale from "./pages/TermsOfSale";
 import Help from "./pages/Help";
 
 function App() {
