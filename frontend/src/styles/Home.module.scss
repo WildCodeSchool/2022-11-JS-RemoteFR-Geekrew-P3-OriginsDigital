@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .container {
   display: flex;
@@ -15,7 +15,8 @@
   height: 100%;
 }
 
-.categories, .category-name {
+.categories,
+.category-name {
   margin-right: 1.5rem;
   text-decoration: none;
   color: inherit;
@@ -51,10 +52,10 @@
 
 .thumbnails {
   img {
-      margin-right: 2rem;
-      height: 9rem;
-      width: auto;
-      border-radius: 0.4rem;
+    margin-right: 2rem;
+    height: 9rem;
+    width: auto;
+    border-radius: 0.4rem;
   }
 }
 
