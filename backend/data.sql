@@ -107,3 +107,4 @@ INSERT INTO video_tags VALUES
 
 INSERT INTO avatar VALUES
 (1, 'Black Cat', 'black_cat.png'), (2, 'Dark Pumpkin', 'dark_pumpkin.png'), (3, 'Frankenstein', 'frankenstein.png'), (4, 'Ghost', 'ghost.png'), (5, 'Green Demon', 'green_demon.png'), (6, 'Marsian', 'green_marsian.png'), (7, 'Green Pumpkin', 'green_pumpkin.png'), (8, 'Puke', 'head_puke.png'), (9, 'Little Bat', 'little_bat.png'), (10, 'Vampire', 'little_vmapire.png'), (11, 'Love Pumpkin', 'love_pumpkin.png'), (12, 'Momy', 'momy.png'), (13, 'Red demon', 'red_demon.png'), (14, 'Red head', 'red_head.png'), (15, 'Scary', 'scary_head.png'), (16, 'Pumpkin', 'smile_pumpkin.png'), (17, 'Star Pumpkin', 'star_pumpkin.png'), (18, 'Eye', 'the_eye.png'), (19, 'Skull', 'the_skull.png'), (20, 'Wolf', 'the_wolf.png');
+
