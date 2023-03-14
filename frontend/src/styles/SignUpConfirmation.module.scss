@@ -12,7 +12,6 @@
   border-radius: 2rem;
   border: solid 1px #ff7402;
 
-
   .confirmation-title {
     align-self: center;
     font-size: 2rem;
@@ -21,11 +20,10 @@
     color: #ffffff;
   }
   .confirmation-p {
-    
     vertical-align: top;
     font-size: 0.8rem;
     max-width: 70%;
-    text-align:center;
+    text-align: center;
     align-self: center;
     margin-bottom: 1rem;
   }
@@ -34,10 +32,9 @@
     flex-direction: column;
     align-items: center;
     border: none;
-    justify-items:flex-start;
+    justify-items: flex-start;
     margin-bottom: 1rem;
   }
-
 
   .button-sign-up-confirmation {
     display: flex;
@@ -46,14 +43,14 @@
   }
   .confirmation-btn {
     padding: 0.75 0.75 0.75 0.75rem;
-      border: none;
-      border-radius: 1rem;
-      height: 2.25rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      background-color: #ff7402;
-      color: #fff;
-      width: 45%;
+    border: none;
+    border-radius: 1rem;
+    height: 2.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #ff7402;
+    color: #fff;
+    width: 45%;
   }
 }

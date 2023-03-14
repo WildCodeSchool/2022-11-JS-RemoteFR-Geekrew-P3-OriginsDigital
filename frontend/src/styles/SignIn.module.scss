@@ -6,7 +6,7 @@
   flex-direction: column;
   margin: auto;
   align-content: center;
-  min-height: 80%;
+  min-height: 70%;
   width: 80%;
   background-color: #232526;
   border-radius: 2rem;
@@ -31,7 +31,7 @@
     text-align: center;
     background-color: #484a4b;
     height: 3rem;
-    width: 60%;
+    width: 85%;
     margin-bottom: 1rem;
     font-size: 1rem;
     border-radius: 1rem;
@@ -51,7 +51,7 @@
       cursor: pointer;
       background-color: #ff7402;
       color: #fff;
-      width: 45%;
+      min-width: 80%;
     }
 
     .sign-in-btn2 {
@@ -60,7 +60,7 @@
       border: 1px solid #ff7402;
       border-radius: 1rem;
       margin-bottom: 1rem;
-      width: 45%;
+      min-width: 80%;
       font-size: 1rem;
       cursor: pointer;
       color: #ff7402;

@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .container {
   display: flex;
@@ -6,7 +6,8 @@
   flex-direction: column;
 }
 
-.search-bar, .select {
+.search-bar,
+.select {
   background-color: $black;
   border: 0.2rem solid $grey-light;
   border-radius: 0.3rem;
