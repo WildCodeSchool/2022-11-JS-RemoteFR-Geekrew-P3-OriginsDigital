@@ -1,22 +1,22 @@
-@import 'variables';
+@import "variables";
 
 .contheader {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 .boxheader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
 }
 .logohead {
-    height: 50px;
-    width: 50px;
-    margin-top: 1.5rem;
-    margin-left: 1rem;
+  height: 50px;
+  width: 50px;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
 }
 .btnhead {
     margin-right: 1rem;
@@ -34,4 +34,11 @@
     &:hover {
         opacity: 0.8;
     }
+
+}
+.backBtnBox {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
 }

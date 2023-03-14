@@ -1,29 +1,46 @@
+@import "variables";
+
 .contvid {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .videobox {
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
 }
 .video {
+    top: 0;
+    left: 0;
+}
+.videoThumbnail {
     box-sizing: border-box;
     width: 100%;
 }
 .cattitle {
+    font-weight: 400;
+    color: $orange;
     margin-left: 1.2rem;
 }
 .videotitle {
+    font: $title-font;
+    font-weight: 400;
     margin-top: 0.5rem;
     margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
 .boxlike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 1rem;
     margin-left: 1.2rem;
+    margin-right: 1.2rem;
 }
 .descvid {
+    font: $text-font;
+    font-size: 1rem;
     margin-top: 1rem;
     margin-left: 1.2rem;
     margin-right: 1.2rem;

@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Noto+Sans:wght@300;400;500;600&display=swap");
 
-
 @import "variables";
 
 :root {
   --swiper-theme-color: #ff9842;
+  --toastify-color-success: #fc4f0c;
+  --toastify-color-warning: #fc4f0c;
+  --toastify-color-error: #fc4f0c;
+  --toastify-color-info: #fc4f0c;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,7 +33,6 @@ body {
   color: rgba(255, 255, 255, 0.87);
   background-color: $black;
 }
-
 
 a {
   display: inline-block;
