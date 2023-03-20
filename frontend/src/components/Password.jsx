@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Eye, EyeOff } from "react-ionicons";
 import styles from "../styles/SignUp.module.scss";
 
 function validatePassword(password) {
@@ -30,23 +31,35 @@ function Password({ password, setPassword }) {
       <div className={styles["form-group"]}>
         <label htmlFor="password"> </label>
         <div className={styles["password-container"]}>
-          <input
-            className={styles["sign-up-input"]}
-            id="password"
-            name="password"
-            type={passwordVisible ? "text" : "password"}
-            placeholder="Password"
-            value={password}
-            onChange={handleChangePassword}
-            autoComplete="new-password"
-          />
-          <button
-            type="button"
-            className={styles["password-button"]}
-            onClick={handleTogglePasswordVisibility}
-          >
-            {passwordVisible ? "👁️" : "🚫"}
-          </button>
+          <div className={styles["input-container"]}>
+            <input
+              className={styles["sign-up-input"]}
+              id="password"
+              name="password"
+              type={passwordVisible ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={handleChangePassword}
+              autoComplete="new-password"
+            />
+            {passwordVisible ? (
+              <Eye
+                onClick={handleTogglePasswordVisibility}
+                className={styles["visibility-icon"]}
+                color="#ffffff"
+                height="22px"
+                width="22px"
+              />
+            ) : (
+              <EyeOff
+                onClick={handleTogglePasswordVisibility}
+                className={styles["visibility-icon"]}
+                color="#ffffff"
+                height="22px"
+                width="22px"
+              />
+            )}
+          </div>
         </div>
       </div>
       {wrongPassword && (
