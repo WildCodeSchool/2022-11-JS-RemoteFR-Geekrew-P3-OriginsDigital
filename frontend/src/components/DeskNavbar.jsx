@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
+import styles from "../styles/DeskNavbar.module.scss";
+
 export default function DeskNavbar() {
   return (
     <nav className={styles.contnav}>
@@ -11,13 +13,9 @@ export default function DeskNavbar() {
       </Link>
       <div className={styles.navlink}>
         <ul>
-            <li className={styles.link}>
-                <NavLink to="/">
-                    Catégorie
-                    </NavLink> 
-            </li>
-            <li></li>
-            <li></li>
+          <li className={styles.link}>
+            <NavLink to="/">Catégorie</NavLink>
+          </li>
         </ul>
       </div>
     </nav>
