@@ -6,7 +6,6 @@ const validateSignIn = (user) => {
     password: Joi.string().min(6).max(20).required().presence("required"),
   })
     .required()
-    .min(6)
     .validate(user, { abortEarly: false }).error;
 
   return schema;
