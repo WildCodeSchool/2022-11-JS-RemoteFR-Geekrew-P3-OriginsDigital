@@ -11,7 +11,6 @@ import Favorites from "./pages/Favorites";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import SignUpConfirmation from "./pages/SignUpConfirmation";
-import Categories from "./pages/Categories";
 import Video from "./pages/Video";
 // import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -20,6 +19,7 @@ import Profile from "./pages/Profile";
 import LegalSpace from "./pages/LegalSpace";
 import TermsOfUse from "./pages/TermsOfUse";
 import TermsOfSale from "./pages/TermsOfSale";
+import Account from "./pages/Account";
 import Help from "./pages/Help";
 import DeskNavbar from "./components/DeskNavbar";
 
@@ -39,10 +39,10 @@ function App() {
             path="/sign-up-confirmation"
             element={<SignUpConfirmation />}
           />
-          <Route path="/categories" element={<Categories />} />
           <Route path="/videos/:id" element={<Video />} />
           <Route path="/videos" element={<Video />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/legal" element={<LegalSpace />} />
           <Route path="/gtcu" element={<TermsOfUse />} />
           <Route path="/gtcs" element={<TermsOfSale />} />

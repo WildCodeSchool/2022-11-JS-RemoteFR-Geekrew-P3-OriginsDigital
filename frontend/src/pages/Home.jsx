@@ -9,7 +9,6 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/autoplay";
-import "../styles/swiperconfig.scss";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
