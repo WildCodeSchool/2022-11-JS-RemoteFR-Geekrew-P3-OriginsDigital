@@ -21,12 +21,14 @@ import LegalSpace from "./pages/LegalSpace";
 import TermsOfUse from "./pages/TermsOfUse";
 import TermsOfSale from "./pages/TermsOfSale";
 import Help from "./pages/Help";
+import DeskNavbar from "./components/DeskNavbar";
 
 function App() {
   return (
     <SignInContextProvider>
       <FormContextProvider>
         <Header />
+        <DeskNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
