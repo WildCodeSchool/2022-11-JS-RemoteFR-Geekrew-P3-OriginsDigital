@@ -46,24 +46,21 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `origins_digital`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `origins_digital`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) NOT NULL,
-  `firstname` VARCHAR(50) NOT NULL,
-  `lastname` VARCHAR(50) NOT NULL,
-  `email` VARCHAR(50) NOT NULL UNIQUE,
-  `password` VARCHAR(255) NOT NULL,
-  `status` VARCHAR(50)  NULL DEFAULT '0',
-  `avatar_id` INT NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`, `avatar_id`),
-  INDEX `fk_user_avatar_idx` (`avatar_id` ASC) VISIBLE,
-  CONSTRAINT `fk_user_avatar`
-    FOREIGN KEY (`avatar_id`)
-    REFERENCES `origins_digital`.`avatar` (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb4;
-
+ CREATE TABLE IF NOT EXISTS `origins_digital`.`user`(
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `premium` tinyint(1) DEFAULT '0',
+  `avatar_id` int NOT NULL DEFAULT '1',
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`,`avatar_id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `fk_user_avatar_idx` (`avatar_id`),
+  CONSTRAINT `fk_user_avatar` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- -----------------------------------------------------
 -- Table `origins_digital`.`video`
