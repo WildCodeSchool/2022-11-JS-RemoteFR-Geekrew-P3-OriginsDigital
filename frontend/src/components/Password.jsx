@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "../styles/SignUp.module.scss";
 import { Eye, EyeOff } from "react-ionicons";
+
+import styles from "../styles/SignUp.module.scss";
 
 function validatePassword(password) {
   const passw =
@@ -41,11 +42,7 @@ function Password({ password, setPassword }) {
             onChange={handleChangePassword}
             autoComplete="new-password"
           />
-          <button
-            type="button"
-            className={styles["password-button"]}
-            onClick={handleTogglePasswordVisibility}
-          >
+          <button type="button" className={styles["password-button"]}>
             {passwordVisible ? (
               <Eye
                 onClick={handleTogglePasswordVisibility}
