@@ -9,19 +9,16 @@
 @media screen and (min-width: 993px) {
   .container {
     display: flex;
+    flex-direction: row;
 }
 
-  .follow, .origins {
+  .origins {
     height: 5rem;
     width: 100%;
     background-color: $grey;
   }
 
-  .follow {
-    margin-bottom: 1rem;
-  }
-
-  .follow-title, .origins-title {
+  .origins-title {
     margin-top: 1rem;
     margin-left: 1rem;
   }
