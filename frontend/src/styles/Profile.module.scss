@@ -1,49 +1,48 @@
 @import 'variables';
 
 .user-profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 2rem;
-    padding: 1rem;
-    align-content: center;
-    min-height: 70%;
-    width: auto;
-    background-color: $grey;
-    border-radius: 2rem;
-    border: solid 1px $orange-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  padding: 1rem;
+  align-content: center;
+  min-height: 70%;
+  width: auto;
+  background-color: $grey;
+  border-radius: 2rem;
+  border: solid 1px $orange-light;
 }
 
-.avatar {
-    align-self: center;
+.username {
+  font-size: 1.3rem;
+  align-self: center;
 }
 
 .tabs {
-    align-self: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 1.5rem;
-    box-sizing: border-box;
-    width: 100%;
+  align-self: center;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: -1.5rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.btnlink, .btonlink-name {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: solid 1px $white;
-    box-sizing: content-box;
-    width: 100%;
-    text-align: center;
+.btnlink {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px $white;
+  box-sizing: content-box;
+  width: 100%;
+  text-align: center;
 }
 
 .btnlink-name {
-    text-decoration: none;
-    color: inherit;
-    
-    
+  text-decoration: none;
+  color: inherit;
 }
 
-.btnlink:hover, .btnlonk-name:hover {
-    color: $orange-extra-light;
-    cursor: pointer;
+.btnlink-name:hover {
+  color: $orange-extra-light;
+  cursor: pointer;
 }

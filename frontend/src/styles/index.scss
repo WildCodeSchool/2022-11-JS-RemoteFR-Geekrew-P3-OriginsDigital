@@ -3,6 +3,7 @@
 @import "variables";
 
 :root {
+  --swiper-theme-color: #ff9842;
   --toastify-color-success: #fc4f0c;
   --toastify-color-warning: #fc4f0c;
   --toastify-color-error: #fc4f0c;
@@ -35,4 +36,8 @@ body {
 
 a {
   display: inline-block;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

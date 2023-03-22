@@ -9,7 +9,6 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/autoplay";
-import "../styles/swiperconfig.scss";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -20,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/video`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/videos`)
       .then((res) => res.data)
       .then((data) => {
         setVideos(data);
@@ -59,7 +58,7 @@ export default function Home() {
         >
           {selectedImages.map((video) => (
             <SwiperSlide key={video.id}>
-              <NavLink key={video.id} to={`/video/${video.id}`}>
+              <NavLink key={video.id} to={`/videos/${video.id}`}>
                 <img
                   src={video.thumbnail}
                   alt={video.description}
@@ -88,7 +87,7 @@ export default function Home() {
                 .filter((video) => video.category_name === category)
                 .map((video) => (
                   <div key={video.title} className={styles.imgContainer}>
-                    <NavLink key={video.id} to={`/video/${video.id}`}>
+                    <NavLink key={video.id} to={`/videos/${video.id}`}>
                       <img
                         key={video.id}
                         src={video.thumbnail}

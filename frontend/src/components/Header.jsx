@@ -19,7 +19,7 @@ export default function Header() {
     navigate(-1);
   };
 
-  const isVideoPage = location.pathname.includes("/video/");
+  const isVideoPage = location.pathname.includes("/video");
 
   return (
     <div className={styles.contheader}>
@@ -28,14 +28,14 @@ export default function Header() {
           <div className={styles.backBtnBox}>
             <ChevronBackOutline
               className={styles.backChevron}
-              color="#8f711e"
+              color="#fc4f0c"
               height="35px"
               width="35px"
               onClick={handleBack}
             />
           </div>
         )}
-        {!isVideoPage &&
+        {!isVideoPage && location.pathname !== "/account" &&
           location.pathname !== "/subscribe" &&
           location.pathname !== "/subscribesterms" &&
           location.pathname !== "/payments" &&

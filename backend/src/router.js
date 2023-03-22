@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const { hashingPassword } = require("./middleware/auth");
-const { login } = require("./controllers/authController");
+const { login, logout } = require("./controllers/authController");
 
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
@@ -18,30 +18,31 @@ router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
-// router.get("/video", videoControllers.browse);
-router.get("/video", videoControllers.browseByCategory);
-router.get("/video/:id", videoControllers.readVideoById);
-router.put("/video/:id", videoControllers.edit);
-router.post("/video", videoControllers.add);
-router.delete("/video/:id", videoControllers.destroy);
+// router.get("/videos", videoControllers.browse);
+router.get("/videos", videoControllers.browseByCategory);
+router.get("/videos/:id", videoControllers.readVideoById);
+router.put("/videos/:id", videoControllers.edit);
+router.post("/videos", videoControllers.add);
+router.delete("/videos/:id", videoControllers.destroy);
 
 router.put("/sign-up", userControllers.updateUser);
 router.post("/sign-up", hashingPassword, userControllers.addUser);
 
 router.post("/sign-in", login);
+router.get("/profile", login, userControllers.getUserByEmail);
+router.get("/log-out", logout, userControllers.getUserByEmail);
+router.delete("/account-delete", userControllers.deleteUser);
 
-// router.post("/log-out", logout .userControllers.)
-// router.delete("/sign-up", logout userControllers.browse);
-router.get("/category", categoryControllers.browse);
-router.get("/category/:id", categoryControllers.read);
-router.put("/category/:id", categoryControllers.edit);
-router.post("/category", categoryControllers.add);
-router.delete("/category/:id", categoryControllers.destroy);
+router.get("/categories", categoryControllers.browse);
+router.get("/categories/:id", categoryControllers.read);
+router.put("/categories/:id", categoryControllers.edit);
+router.post("/categories", categoryControllers.add);
+router.delete("/categories/:id", categoryControllers.destroy);
 
-router.get("/favorite", favoriteControllers.browse);
-router.get("/favorite/:id", favoriteControllers.read);
-router.put("/favorite/:id", favoriteControllers.edit);
-router.post("/favorite", favoriteControllers.add);
-router.delete("/favorite/:id", favoriteControllers.destroy);
+router.get("/favorites", favoriteControllers.browse);
+router.get("/favorites/:id", favoriteControllers.read);
+router.put("/favorites/:id", favoriteControllers.edit);
+router.post("/favorites", favoriteControllers.add);
+router.delete("/favorites/:id", favoriteControllers.destroy);
 
 module.exports = router;

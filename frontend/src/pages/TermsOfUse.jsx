@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "../styles/GTC.module.scss";
+import styles from "../styles/GeneralTerms.module.scss";
 
-export default function GTCU() {
+export default function TermsOfUse() {
   return (
     <div className={styles["accordion-arrows"]}>
       <div className={styles["header-box"]}>
