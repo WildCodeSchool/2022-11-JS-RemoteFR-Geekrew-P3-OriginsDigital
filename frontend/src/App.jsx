@@ -12,7 +12,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import SignUpConfirmation from "./pages/SignUpConfirmation";
 import Video from "./pages/Video";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
@@ -50,7 +50,7 @@ function App() {
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
-        {/* <Footer /> */}
+        <Footer />
       </FormContextProvider>
     </SignInContextProvider>
   );
