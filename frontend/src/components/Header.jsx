@@ -35,8 +35,9 @@ export default function Header() {
             />
           </div>
         )}
-        {!isVideoPage && location.pathname !== "/account" &&
-          location.pathname !== "/subscribe" &&
+        {!isVideoPage &&
+          location.pathname !== "/account" &&
+          location.pathname !== "/subscribes" &&
           location.pathname !== "/subscribesterms" &&
           location.pathname !== "/payments" &&
           location.pathname !== "/payments/confirmation" && (
