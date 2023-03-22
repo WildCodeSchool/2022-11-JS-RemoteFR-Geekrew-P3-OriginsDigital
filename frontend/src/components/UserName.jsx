@@ -26,7 +26,7 @@ function UserName({ userName, setUserName }) {
         id="userName"
         name="userName"
         type="text"
-        placeholder="UserName"
+        placeholder="Username"
         value={userName}
         onChange={handleChangeUserName}
       />

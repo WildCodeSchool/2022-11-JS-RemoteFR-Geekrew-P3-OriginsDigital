@@ -14,7 +14,7 @@ const categoryControllers = require("./controllers/categoryControllers");
 const authorization = require("./middleware/authorization");
 const userControllers = require("./controllers/userControllers");
 
-const verifyUser = require("./middleware/verifyUser");
+// const verifyUser = require("./middleware/verifyUser");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);

@@ -1,17 +1,32 @@
 @import "variables";
 
+.sign-in-page-logo{
+  display: none;
+  margin: 0.75rem;
+}
+
+.sign-up-page-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .sign-up-page {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: auto;
   align-content: center;
+  margin: auto;
   max-height: 90%;
   width: 85%;
-  background-color: #232526;
+  background: linear-gradient(to top, #161718, #414345);
   border-radius: 2rem;
-  border: solid 1px #ff7402;
+  border: solid 3px #ff7402;
+  box-shadow: rgb(255, 116, 2, 0.25) 0px 54px 55px, rgb(255, 116, 2, 0.12) 0px -12px 30px, rgb(255, 116, 2, 0.12) 0px 4px 6px, rgb(255, 116, 2, 0.17) 0px 12px 13px, rgb(255, 116, 2, 0.09) 0px -3px 5px;
 }
+
 .sign-up-title {
   align-self: center;
   font-size: 2rem;
@@ -20,41 +35,50 @@
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
+
 .sign-up-forms {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
+
 .form-group {
-  display: flew;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .password-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: auto;
-  margin-left: 2rem;
+  align-content: center;
+  justify-self: center;
+  margin-left: 1.5rem;
 }
 .sign-up-input {
-  display: block;
-  justify-items: center;
+  display: flex;
   text-align: center;
   background-color: #484a4b;
   height: 2.5rem;
-  width: 238px;
-  margin: auto;
-  margin-bottom: 1rem;
+  border: none;
+  width: 12.5rem;
+  margin: 0.75rem;
   font-size: 1rem;
   border-radius: 1rem;
+  &:hover {
+      opacity: 0.8;
+    }
 }
-.visibility-icon {
-  position: absolute;
-  top: 41%;
-  left: 78%;
-  transform: translateY(-50%);
+.password-button {
+  display: flex;
+  align-self: center;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0;
+  cursor: pointer;
 }
+
 .sign-span {
   display: flex;
   justify-content: center;
@@ -63,39 +87,132 @@
   color: red;
   font-size: small;
 }
+
 .check-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .sign-up-checkbox {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 3rem;
-  }
+  
 
   .sign-up-p {
     display: inline-block;
     vertical-align: top;
     font-size: 0.5rem;
-    width: 238px;
-    margin-left: 1.5rem;
-    margin-bottom: 0.75rem;
+    max-width: 60%;
+    margin-left: 1rem;
+
+    input {
+      width: 2rem;
+      height: 2rem;
+    }
   }
+
 }
+  .sign-up-checkbox-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    margin-left: 1rem;
+    margin: 0.75rem;
+  }
 
 .sign-up-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 238px;
-  margin: auto;
-  padding: 0.75rem;
+  align-self: center;
+  justify-content: center;
   border: none;
   border-radius: 1rem;
-  padding-top: 1rem;
+  height: 2.25rem;
+  margin: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
   cursor: pointer;
-  background-color: #ff7402;
+  background-color: rgb(255, 116, 2);
   color: #fff;
+  width: 12.5rem;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+@media screen and (min-width: 993px) {
+
+  .sign-up-page-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url("../assets/Background_2.png");
+  }
+
+  .sign-up-page-logo {
+    display: flex;
+    align-self: center;
+    width: 50%;
+  }
+
+  .sign-up-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    max-width: 25rem;
+    margin: 0px;
+    border: solid 4px #ff7402;
+    box-shadow: rgb(255, 116, 2, 0.25) 0px 100px 100px, rgb(255, 116, 2, 0.18) 0px -20px 50px, rgb(255, 116, 2, 0.18) 0px 10px 15px, rgb(255, 116, 2, 0.25) 0px 20px 20px, rgb(255, 116, 2, 0.15) 0px -5px 10px;
+  }
+
+  .sign-up-title {
+    margin: 0.75rem;
+  }
+
+  .sign-in-page-logo {
+      display: flex;
+      align-self: center;
+      width: 50%;
+    }
+
+    .check-btn {
+      display: flex;
+      align-self: center;
+      justify-self: center;
+        
+        .sign-up-p {
+            margin-bottom: 0px;
+            font-size: 0.75rem;
+          }
+
+        input {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+    }
+  
+
+    .sign-up-input {
+      margin: 0.75rem;
+    }
+    
+    .sign-up-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 2rem;
+            height: 3rem;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            background-color: #ff7402;
+            color: #fff;
+            width: 12.5rem;
+            font-weight: 600;
+            &:hover {
+                opacity: 0.8;
+              }
+    }
 }

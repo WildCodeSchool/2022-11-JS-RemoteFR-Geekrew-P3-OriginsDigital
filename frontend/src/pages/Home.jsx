@@ -69,6 +69,7 @@ export default function Home() {
           ))}
         </Swiper>
       </div>
+
       {categories.map((category) => {
         return (
           <div key={category} className={styles.category}>

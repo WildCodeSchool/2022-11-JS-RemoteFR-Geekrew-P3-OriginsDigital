@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import styles from "../styles/SignUp.module.scss";
 import { useFormContext } from "../contexts/FormContext";
 import { useSignInContext } from "../contexts/SignInContext";
+import logoName from "../assets/logo_name.svg";
 
 import Password from "../components/Password";
 import FirstName from "../components/FirstName";
@@ -12,6 +12,8 @@ import LastName from "../components/LastName";
 import UserName from "../components/UserName";
 import Email from "../components/Email";
 import ConfirmPassword from "../components/ConfirmPassword";
+
+import styles from "../styles/SignUp.module.scss";
 
 function SignUp() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -62,45 +64,51 @@ function SignUp() {
   };
 
   return (
-    <div className={styles["sign-up-page"]}>
-      <h1 className={styles["sign-up-title"]}>SIGN UP</h1>
-      <form className={styles["sign-up-forms"]} onSubmit={handleSignUp}>
-        <FirstName setFirstName={setFirstName} firstName={firstName} />
-        <LastName setLastName={setLastName} lastName={lastName} />
-        <UserName setUserName={setUserName} userName={userName} />
-        <Email setEmail={setEmail} email={email} />
-        <Password setPassword={setPassword} password={password} />
-        <ConfirmPassword
-          setConfirmPassword={setConfirmPassword}
-          confirmPassword={confirmPassword}
-          password={password}
-        />
-      </form>
-      <div className={styles["check-btn"]}>
-        <div className={styles["sign-up-checkbox"]}>
-          <label htmlFor="option1">
-            <input
-              type="checkbox"
-              id="option1"
-              name="option1"
-              checked={isChecked}
-              onChange={handleCheckboxChange}
-              required
-            />
-            <p className={styles["sign-up-p"]}>
-              I certify that I have read and accept the General Terms and
-              Conditions of Use and the Data Management Policy.
-            </p>
-          </label>
+    <div className={styles["sign-up-page-container"]}>
+      <div className={styles["sign-up-page"]}>
+        <img className={styles["sign-in-page-logo"]} src={logoName} alt="" />
+        <h1 className={styles["sign-up-title"]}>SIGN UP</h1>
+        <form className={styles["sign-up-forms"]} onSubmit={handleSignUp}>
+          <FirstName setFirstName={setFirstName} firstName={firstName} />
+          <LastName setLastName={setLastName} lastName={lastName} />
+          <UserName setUserName={setUserName} userName={userName} />
+          <Email setEmail={setEmail} email={email} />
+          <Password setPassword={setPassword} password={password} />
+          <ConfirmPassword
+            setConfirmPassword={setConfirmPassword}
+            confirmPassword={confirmPassword}
+            password={password}
+          />
+        </form>
+        <div className={styles["check-btn"]}>
+          <div className={styles["sign-up-checkbox"]}>
+            <label
+              className={styles["sign-up-checkbox-label"]}
+              htmlFor="option1"
+            >
+              <input
+                type="checkbox"
+                id="option1"
+                name="option1"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                required
+              />
+              <p className={styles["sign-up-p"]}>
+                I certify that I have read and accept the General Terms and
+                Conditions of Use and the Data Management Policy.
+              </p>
+            </label>
+          </div>
         </div>
+        <button
+          className={styles["sign-up-btn"]}
+          type="button"
+          onClick={handleSignUp}
+        >
+          SIGN UP
+        </button>
       </div>
-      <button
-        className={styles["sign-up-btn"]}
-        type="button"
-        onClick={handleSignUp}
-      >
-        SIGN UP
-      </button>
     </div>
   );
 }

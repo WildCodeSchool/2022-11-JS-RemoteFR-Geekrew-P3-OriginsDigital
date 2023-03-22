@@ -31,17 +31,21 @@ function Password({ password, setPassword }) {
       <div className={styles["form-group"]}>
         <label htmlFor="password"> </label>
         <div className={styles["password-container"]}>
-          <div className={styles["input-container"]}>
-            <input
-              className={styles["sign-up-input"]}
-              id="password"
-              name="password"
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={handleChangePassword}
-              autoComplete="new-password"
-            />
+          <input
+            className={styles["sign-up-input"]}
+            id="password"
+            name="password"
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={handleChangePassword}
+            autoComplete="new-password"
+          />
+          <button
+            type="button"
+            className={styles["password-button"]}
+            onClick={handleTogglePasswordVisibility}
+          >
             {passwordVisible ? (
               <Eye
                 onClick={handleTogglePasswordVisibility}
@@ -59,7 +63,7 @@ function Password({ password, setPassword }) {
                 width="22px"
               />
             )}
-          </div>
+          </button>
         </div>
       </div>
       {wrongPassword && (
