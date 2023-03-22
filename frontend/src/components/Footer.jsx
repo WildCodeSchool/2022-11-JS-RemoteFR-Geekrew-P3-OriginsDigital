@@ -1,30 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "../styles/Footer.module.scss";
+import styles from "../styles/Footer.module.scss";
+
+import emgLogo from "../assets/EMG_Logo.svg";
+import linkLogo from "../assets/logo_linkedin.svg";
 
 function Footer() {
   return (
-    <div className="container">
-      <div className="origins">
-        <p className="origins-title">© Origins Digital</p>
-      </div>
-      <div>
-        <ul>
-          <li>
-            <NavLink to="/legal">Legal Space</NavLink>
-          </li>
-          <li>
-            <a href="https://www.euromediagroup.com/home/">
-              <img src="../assets/EMG_Logo.png" alt="EMG Logo" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/company/origins-digital-emg/">
-              <img src="../assets/Logo_linkedin.png" alt="LinkedIn logo" />
-            </a>
-          </li>
-        </ul>
+    <div className={styles.footercontain}>
+      <div className={styles.footer}>
+        <p className={styles["origins-title"]}>© Origins Digital</p>
+        <div className={styles.legallink}>
+          <Link to="/legal">Legal Space</Link>
+        </div>
+        <div className={styles.emglink}>
+          <a href="https://www.euromediagroup.com/home/">
+            <img src={emgLogo} alt="EMG Logo" className={styles["emg-logo"]} />
+          </a>
+        </div>
+        <div className={styles.linkedinlink}>
+          <a href={linkLogo}>
+            <img
+              src="../assets/Logo_linkedin.png"
+              alt="LinkedIn logo"
+              className={styles["linkedin-logo"]}
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

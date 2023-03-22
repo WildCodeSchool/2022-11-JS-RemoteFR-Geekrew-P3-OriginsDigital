@@ -1,26 +1,28 @@
 @import "variables";
 
 @media screen and (max-width: 992px) {
-  .container{
+  .footercontain{
     display: none;
   }
 }
 
 @media screen and (min-width: 993px) {
-  .container {
+  .footercontain {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
-  .origins {
-    height: 5rem;
-    width: 100%;
-    background-color: $grey;
+  .footer {
+    display: flex;
+    flex-direction: row;
   }
 
-  .origins-title {
-    margin-top: 1rem;
-    margin-left: 1rem;
+  .emg-logo {
+    width: auto;
+    height: 2rem;
+    
   }
 }
+
 
