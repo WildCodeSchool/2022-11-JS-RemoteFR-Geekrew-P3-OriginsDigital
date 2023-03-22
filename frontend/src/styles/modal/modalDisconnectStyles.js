@@ -86,6 +86,10 @@ const newLocal = `
               background-color: transparent;
               border: none;
             }
+
+            .yes:hover, .no:hover {
+              cursor: pointer;
+            }
           `;
 
 export default newLocal;

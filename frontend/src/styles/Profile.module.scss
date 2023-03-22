@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 2rem;
+  margin-top: 4rem;
   padding: 1rem;
   align-content: center;
   min-height: 70%;
@@ -21,7 +22,7 @@
 
 .tabs {
   align-self: center;
-  padding: 1.5rem;
+  padding-inline: 1.5rem;
   margin-top: 1rem;
   margin-bottom: -1.5rem;
   box-sizing: border-box;
@@ -29,7 +30,9 @@
 }
 
 .btnlink {
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  padding-top: 0.5rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px $white;
   box-sizing: content-box;
@@ -45,4 +48,15 @@
 .btnlink-name:hover {
   color: $orange-extra-light;
   cursor: pointer;
+}
+
+@media screen and (min-width: 993px) {
+  .user-profile {
+    align-self: center;
+    width: 929px;
+    }
+
+    .btnlink {
+      padding-bottom: 1.5rem;
+    }
 }

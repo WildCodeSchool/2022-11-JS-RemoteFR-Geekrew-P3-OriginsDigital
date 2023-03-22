@@ -54,13 +54,13 @@ DEFAULT CHARACTER SET = utf8mb4;
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `premium` tinyint(1) DEFAULT '0',
-  `avatar_id` int NOT NULL DEFAULT '1',
+  `avatar_id` int NOT NULL DEFAULT 1,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`avatar_id`),
   UNIQUE KEY `email` (`email`),
   KEY `fk_user_avatar_idx` (`avatar_id`),
   CONSTRAINT `fk_user_avatar` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- -----------------------------------------------------
 -- Table `origins_digital`.`video`

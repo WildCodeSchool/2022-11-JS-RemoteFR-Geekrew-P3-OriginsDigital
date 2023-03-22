@@ -7,9 +7,11 @@ import styles from "../styles/Favorites.module.scss";
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
+  // console.log(favorites);
+
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/videos`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/favorites`)
       .then((res) => res.data)
       .then((data) => {
         setFavorites(data);
@@ -18,14 +20,14 @@ export default function Favorites() {
 
   const onPressDelete = (id) => {
     axios
-      .delete(`${import.meta.env.VITE_BACKEND_URL}/videos/${id}`)
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/favorites/${id}`)
       .then(() => setFavorites(favorites.filter((f) => f.id !== id)))
       .catch((error) => console.error(error));
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>My favorites videos</div>
+      <div className={styles.title}>Favorites</div>
       <div className={styles.favorites}>
         {favorites.map((favorite) => (
           <div key={favorite.id} className={styles["videos-container"]}>
@@ -35,13 +37,13 @@ export default function Favorites() {
               alt={favorite.description}
             />
             <div className={styles["title-container"]}>
-              {favorite.title}
+              <div className={styles["video-title"]}>{favorite.title}</div>
               <div className={styles.trashbin}>
                 <TrashBinOutline
                   color="#00000"
                   height="25px"
                   width="25px"
-                  onClick={() => onPressDelete(favorite.id)}
+                  onClick={() => onPressDelete(favorite.video_id)}
                 />
               </div>
             </div>

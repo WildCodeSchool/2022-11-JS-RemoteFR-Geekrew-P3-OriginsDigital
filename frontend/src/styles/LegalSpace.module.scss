@@ -42,3 +42,11 @@
     color: $orange-extra-light;
     cursor: pointer;
 }
+
+@media screen and (min-width: 993px) {
+    .legal-space {
+        align-self: center;
+        height: 500rem;
+        width: 58rem;
+    }
+}

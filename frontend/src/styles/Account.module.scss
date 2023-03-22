@@ -109,3 +109,29 @@
   margin-top: 3rem;
   text-align: center;
 }
+
+@media screen and (min-width: 993px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 10rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 20rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 35rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+    width: 15rem;
+  }
+}
