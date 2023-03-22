@@ -1,22 +1,29 @@
 @import "variables";
 
-.container {
-  display: flex;
+@media screen and (max-width: 992px) {
+  .container{
+    display: none;
+  }
 }
 
-.follow,
-.origins {
-  height: 5rem;
-  width: 100%;
-  background-color: $grey;
+@media screen and (min-width: 993px) {
+  .container {
+    display: flex;
 }
 
-.follow {
-  margin-bottom: 1rem;
+  .follow, .origins {
+    height: 5rem;
+    width: 100%;
+    background-color: $grey;
+  }
+
+  .follow {
+    margin-bottom: 1rem;
+  }
+
+  .follow-title, .origins-title {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
 }
 
-.follow-title,
-.origins-title {
-  margin-top: 1rem;
-  margin-left: 1rem;
-}
