@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Eye, EyeOff } from "react-ionicons";
 import styles from "../styles/SignUp.module.scss";
 
+import styles from "../styles/SignUp.module.scss";
+
 function validatePassword(password) {
   const passw =
     /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ])[a-zA-Z\d@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ]{8,20}$/;
@@ -41,11 +43,7 @@ function Password({ password, setPassword }) {
             onChange={handleChangePassword}
             autoComplete="new-password"
           />
-          <button
-            type="button"
-            className={styles["password-button"]}
-            onClick={handleTogglePasswordVisibility}
-          >
+          <button type="button" className={styles["password-button"]}>
             {passwordVisible ? (
               <Eye
                 onClick={handleTogglePasswordVisibility}

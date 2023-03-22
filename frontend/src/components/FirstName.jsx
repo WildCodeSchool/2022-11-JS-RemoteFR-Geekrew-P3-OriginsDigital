@@ -19,7 +19,7 @@ function FirstName({ setFirstName, firstName }) {
     }
   };
   return (
-    <div>
+    <div className={styles["form-group"]}>
       <label htmlFor="firstName"> </label>
       <input
         className={styles["sign-up-input"]}

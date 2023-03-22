@@ -1,5 +1,9 @@
 @import "variables";
 
+.footercontain {
+  display: none;
+}
+
 .sign-in-page-logo{
   display: none;
   margin: 0.75rem;
@@ -11,15 +15,15 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
+  padding-bottom: 5rem;
+  }
 
 .sign-up-page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-content: center;
-  margin: auto;
-  max-height: 90%;
+  margin: 2rem;
   width: 85%;
   background: linear-gradient(to top, #161718, #414345);
   border-radius: 2rem;
@@ -45,6 +49,7 @@
 
 .form-group {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -127,7 +132,7 @@
   justify-content: center;
   border: none;
   border-radius: 1rem;
-  height: 2.25rem;
+  min-height: 2.25rem;
   margin: 1.5rem;
   font-size: 1rem;
   margin-bottom: 2rem;
@@ -137,6 +142,13 @@
   width: 12.5rem;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+
+.firstName{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}    
 
 
 @media screen and (min-width: 993px) {
@@ -163,7 +175,6 @@
     align-content: center;
     max-width: 25rem;
     margin: 0px;
-    border: solid 4px #ff7402;
     box-shadow: rgb(255, 116, 2, 0.25) 0px 100px 100px, rgb(255, 116, 2, 0.18) 0px -20px 50px, rgb(255, 116, 2, 0.18) 0px 10px 15px, rgb(255, 116, 2, 0.25) 0px 20px 20px, rgb(255, 116, 2, 0.15) 0px -5px 10px;
   }
 

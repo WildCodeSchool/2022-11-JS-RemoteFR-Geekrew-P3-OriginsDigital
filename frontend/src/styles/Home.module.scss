@@ -25,7 +25,7 @@ body {
 
 .main-carousel {
   img {
-      border: solid 1px #ff7402;
+      border: solid 1px $orange-light;
         box-shadow: rgba(255, 116, 2, 0.15) 0px 25px 25px,
           rgba(255, 116, 2, 0.1) 0px -5px 12.5px,
           rgba(255, 116, 2, 0.1) 0px 2.5px 3.75px,
@@ -129,11 +129,11 @@ body {
       height: 25rem;
       width: 40rem;
       border: solid 1px #ff7402;
-      box-shadow: rgb(255, 116, 2, 0.25) 0px 50px 50px,
-          rgb(255, 116, 2, 0.18) 0px -10px 25px,
-          rgb(255, 116, 2, 0.18) 0px 5px 7.5px,
-          rgb(255, 116, 2, 0.25) 0px 10px 10px,
-          rgb(255, 116, 2, 0.15) 0px -2.5px 5px;
+      box-shadow: rgb(255, 116, 2, 0.1875) 0px 25px 25px,
+          rgb(255, 116, 2, 0.125) 0px -3.125px 7.8125px,
+          rgb(255, 116, 2, 0.125) 0px 1.5625px 2.34375px,
+          rgb(255, 116, 2, 0.1875) 0px 2.5px 2.5px,
+          rgb(255, 116, 2, 0.1) 0px -0.625px 1.5625px;
     }
 
   .category {
@@ -162,17 +162,18 @@ body {
   .imgContainer {
     padding-bottom: 0.5rem;
   }
-
-.thumbnails {
-  img:hover {
-    border: solid 1px #ff7402;
-    box-shadow: rgb(255, 116, 2, 0.25) 0px 27px 27.5px,
-      rgb(255, 116, 2, 0.12) 0px -6px 15px,
-      rgb(255, 116, 2, 0.12) 0px 2px 3px,
-      rgb(255, 116, 2, 0.17) 0px 6px 6.5px,
-      rgb(255, 116, 2, 0.09) 0px -1.5px 2.5px;
+    .imgContainer:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+      img{
+        box-shadow: rgb(255, 116, 2, 0.25) 0px 10px 10.25px,
+            rgb(255, 116, 2, 0.12) 0px -3px 7.5px,
+            rgb(255, 116, 2, 0.12) 0px 1px 1.5px,
+            rgb(255, 116, 2, 0.17) 0px 2px 2.25px,
+            rgb(255, 116, 2, 0.09) 0px -0.75px 1.25px;
+        }
+      
     }
-  }
 
     ::-webkit-scrollbar {
       width: 0px;
@@ -180,7 +181,7 @@ body {
     }  
 
     ::-webkit-scrollbar-thumb {
-        background-color: #ff7402;
+        background-color: $orange-light;
         border-radius: 2rem;
       }
 
