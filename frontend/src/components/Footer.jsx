@@ -16,15 +16,12 @@ function Footer() {
           </li>
           <li>
             <a href="https://www.euromediagroup.com/home/">
-              <img
-                src="../assets/EMG_Logo_RGB_White_ROB_Website.svg"
-                alt="EMG Logo"
-              />
+              <img src="../assets/EMG_Logo.png" alt="EMG Logo" />
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/company/origins-digital-emg/">
-              <img src="../assets/174857.svg" alt="LinkedIn logo" />
+              <img src="../assets/Logo_linkedin.png" alt="LinkedIn logo" />
             </a>
           </li>
         </ul>
