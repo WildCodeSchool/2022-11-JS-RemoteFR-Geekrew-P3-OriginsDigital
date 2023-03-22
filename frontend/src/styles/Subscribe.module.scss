@@ -24,7 +24,8 @@
     align-items: center;
     width: 100%;
 }
-.standCard {
+
+.standCard, .standCardSub {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,10 +37,13 @@
     background-color: $grey-light;
     border-radius: 2.5rem;
 }
+.standCardSub {
+    border: 2px solid;
+}
 .textp {
     text-align: center;
 }
-.proCard {
+.proCard, .proCardSub {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,6 +53,9 @@
     width: 100%;
     background-color: $grey-light;
     border-radius: 2.5rem;
+}
+.proCardSub {
+    border: 2px solid;
 }
 .textPro {
     margin-top: 1rem;

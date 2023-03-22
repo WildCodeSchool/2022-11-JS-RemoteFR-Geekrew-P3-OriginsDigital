@@ -21,6 +21,9 @@ import LegalSpace from "./pages/LegalSpace";
 import GTCU from "./pages/GTCU";
 import GTCS from "./pages/GTCS";
 import Subscribe from "./pages/Subscribe";
+import SubscribesTerms from "./pages/SubscribesTerms";
+import Payment from "./pages/Payment";
+import PaymentConfirmation from "./pages/PaymentConfirmation";
 
 function App() {
   return (
@@ -28,7 +31,6 @@ function App() {
       <FormContextProvider>
         <Header />
         <Routes>
-          <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/favorites" element={<Favorites />} />
@@ -45,6 +47,13 @@ function App() {
           <Route path="/legal" element={<LegalSpace />} />
           <Route path="/gtcu" element={<GTCU />} />
           <Route path="/gtcs" element={<GTCS />} />
+          <Route path="/subscribes" element={<Subscribe />} />
+          <Route path="/subscribes/terms" element={<SubscribesTerms />} />
+          <Route path="/payments" element={<Payment />} />
+          <Route
+            path="/payments/confirmation"
+            element={<PaymentConfirmation />}
+          />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
