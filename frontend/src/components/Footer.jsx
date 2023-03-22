@@ -22,7 +22,7 @@ function Footer() {
         <div className={styles.linkedinlink}>
           <a href={linkLogo}>
             <img
-              src="../assets/Logo_linkedin.png"
+              src={linkLogo}
               alt="LinkedIn logo"
               className={styles["linkedin-logo"]}
             />
