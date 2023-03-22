@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/SignUp.module.scss";
+import { Eye, EyeOff } from "react-ionicons";
 
 function validatePassword(password) {
   const passw =
@@ -45,7 +46,23 @@ function Password({ password, setPassword }) {
             className={styles["password-button"]}
             onClick={handleTogglePasswordVisibility}
           >
-            {passwordVisible ? "👁️" : "🚫"}
+            {passwordVisible ? (
+              <Eye
+                onClick={handleTogglePasswordVisibility}
+                className={styles["visibility-icon"]}
+                color="#ffffff"
+                height="22px"
+                width="22px"
+              />
+            ) : (
+              <EyeOff
+                onClick={handleTogglePasswordVisibility}
+                className={styles["visibility-icon"]}
+                color="#ffffff"
+                height="22px"
+                width="22px"
+              />
+            )}
           </button>
         </div>
       </div>
