@@ -1,7 +1,9 @@
 @import "variables";
 
 .sign-in-page-logo {
-  display: none;
+  margin: 0.75rem;
+  width: 170px;
+  align-self: center;
 }
 
 .sign-in-page-container {
@@ -28,7 +30,6 @@
 .sign-in-page {
   display: flex;
   justify-content: space-evenly;
-  justify-content: center;
   justify-items: center;
   flex-direction: column;
   align-items: center;
