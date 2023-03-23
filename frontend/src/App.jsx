@@ -21,6 +21,10 @@ import TermsOfUse from "./pages/TermsOfUse";
 import TermsOfSale from "./pages/TermsOfSale";
 import Account from "./pages/Account";
 import Help from "./pages/Help";
+import Subscribe from "./pages/Subscribe";
+import SubscribesTerms from "./pages/SubscribesTerms";
+import Payment from "./pages/Payment";
+import PaymentConfirmation from "./pages/PaymentConfirmation";
 
 function App() {
   return (
@@ -45,6 +49,13 @@ function App() {
           <Route path="/gtcu" element={<TermsOfUse />} />
           <Route path="/gtcs" element={<TermsOfSale />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/subscribes" element={<Subscribe />} />
+          <Route path="/subscribes/terms" element={<SubscribesTerms />} />
+          <Route path="/payments" element={<Payment />} />
+          <Route
+            path="/payments/confirmation"
+            element={<PaymentConfirmation />}
+          />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
