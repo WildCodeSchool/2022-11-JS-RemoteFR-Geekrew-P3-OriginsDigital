@@ -39,12 +39,9 @@
   max-width: 25rem;
   background: linear-gradient(to top, #161718, #414345);
   border-radius: 2rem;
-  border: solid 3px #ff7402;
-  box-shadow: rgb(255, 116, 2, 0.25) 0px 54px 55px,
-          rgb(255, 116, 2, 0.12) 0px -12px 30px,
-          rgb(255, 116, 2, 0.12) 0px 4px 6px,
-          rgb(255, 116, 2, 0.17) 0px 12px 13px,
-          rgb(255, 116, 2, 0.09) 0px -3px 5px;
+  border: solid 3px #ff7402; box-shadow: 0px 0px 50px rgba(255, 116, 2, 0.2),
+            0px 0px 20px rgba(255, 116, 2, 0.1),
+            0px 0px 10px rgba(255, 116, 2, 0.05);
 
   .sign-in-title {
     align-self: center;

@@ -26,11 +26,9 @@ body {
 .main-carousel {
   img {
       border: solid 1px $orange-light;
-        box-shadow: rgba(255, 116, 2, 0.15) 0px 25px 25px,
-          rgba(255, 116, 2, 0.1) 0px -5px 12.5px,
-          rgba(255, 116, 2, 0.1) 0px 2.5px 3.75px,
-          rgba(255, 116, 2, 0.15) 0px 5px 5px,
-          rgba(255, 116, 2, 0.08) 0px -1.25px 2.5px;
+        box-shadow: 0px 0px 50px rgba(255, 116, 2, 0.2),
+            0px 0px 20px rgba(255, 116, 2, 0.1),
+            0px 0px 10px rgba(255, 116, 2, 0.05);
   }
 }
 
@@ -104,10 +102,6 @@ body {
   }
 }
 
-.title:hover {
-  cursor: pointer;
-}
-
 .category {
   .thumbnails {
     .imgContainer {
@@ -148,7 +142,8 @@ body {
 .thumbnails {
   img {
     box-sizing: content-box;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 4px, rgba(0, 0, 0, 0.9) 0px 7px 13px -3px, rgba(0, 0, 0, 0.7) 0px -3px 0px inset;
+   transition: all 0.3s ease-in-out;
   }
 }
 
@@ -158,18 +153,16 @@ body {
 
   .imgContainer {
     padding-bottom: 0.5rem;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
   }
 
-  .imgContainer:hover {
+  .navlink-thumbnail:hover {
     img{
-      transform: translateY(1px);
-  box-shadow: rgb(255, 116, 2, 0.1) 0px 10px 10.25px,
-      rgb(255, 116, 2, 0.06) 0px -3px 7.5px,
-      rgb(255, 116, 2, 0.06) 0px 1px 1.5px,
-      rgb(255, 116, 2, 0.085) 0px 2px 2.25px,
-      rgb(255, 116, 2, 0.045) 0px -0.75px 1.25px;
+      transform: translateY(1.8px);
+        box-shadow: rgb(255, 116, 2, 0.17) 0px 10px 10.25px,
+            rgb(255, 116, 2, 0.12) 0px -3px 7.5px,
+            rgb(255, 116, 2, 0.12) 0px 1px 1.5px,
+            rgb(255, 116, 2, 0.14) 0px 2px 2.25px,
+            rgb(255, 116, 2, 0.09) 0px -0.75px 1.25px;
       }
     
   }
