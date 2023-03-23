@@ -25,7 +25,12 @@ function SignIn() {
     if (email && password)
       try {
         const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
-        setResponse(res.data);
+        const user = {
+          ...res.data,
+          admin: res.data.admin ? JSON.parse(res.data.admin) : "",
+        };
+        setResponse(user);
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/");
         toast.success("✨ Welcome ✨");
       } catch (error) {
