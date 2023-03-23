@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { Eye, EyeOff } from "react-ionicons";
 import styles from "../styles/SignUp.module.scss";
 
-import styles from "../styles/SignUp.module.scss";
-
 function validatePassword(password) {
   const passw =
     /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ])[a-zA-Z\d@&^$`ù=:;+/.?,£%*¨_°#•ë≠÷…@Ù€ô—}æÂê®†Úºîœπµ¬ÈÏ~Ìﬁß∞~ß◊©≈‹‡Ò∂ƒﬁ†®êÂæÙ]{8,20}$/;
@@ -45,21 +43,25 @@ function Password({ password, setPassword }) {
           />
           <button type="button" className={styles["password-button"]}>
             {passwordVisible ? (
-              <Eye
-                onClick={handleTogglePasswordVisibility}
-                className={styles["visibility-icon"]}
-                color="#ffffff"
-                height="22px"
-                width="22px"
-              />
+              <div className={styles["visibility-container"]}>
+                <Eye
+                  onClick={handleTogglePasswordVisibility}
+                  className={styles["visibility-icon"]}
+                  color="#ffffff"
+                  height="18px"
+                  width="18px"
+                />
+              </div>
             ) : (
-              <EyeOff
-                onClick={handleTogglePasswordVisibility}
-                className={styles["visibility-icon"]}
-                color="#ffffff"
-                height="22px"
-                width="22px"
-              />
+              <div className={styles["visibility-container"]}>
+                <EyeOff
+                  onClick={handleTogglePasswordVisibility}
+                  className={styles["visibility-icon"]}
+                  color="#ffffff"
+                  height="18px"
+                  width="18px"
+                />
+              </div>
             )}
           </button>
         </div>

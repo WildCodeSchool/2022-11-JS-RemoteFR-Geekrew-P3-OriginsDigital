@@ -51,6 +51,7 @@ function SignUp() {
     password,
     setPassword,
   };
+
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
@@ -63,10 +64,24 @@ function SignUp() {
     }
   };
 
+  const onPressLogo = () => {
+    navigate("/sign-in");
+  };
+
   return (
     <div className={styles["sign-up-page-container"]}>
       <div className={styles["sign-up-page"]}>
-        <img className={styles["sign-in-page-logo"]} src={logoName} alt="" />
+        <button
+          type="button"
+          className={styles["btn-logo"]}
+          onClick={onPressLogo}
+        >
+          <img
+            className={styles["sign-in-page-logo"]}
+            src={logoName}
+            alt="Logo"
+          />
+        </button>
         <h1 className={styles["sign-up-title"]}>SIGN UP</h1>
         <form className={styles["sign-up-forms"]} onSubmit={handleSignUp}>
           <FirstName setFirstName={setFirstName} firstName={firstName} />

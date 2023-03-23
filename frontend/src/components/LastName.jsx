@@ -26,7 +26,7 @@ function LastName({ lastName, setLastName }) {
         id="lastName"
         name="lastName"
         type="text"
-        placeholder="Last name"
+        placeholder="Lastname"
         value={lastName}
         onChange={handleChangeLastName}
       />

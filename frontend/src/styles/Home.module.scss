@@ -46,6 +46,8 @@ body {
 }
 
 .category-name {
+  display: inline-block;
+  white-space: nowrap;
   font-weight: 400;
   margin: 1.5rem;
   text-decoration: underline;
@@ -106,6 +108,10 @@ body {
   }
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .category {
   .thumbnails {
     .imgContainer {
@@ -163,8 +169,6 @@ body {
     padding-bottom: 0.5rem;
   }
     .imgContainer:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.5rem;
       img{
         box-shadow: rgb(255, 116, 2, 0.25) 0px 10px 10.25px,
             rgb(255, 116, 2, 0.12) 0px -3px 7.5px,

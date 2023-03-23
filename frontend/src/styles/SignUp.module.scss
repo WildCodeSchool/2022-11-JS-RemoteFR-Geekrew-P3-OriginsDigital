@@ -4,9 +4,19 @@
   display: none;
 }
 
+.btn-logo {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+
 .sign-in-page-logo{
-  display: none;
   margin: 0.75rem;
+  width: 170px;
+  align-self: center;
 }
 
 .sign-up-page-container {
@@ -35,7 +45,6 @@
   align-self: center;
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 2rem;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -59,17 +68,19 @@
   align-content: center;
   justify-self: center;
   margin-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .sign-up-input {
   display: flex;
-  text-align: center;
   background-color: #484a4b;
   height: 2.5rem;
   border: none;
   width: 12.5rem;
-  margin: 0.75rem;
   font-size: 1rem;
   border-radius: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+
   &:hover {
       opacity: 0.8;
     }
@@ -82,6 +93,17 @@
   font-size: 1.5rem;
   margin: 0;
   cursor: pointer;
+}
+
+.visibility-container {
+  position: relative;
+}
+
+.visibility-icon {
+  position: absolute;
+  top: 10px;
+  right:13px;
+  transform: translateY(-50%);
 }
 
 .sign-span {
@@ -148,11 +170,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}    
-
+}
 
 @media screen and (min-width: 993px) {
-
   .sign-up-page-container {
     height: 100vh;
     width: 100vw;
@@ -182,10 +202,15 @@
     margin: 0.75rem;
   }
 
+  .visibility-icon {
+    top: 1px;
+    right: 22px;
+  }
+
   .sign-in-page-logo {
       display: flex;
       align-self: center;
-      width: 50%;
+      width: 60%;
     }
 
     .check-btn {
@@ -199,8 +224,8 @@
           }
 
         input {
-          height: 1.5rem;
-          width: 1.5rem;
+          height: 1.25rem;
+          width: 1.25rem;
         }
     }
   
