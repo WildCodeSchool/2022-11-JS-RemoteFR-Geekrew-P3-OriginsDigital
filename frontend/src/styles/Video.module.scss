@@ -21,6 +21,12 @@
     box-sizing: border-box;
     width: 100%;
 }
+.catbtn {
+    background: none;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+}
 .cattitle {
     font-weight: 400;
     color: $orange;
@@ -58,6 +64,10 @@
         align-items: center;
 }
 
+.cattitle, .like, .dislike, .favorite {
+    cursor: pointer;
+}
+
 
 @media screen and (min-width: 993px) {
     .contvid {
@@ -72,7 +82,7 @@
         font-weight: 600;
         margin-left: 0;
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 0.75rem;
     }
 
     .videotitle {

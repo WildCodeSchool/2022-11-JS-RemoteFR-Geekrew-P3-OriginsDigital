@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import {
   ThumbsUpOutline,
   ThumbsDownOutline,
   BookmarkOutline,
+  Bookmark,
 } from "react-ionicons";
 import styles from "../styles/Video.module.scss";
 
@@ -14,6 +15,8 @@ function Video() {
   const [dislikeCount, setDislikeCount] = useState(0);
   const { id } = useParams();
   const [video, setVideo] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -26,25 +29,25 @@ function Video() {
       });
   }, [id]);
 
+  const onPressCategory = (e) => {
+    const category = e.target.textContent;
+    const path = `/search?category-name=${category}`;
+    navigate(path);
+  };
+
   return (
     <div className={styles.contvid}>
       <div className={styles.videobox}>
-        <ReactPlayer
-          controls
-          className={styles.video}
-          light={
-            <img
-              className={styles.videoThumbnail}
-              src={video.thumbnail}
-              alt="Thumbnail"
-            />
-          }
-          url={video.url}
-          widht="100%"
-          height="100%"
-        />
+        <ReactPlayer controls className={styles.video} url={video.url} />
       </div>
-      <h3 className={styles.cattitle}>{video.category_name}</h3>
+      <button
+        type="button"
+        className={styles.catbtn}
+        onClick={(e) => onPressCategory(e)}
+        onKeyDown={(e) => onPressCategory(e)}
+      >
+        <h3 className={styles.cattitle}>{video.category_name}</h3>
+      </button>
       <h2 className={styles.videotitle}>{video.title}</h2>
       <div className={styles.boxlike}>
         <div className={styles.likes}>
@@ -53,6 +56,7 @@ function Video() {
             height="30px"
             width="40px"
             onClick={() => setLikeCount(likeCount + 1)}
+            className={styles.like}
           />
           <span className={styles.likeCount}>{likeCount}</span>
           <ThumbsDownOutline
@@ -60,11 +64,28 @@ function Video() {
             height="30px"
             width="40px"
             onClick={() => setDislikeCount(dislikeCount + 1)}
+            className={styles.dislike}
           />
           <span className={styles.likeCount}>{dislikeCount}</span>
         </div>
         <div className={styles.favories}>
-          <BookmarkOutline color="#ffffff" height="35px" width="35px" />
+          {isFavorite ? (
+            <Bookmark
+              color="#ffffff"
+              height="35px"
+              width="35px"
+              className={styles.favorite}
+              onClick={() => setIsFavorite(false)}
+            />
+          ) : (
+            <BookmarkOutline
+              color="#ffffff"
+              height="35px"
+              width="35px"
+              className={styles.favorite}
+              onClick={() => setIsFavorite(true)}
+            />
+          )}
         </div>
       </div>
       <p className={styles.descvid}>{video.description}</p>
