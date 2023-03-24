@@ -10,6 +10,8 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    font-size: 1.5rem;
+    margin-top: 2.5rem
 }
 
 .favorites {
@@ -17,12 +19,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .favorites {
     img {
-        margin: 1rem; 
         height: auto;
         width: 20rem;
         border-radius: 0.4rem;
@@ -30,11 +31,18 @@
 }
 
 .title-container {
-  width: 80%;
+  width: 320px;
   flex-direction: row;
+  margin-top: 0.75rem;
+}
+
+.video-title {
+  width: 80%;
 }
 
 .trashbin {
   display: flex;
+  margin-top: -1rem;
+  margin-bottom: 4rem;
   justify-content: flex-end;
 }

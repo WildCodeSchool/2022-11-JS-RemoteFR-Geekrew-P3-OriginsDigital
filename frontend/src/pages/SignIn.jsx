@@ -2,11 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/SignIn.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
+import logoName from "../assets/logo_name.svg";
 
 import Email from "../components/Email";
 import Password from "../components/Password";
+
+import styles from "../styles/SignIn.module.scss";
 
 function SignIn() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -43,31 +45,34 @@ function SignIn() {
   };
 
   return (
-    <div className={styles["sign-in-page"]}>
-      <h1 className={styles["sign-in-title"]}>SIGN IN</h1>
-      <form className={styles["sign-in-forms"]} onSubmit={handleSignIn}>
-        <Email email={email} setEmail={setEmail} />
-        <Password password={password} setPassword={setPassword} />
-      </form>
-      <div href="/" className={styles["button-sign-in"]}>
-        <label htmlFor="my-button"> </label>
-        <button
-          className={styles["sign-in-btn1"]}
-          type="button"
-          onClick={handleSignIn}
-        >
-          SIGN IN
-        </button>
-        <label htmlFor="button"> </label>
-        <button
-          className={styles["sign-in-btn2"]}
-          type="button"
-          onClick={handleSignUp}
-        >
-          SIGN UP
-        </button>
+    <div className={styles["sign-in-page-container"]}>
+      <div className={styles["sign-in-page"]}>
+        <img className={styles["sign-in-page-logo"]} src={logoName} alt="" />
+        <h1 className={styles["sign-in-title"]}>SIGN IN</h1>
+        <form className={styles["sign-in-forms"]} onSubmit={handleSignIn}>
+          <Email email={email} setEmail={setEmail} />
+          <Password password={password} setPassword={setPassword} />
+        </form>
+        <div href="/" className={styles["button-sign-in"]}>
+          <label htmlFor="my-button"> </label>
+          <button
+            className={styles["sign-in-btn1"]}
+            type="button"
+            onClick={handleSignIn}
+          >
+            SIGN IN
+          </button>
+          <label htmlFor="button"> </label>
+          <button
+            className={styles["sign-in-btn2"]}
+            type="button"
+            onClick={handleSignUp}
+          >
+            SIGN UP
+          </button>
+        </div>
+        <p className={styles["sign-in-p"]}>Forgot your password?</p>
       </div>
-      <p className={styles["sign-in-p"]}>Forgot your password?</p>
     </div>
   );
 }

@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%
+  ;
 }
 
 .avatar-container {
@@ -24,6 +26,10 @@
   background-color: $grey-light;
   border-radius: 1.5rem;
   border: 4px solid $black;
+}
+
+.pencil:hover {
+  cursor: pointer;
 }
 
 .tabs {
@@ -63,6 +69,10 @@
   transform: translateY(-50%);
 }
 
+.close-icon:hover {
+  cursor: pointer;
+}
+
 .password {
   align-self: flex-end;
 }
@@ -78,6 +88,10 @@
   font-size: 1.25rem;
   font-weight: 400;
   color: inherit;
+}
+
+.btn-edit:hover {
+  cursor: pointer;
 }
 
 .input {
@@ -108,4 +122,30 @@
 .applied {
   margin-top: 3rem;
   text-align: center;
+}
+
+@media screen and (min-width: 993px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 10rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 20rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .tabs {
+    margin-top: 3rem;
+    padding-inline: 35rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+    width: 15rem;
+  }
 }
