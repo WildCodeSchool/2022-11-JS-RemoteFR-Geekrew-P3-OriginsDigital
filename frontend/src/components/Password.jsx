@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "../styles/SignUp.module.scss";
 import { Eye, EyeOff } from "react-ionicons";
+import styles from "../styles/SignUp.module.scss";
 
 function validatePassword(password) {
   const passw =

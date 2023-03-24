@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "../styles/SignIn.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
 import logoName from "../assets/logo_name.svg";
@@ -62,7 +62,9 @@ function SignIn() {
             SIGN UP
           </button>
         </div>
-        <p className={styles["sign-in-p"]}>Forgot your password?</p>
+        <Link to="/password" className={styles["sign-in-p"]}>
+          Forgot your password?
+        </Link>
       </div>
     </div>
   );

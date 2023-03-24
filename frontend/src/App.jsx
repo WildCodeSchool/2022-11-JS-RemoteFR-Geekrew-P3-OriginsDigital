@@ -22,6 +22,7 @@ import TermsOfSale from "./pages/TermsOfSale";
 import Account from "./pages/Account";
 import Help from "./pages/Help";
 import DeskNavbar from "./components/DeskNavbar";
+import PasswordForgot from "./pages/PasswordForgot";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/gtcu" element={<TermsOfUse />} />
           <Route path="/gtcs" element={<TermsOfSale />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/password" element={<PasswordForgot />} />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
