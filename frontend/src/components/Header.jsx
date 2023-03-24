@@ -40,7 +40,9 @@ export default function Header() {
           location.pathname !== "/subscribes" &&
           location.pathname !== "/subscribesterms" &&
           location.pathname !== "/payments" &&
-          location.pathname !== "/payments/confirmation" && (
+          location.pathname !== "/payments/confirmation" &&
+          location.pathname !== "/sign-in" &&
+          location.pathname !== "/sign-up" && (
             <div
               className={styles.divlogo}
               onClick={handleHome}

@@ -19,14 +19,14 @@ function UserName({ userName, setUserName }) {
     }
   };
   return (
-    <div>
+    <div className={styles["form-group"]}>
       <label htmlFor="userName"> </label>
       <input
         className={styles["sign-up-input"]}
         id="userName"
         name="userName"
         type="text"
-        placeholder="UserName"
+        placeholder="Username"
         value={userName}
         onChange={handleChangeUserName}
       />

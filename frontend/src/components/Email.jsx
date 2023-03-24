@@ -20,7 +20,7 @@ function Email({ email, setEmail }) {
   };
 
   return (
-    <div>
+    <div className={styles["email-container"]}>
       <label htmlFor="email"> </label>
       <input
         className={styles["sign-up-input"]}

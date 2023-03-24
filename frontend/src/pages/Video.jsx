@@ -54,14 +54,14 @@ function Video() {
             width="40px"
             onClick={() => setLikeCount(likeCount + 1)}
           />
-          <span>{likeCount}</span>
+          <span className={styles.likeCount}>{likeCount}</span>
           <ThumbsDownOutline
             color="#ffffff"
             height="30px"
             width="40px"
             onClick={() => setDislikeCount(dislikeCount + 1)}
           />
-          <span>{dislikeCount}</span>
+          <span className={styles.likeCount}>{dislikeCount}</span>
         </div>
         <div className={styles.favories}>
           <BookmarkOutline color="#ffffff" height="35px" width="35px" />

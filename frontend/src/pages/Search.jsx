@@ -73,11 +73,15 @@ export default function Search() {
               <div key={vid.title} className={styles.imgContainer}>
                 <NavLink key={vid.id} to={`/videos/${vid.id}`}>
                   <img key={vid.id} src={vid.thumbnail} alt={vid.description} />
+                  <p>{vid.title}</p>
                 </NavLink>
               </div>
             ))
         ) : (
           <>
+            {!selectedFilter && (
+              <h1 className={styles.browse}>Select a category</h1>
+            )}
             {selectedFilter !== "" && (
               <h1 className={styles.browse}>Browse {selectedFilter}</h1>
             )}
@@ -91,6 +95,7 @@ export default function Search() {
                       src={video.thumbnail}
                       alt={video.description}
                     />
+                    <p>{video.title}</p>
                   </NavLink>
                 </div>
               ))}
