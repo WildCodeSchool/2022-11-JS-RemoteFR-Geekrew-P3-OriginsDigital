@@ -3,7 +3,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { useSignInContext } from "./contexts/SignInContext";
-
 import { FormContextProvider } from "./contexts/FormContext";
 
 import Home from "./pages/Home";
@@ -29,6 +28,7 @@ import Payment from "./pages/Payment";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Admin from "./pages/Admin";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PasswordForgot from "./pages/PasswordForgot";
 
 function App() {
   const { user } = useSignInContext();
@@ -59,6 +59,7 @@ function App() {
           path="/payments/confirmation"
           element={<PaymentConfirmation />}
         />
+        <Route path="/password" element={<PasswordForgot />} />
         <Route
           element={
             <ProtectedRoute

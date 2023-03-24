@@ -89,13 +89,17 @@ export default function Search() {
               .filter((video) => video.category_name === selectedFilter)
               .map((video) => (
                 <div key={video.title} className={styles.imgContainer}>
-                  <NavLink key={video.id} to={`/videos/${video.id}`}>
+                  <NavLink
+                    key={video.id}
+                    to={`/videos/${video.id}`}
+                    className={styles["navlink-thumbnail"]}
+                  >
                     <img
                       key={video.id}
                       src={video.thumbnail}
                       alt={video.description}
                     />
-                    <p>{video.title}</p>
+                    <p className={styles.title}>{video.title}</p>
                   </NavLink>
                 </div>
               ))}
