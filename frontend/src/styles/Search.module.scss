@@ -47,7 +47,7 @@
 
 .search-bar::placeholder, .select {
   color: rgba(255, 255, 255, 0.6)
-}
+} 
 
 .browse {
   font-weight: 300;
@@ -81,11 +81,26 @@
     }
   }
 
-    A {
+    a {
       text-decoration: none;
       color: $white;
       margin-bottom: 2rem;
     }
+}
+
+.navlink-thumbnail:hover {
+  img {
+    transform: translateY(1.8px);
+    box-shadow: rgb(255, 116, 2, 0.17) 0px 10px 10.25px,
+      rgb(255, 116, 2, 0.12) 0px -3px 7.5px,
+      rgb(255, 116, 2, 0.12) 0px 1px 1.5px,
+      rgb(255, 116, 2, 0.14) 0px 2px 2.25px,
+      rgb(255, 116, 2, 0.09) 0px -0.75px 1.25px;
+  }
+}
+
+.title {
+  margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 993px) {
@@ -134,16 +149,8 @@
 } 
 
 .thumbnails {
-  a:hover{
-      text-decoration: underline;
-      text-underline-offset: 0.5rem;
     img{
-        box-shadow: rgb(255, 116, 2, 0.25) 0px 10px 10.25px,
-            rgb(255, 116, 2, 0.12) 0px -3px 7.5px,
-            rgb(255, 116, 2, 0.12) 0px 1px 1.5px,
-            rgb(255, 116, 2, 0.17) 0px 2px 2.25px,
-            rgb(255, 116, 2, 0.09) 0px -0.75px 1.25px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
       }
   }
-}
 }
