@@ -25,13 +25,16 @@ function SignIn() {
     if (email && password)
       try {
         const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
-        const user = {
-          ...res.data,
-          admin: res.data.admin ? JSON.parse(res.data.admin) : "",
-        };
+        const user = { ...res.data };
         setResponse(user);
         localStorage.setItem("user", JSON.stringify(user));
-        navigate("/");
+
+        if (user.roles === "admin") {
+          navigate("/admin");
+        }
+        if (user.roles !== "admin") {
+          navigate("/");
+        }
         toast.success("✨ Welcome ✨");
       } catch (error) {
         console.error(error);

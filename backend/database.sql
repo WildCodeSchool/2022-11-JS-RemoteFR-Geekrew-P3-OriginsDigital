@@ -55,7 +55,7 @@ DEFAULT CHARACTER SET = utf8mb4;
   `password` varchar(255) NOT NULL,
   `premium`  varchar(50) NOT NULL DEFAULT 'NO',
   `avatar_id` int NOT NULL DEFAULT '1',
-  `admin`  varchar(50) NOT NULL DEFAULT 'user',
+  `roles`  varchar(50) NOT NULL DEFAULT 'admin',
   PRIMARY KEY (`id`,`avatar_id`),
   UNIQUE KEY `email` (`email`),
   KEY `fk_user_avatar_idx` (`avatar_id`),

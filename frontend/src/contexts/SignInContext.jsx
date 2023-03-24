@@ -6,10 +6,11 @@ const SignInContext = createContext();
 export function SignInContextProvider({ children }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   const values = useMemo(
-    () => ({ email, setEmail, password, setPassword }),
-    [email, setEmail, password, setPassword]
+    () => ({ email, setEmail, password, setPassword, user, setUser }),
+    [email, setEmail, password, setPassword, user, setUser]
   );
 
   return (
