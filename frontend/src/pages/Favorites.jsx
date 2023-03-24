@@ -7,8 +7,6 @@ import styles from "../styles/Favorites.module.scss";
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
-  // console.log(favorites);
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/favorites`)

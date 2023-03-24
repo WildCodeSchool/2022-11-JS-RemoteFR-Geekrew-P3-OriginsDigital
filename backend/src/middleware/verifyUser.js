@@ -1,7 +1,6 @@
 const model = require("../models");
 
 const verifyUser = (req, res, next) => {
-  // FavoriteManager.findAllByUserId(req.userId);
   const { id } = req.params.id;
   model.favorite.delete(id, req.userId);
 

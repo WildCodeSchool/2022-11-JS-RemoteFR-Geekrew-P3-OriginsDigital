@@ -4,8 +4,6 @@ const router = express.Router();
 
 const { hashingPassword } = require("./middleware/auth");
 const { login, logout } = require("./controllers/authController");
-const rolesCheck = require("./middleware/rolesCheck");
-// const signUp = require("./controllers/signUpController");
 
 const itemControllers = require("./controllers/itemControllers");
 const videoControllers = require("./controllers/videoControllers");
@@ -36,13 +34,6 @@ router.post("/sign-in", login);
 router.get("/profile", login, userControllers.getUserByEmail);
 router.get("/log-out", logout, userControllers.getUserByEmail);
 router.delete("/account-delete", userControllers.deleteUser);
-
-router.get(
-  "/admin",
-  authorization,
-  rolesCheck(1),
-  userControllers.getUserByEmail
-);
 
 router.get("/categories", categoryControllers.browse);
 router.get("/categories/:id", categoryControllers.read);
