@@ -9,10 +9,10 @@
 @media screen and (min-width: 993px) {
   .footercontain {
     display: flex;
+    bottom: 0;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 1rem;
-    padding: 1rem;
     box-sizing: border-box;
     width: 100%;
     background-color: $grey;

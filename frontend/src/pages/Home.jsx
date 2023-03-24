@@ -69,7 +69,6 @@ export default function Home() {
           ))}
         </Swiper>
       </div>
-
       {categories.map((category) => {
         return (
           <div key={category} className={styles.category}>
@@ -88,7 +87,11 @@ export default function Home() {
                 .filter((video) => video.category_name === category)
                 .map((video) => (
                   <div key={video.title} className={styles.imgContainer}>
-                    <NavLink key={video.id} to={`/videos/${video.id}`}>
+                    <NavLink
+                      key={video.id}
+                      to={`/videos/${video.id}`}
+                      className={styles["navlink-thumbnail"]}
+                    >
                       <img
                         key={video.id}
                         src={video.thumbnail}

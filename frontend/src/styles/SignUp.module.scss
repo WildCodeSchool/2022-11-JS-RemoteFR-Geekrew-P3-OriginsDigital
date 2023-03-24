@@ -1,8 +1,22 @@
 @import "variables";
 
-.sign-in-page-logo{
+.footercontain {
   display: none;
+}
+
+.btn-logo {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+.sign-in-page-logo{
   margin: 0.75rem;
+  width: 170px;
+  align-self: center;
 }
 
 .sign-up-page-container {
@@ -11,27 +25,28 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
+  padding-bottom: 5rem;
+  }
 
 .sign-up-page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-content: center;
-  margin: auto;
-  max-height: 90%;
+  margin: 2rem;
   width: 85%;
   background: linear-gradient(to top, #161718, #414345);
   border-radius: 2rem;
   border: solid 3px #ff7402;
-  box-shadow: rgb(255, 116, 2, 0.25) 0px 54px 55px, rgb(255, 116, 2, 0.12) 0px -12px 30px, rgb(255, 116, 2, 0.12) 0px 4px 6px, rgb(255, 116, 2, 0.17) 0px 12px 13px, rgb(255, 116, 2, 0.09) 0px -3px 5px;
+  box-shadow: 0px 0px 50px rgba(255, 116, 2, 0.2),
+      0px 0px 20px rgba(255, 116, 2, 0.1),
+      0px 0px 10px rgba(255, 116, 2, 0.05);
 }
 
 .sign-up-title {
   align-self: center;
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 2rem;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -45,6 +60,7 @@
 
 .form-group {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -54,17 +70,19 @@
   align-content: center;
   justify-self: center;
   margin-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .sign-up-input {
   display: flex;
-  text-align: center;
   background-color: #484a4b;
   height: 2.5rem;
   border: none;
   width: 12.5rem;
-  margin: 0.75rem;
   font-size: 1rem;
   border-radius: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+
   &:hover {
       opacity: 0.8;
     }
@@ -77,6 +95,17 @@
   font-size: 1.5rem;
   margin: 0;
   cursor: pointer;
+}
+
+.visibility-container {
+  position: relative;
+}
+
+.visibility-icon {
+  position: absolute;
+  top: 10px;
+  right:13px;
+  transform: translateY(-50%);
 }
 
 .sign-span {
@@ -92,12 +121,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
   
 
   .sign-up-p {
     display: inline-block;
     vertical-align: top;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     max-width: 60%;
     margin-left: 1rem;
 
@@ -127,7 +157,7 @@
   justify-content: center;
   border: none;
   border-radius: 1rem;
-  height: 2.25rem;
+  min-height: 2.25rem;
   margin: 1.5rem;
   font-size: 1rem;
   margin-bottom: 2rem;
@@ -138,9 +168,14 @@
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
+.firstName{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 @media screen and (min-width: 993px) {
-
   .sign-up-page-container {
     height: 100vh;
     width: 100vw;
@@ -163,7 +198,6 @@
     align-content: center;
     max-width: 25rem;
     margin: 0px;
-    border: solid 4px #ff7402;
     box-shadow: rgb(255, 116, 2, 0.25) 0px 100px 100px, rgb(255, 116, 2, 0.18) 0px -20px 50px, rgb(255, 116, 2, 0.18) 0px 10px 15px, rgb(255, 116, 2, 0.25) 0px 20px 20px, rgb(255, 116, 2, 0.15) 0px -5px 10px;
   }
 
@@ -171,10 +205,15 @@
     margin: 0.75rem;
   }
 
+  .visibility-icon {
+    top: 1px;
+    right: 22px;
+  }
+
   .sign-in-page-logo {
       display: flex;
       align-self: center;
-      width: 50%;
+      width: 60%;
     }
 
     .check-btn {
@@ -188,8 +227,8 @@
           }
 
         input {
-          height: 1.5rem;
-          width: 1.5rem;
+          height: 1.25rem;
+          width: 1.25rem;
         }
     }
   

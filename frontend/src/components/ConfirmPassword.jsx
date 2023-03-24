@@ -29,27 +29,27 @@ function ConfirmPassword({ setConfirmPassword, confirmPassword, password }) {
             autoComplete="new-password"
             required
           />
-          <button
-            type="button"
-            className={styles["password-button"]}
-            onClick={handleTogglePasswordVisibility}
-          >
+          <button type="button" className={styles["password-button"]}>
             {passwordVisible ? (
-              <Eye
-                onClick={handleTogglePasswordVisibility}
-                className={styles["visibility-icon"]}
-                color="#ffffff"
-                height="22px"
-                width="22px"
-              />
+              <div className={styles["visibility-container"]}>
+                <Eye
+                  onClick={handleTogglePasswordVisibility}
+                  className={styles["visibility-icon"]}
+                  color="#ffffff"
+                  height="18px"
+                  width="18px"
+                />
+              </div>
             ) : (
-              <EyeOff
-                onClick={handleTogglePasswordVisibility}
-                className={styles["visibility-icon"]}
-                color="#ffffff"
-                height="22px"
-                width="22px"
-              />
+              <div className={styles["visibility-container"]}>
+                <EyeOff
+                  onClick={handleTogglePasswordVisibility}
+                  className={styles["visibility-icon"]}
+                  color="#ffffff"
+                  height="18px"
+                  width="18px"
+                />
+              </div>
             )}
           </button>
         </div>

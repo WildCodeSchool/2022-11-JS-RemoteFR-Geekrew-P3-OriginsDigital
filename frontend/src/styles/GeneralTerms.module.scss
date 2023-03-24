@@ -140,3 +140,11 @@ input:checked + .box .box-close {
 input:checked + .box .box-title:before {
 	transform: rotate(90deg);
 }
+
+@media screen and (min-width: 993px) {
+	.accordion-arrows {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+	

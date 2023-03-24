@@ -1,7 +1,7 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Routes, Route } from "react-router-dom";
+import { useLocation, Routes, Route } from "react-router-dom";
 import { SignInContextProvider } from "./contexts/SignInContext";
 import { FormContextProvider } from "./contexts/FormContext";
 
@@ -22,9 +22,15 @@ import TermsOfSale from "./pages/TermsOfSale";
 import Account from "./pages/Account";
 import Help from "./pages/Help";
 import DeskNavbar from "./components/DeskNavbar";
+import Subscribe from "./pages/Subscribe";
+import SubscribesTerms from "./pages/SubscribesTerms";
+import Payment from "./pages/Payment";
+import PaymentConfirmation from "./pages/PaymentConfirmation";
 import PasswordForgot from "./pages/PasswordForgot";
 
 function App() {
+  const location = useLocation();
+
   return (
     <SignInContextProvider>
       <FormContextProvider>
@@ -48,11 +54,19 @@ function App() {
           <Route path="/gtcu" element={<TermsOfUse />} />
           <Route path="/gtcs" element={<TermsOfSale />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/subscribes" element={<Subscribe />} />
+          <Route path="/subscribes/terms" element={<SubscribesTerms />} />
+          <Route path="/payments" element={<Payment />} />
+          <Route
+            path="/payments/confirmation"
+            element={<PaymentConfirmation />}
+          />
           <Route path="/password" element={<PasswordForgot />} />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
-        <Footer />
+        {location.pathname !== "/sign-up" &&
+          location.pathname !== "/sign-in" && <Footer />}
       </FormContextProvider>
     </SignInContextProvider>
   );

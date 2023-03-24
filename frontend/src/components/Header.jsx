@@ -35,17 +35,24 @@ export default function Header() {
             />
           </div>
         )}
-        {!isVideoPage && location.pathname !== "/account" && (
-          <div
-            className={styles.divlogo}
-            onClick={handleHome}
-            onKeyDown={handleHome}
-            role="button"
-            tabIndex={0}
-          >
-            <img className={styles.logohead} src={logo} alt="logo" />
-          </div>
-        )}
+        {!isVideoPage &&
+          location.pathname !== "/account" &&
+          location.pathname !== "/subscribes" &&
+          location.pathname !== "/subscribesterms" &&
+          location.pathname !== "/payments" &&
+          location.pathname !== "/payments/confirmation" &&
+          location.pathname !== "/sign-in" &&
+          location.pathname !== "/sign-up" && (
+            <div
+              className={styles.divlogo}
+              onClick={handleHome}
+              onKeyDown={handleHome}
+              role="button"
+              tabIndex={0}
+            >
+              <img className={styles.logohead} src={logo} alt="logo" />
+            </div>
+          )}
         <div className="divlogo">
           <button
             className={styles.btnhead}

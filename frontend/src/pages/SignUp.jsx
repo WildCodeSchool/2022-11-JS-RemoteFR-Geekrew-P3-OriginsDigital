@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import styles from "../styles/SignUp.module.scss";
 import { useFormContext } from "../contexts/FormContext";
 import { useSignInContext } from "../contexts/SignInContext";
 import logoName from "../assets/logo_name.svg";
@@ -13,6 +12,8 @@ import LastName from "../components/LastName";
 import UserName from "../components/UserName";
 import Email from "../components/Email";
 import ConfirmPassword from "../components/ConfirmPassword";
+
+import styles from "../styles/SignUp.module.scss";
 
 function SignUp() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -50,6 +51,7 @@ function SignUp() {
     password,
     setPassword,
   };
+
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
@@ -62,10 +64,24 @@ function SignUp() {
     }
   };
 
+  const onPressLogo = () => {
+    navigate("/sign-in");
+  };
+
   return (
     <div className={styles["sign-up-page-container"]}>
       <div className={styles["sign-up-page"]}>
-        <img className={styles["sign-in-page-logo"]} src={logoName} alt="" />
+        <button
+          type="button"
+          className={styles["btn-logo"]}
+          onClick={onPressLogo}
+        >
+          <img
+            className={styles["sign-in-page-logo"]}
+            src={logoName}
+            alt="Logo"
+          />
+        </button>
         <h1 className={styles["sign-up-title"]}>SIGN UP</h1>
         <form className={styles["sign-up-forms"]} onSubmit={handleSignUp}>
           <FirstName setFirstName={setFirstName} firstName={firstName} />

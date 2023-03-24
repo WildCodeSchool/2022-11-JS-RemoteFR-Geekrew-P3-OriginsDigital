@@ -2,12 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "../styles/SignIn.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
 import logoName from "../assets/logo_name.svg";
 
 import Email from "../components/Email";
 import Password from "../components/Password";
+
+import styles from "../styles/SignIn.module.scss";
 
 function SignIn() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
