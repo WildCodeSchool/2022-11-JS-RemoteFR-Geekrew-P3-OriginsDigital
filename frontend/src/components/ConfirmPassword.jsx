@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Eye, EyeOff } from "react-ionicons";
+
 import styles from "../styles/SignUp.module.scss";
 
 function ConfirmPassword({ setConfirmPassword, confirmPassword, password }) {

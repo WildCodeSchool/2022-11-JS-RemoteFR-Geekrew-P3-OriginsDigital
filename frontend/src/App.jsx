@@ -26,6 +26,7 @@ import Subscribe from "./pages/Subscribe";
 import SubscribesTerms from "./pages/SubscribesTerms";
 import Payment from "./pages/Payment";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
+import PasswordForgot from "./pages/PasswordForgot";
 
 function App() {
   const location = useLocation();
@@ -60,6 +61,7 @@ function App() {
             path="/payments/confirmation"
             element={<PaymentConfirmation />}
           />
+          <Route path="/password" element={<PasswordForgot />} />
         </Routes>
         <ToastContainer theme="dark" />
         <Navbar />
