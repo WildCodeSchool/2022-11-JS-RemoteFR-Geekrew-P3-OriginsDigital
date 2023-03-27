@@ -38,57 +38,66 @@ function Video() {
   return (
     <div className={styles.contvid}>
       <div className={styles.videobox}>
-        <ReactPlayer controls className={styles.video} url={video.url} />
+        <ReactPlayer
+          controls
+          className={styles.video}
+          url={video.url}
+          height="100%"
+          width="100%"
+          // aspectRatio="16:9"
+        />
       </div>
-      <button
-        type="button"
-        className={styles.catbtn}
-        onClick={(e) => onPressCategory(e)}
-        onKeyDown={(e) => onPressCategory(e)}
-      >
-        <h3 className={styles.cattitle}>{video.category_name}</h3>
-      </button>
-      <h2 className={styles.videotitle}>{video.title}</h2>
-      <div className={styles.boxlike}>
-        <div className={styles.likes}>
-          <ThumbsUpOutline
-            color="#ffffff"
-            height="30px"
-            width="40px"
-            onClick={() => setLikeCount(likeCount + 1)}
-            className={styles.like}
-          />
-          <span className={styles.likeCount}>{likeCount}</span>
-          <ThumbsDownOutline
-            color="#ffffff"
-            height="30px"
-            width="40px"
-            onClick={() => setDislikeCount(dislikeCount + 1)}
-            className={styles.dislike}
-          />
-          <span className={styles.likeCount}>{dislikeCount}</span>
-        </div>
-        <div className={styles.favories}>
-          {isFavorite ? (
-            <Bookmark
+      <div className={styles["container-content"]}>
+        <button
+          type="button"
+          className={styles.catbtn}
+          onClick={(e) => onPressCategory(e)}
+          onKeyDown={(e) => onPressCategory(e)}
+        >
+          <h3 className={styles.cattitle}>{video.category_name}</h3>
+        </button>
+        <h2 className={styles.videotitle}>{video.title}</h2>
+        <div className={styles.boxlike}>
+          <div className={styles.likes}>
+            <ThumbsUpOutline
               color="#ffffff"
-              height="35px"
-              width="35px"
-              className={styles.favorite}
-              onClick={() => setIsFavorite(false)}
+              height="30px"
+              width="40px"
+              onClick={() => setLikeCount(likeCount + 1)}
+              className={styles.like}
             />
-          ) : (
-            <BookmarkOutline
+            <span className={styles.likeCount}>{likeCount}</span>
+            <ThumbsDownOutline
               color="#ffffff"
-              height="35px"
-              width="35px"
-              className={styles.favorite}
-              onClick={() => setIsFavorite(true)}
+              height="30px"
+              width="40px"
+              onClick={() => setDislikeCount(dislikeCount + 1)}
+              className={styles.dislike}
             />
-          )}
+            <span className={styles.likeCount}>{dislikeCount}</span>
+          </div>
+          <div className={styles.favories}>
+            {isFavorite ? (
+              <Bookmark
+                color="#ffffff"
+                height="35px"
+                width="35px"
+                className={styles.favorite}
+                onClick={() => setIsFavorite(false)}
+              />
+            ) : (
+              <BookmarkOutline
+                color="#ffffff"
+                height="35px"
+                width="35px"
+                className={styles.favorite}
+                onClick={() => setIsFavorite(true)}
+              />
+            )}
+          </div>
         </div>
+        <p className={styles.descvid}>{video.description}</p>
       </div>
-      <p className={styles.descvid}>{video.description}</p>
     </div>
   );
 }

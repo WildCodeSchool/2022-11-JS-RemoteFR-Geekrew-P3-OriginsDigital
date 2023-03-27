@@ -3,7 +3,7 @@
 .contvid {
   display: flex;
   flex-direction: column;
-  
+  height: 100%;
 }
 
 .videobox {
@@ -74,15 +74,19 @@
         height: 100%;
         width: 60%;
         align-self: center;
-        padding-bottom: 4rem;
-        margin-bottom: 4rem;
+        justify-content: space-between;
     }    
+
+    .container-content {
+        
+    }
 
     .cattitle {
         font-weight: 600;
         margin-left: 0;
         font-size: 2rem;
         margin-bottom: 0.75rem;
+        // margin-top: 5rem;
     }
 
     .videotitle {
@@ -119,6 +123,21 @@
     .videobox{
         height: 100%;
         width: 100%;
+        margin: 0;
+        // aspect-ratio: 16/9;
+        // min-height: 100%;
     }
 
+    // .video {
+    //     min-height: 100%;
+    // }
+
+    .containervid {
+        display: flex;
+    }
+
+    .containertext {
+        display: flex;
+        flex-direction: column;
+    }
 }
