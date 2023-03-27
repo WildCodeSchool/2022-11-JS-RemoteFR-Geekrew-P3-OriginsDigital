@@ -12,7 +12,8 @@ import styles from "../styles/SignIn.module.scss";
 
 function SignIn() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const { email, setEmail, password, setPassword } = useSignInContext();
+  const { email, setEmail, password, setPassword, setIsLoggedIn } =
+    useSignInContext();
   const [response, setResponse] = useState("");
 
   const navigate = useNavigate();
@@ -27,14 +28,16 @@ function SignIn() {
     if (email && password)
       try {
         const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
-        const user = { ...res.data };
+        const user = { ...res.data, roles: res.data.roles };
         setResponse(user);
         localStorage.setItem("user", JSON.stringify(user));
 
         if (user.roles === "admin") {
+          setIsLoggedIn(true);
           navigate("/admin");
         }
-        if (user.roles !== "admin") {
+        if (user.roles === "user") {
+          setIsLoggedIn(true);
           navigate("/");
         }
         toast.success("✨ Welcome ✨");

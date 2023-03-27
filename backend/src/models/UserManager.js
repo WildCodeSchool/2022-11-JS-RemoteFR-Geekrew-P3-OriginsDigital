@@ -7,14 +7,13 @@ class UserManager extends AbstractManager {
 
   insert(user) {
     return this.database.query(
-      `insert into ${this.table} (firstname, lastname, username, email, password, avatar_id) VALUES (?,?,?,?,?,?)`,
+      `insert into ${this.table} (firstname, lastname, username, email, password) VALUES (?,?,?,?,?)`,
       [
         user.firstName,
         user.lastName,
         user.userName,
         user.email,
         user.hashedPassword,
-        parseInt(user.avatar, 10),
       ]
     );
   }
@@ -52,6 +51,18 @@ class UserManager extends AbstractManager {
       user.avatar_id,
       user.id,
     ]);
+  }
+
+  getUser(user) {
+    return this.database.query(
+      `
+    SELECT user.id, user.username, user.firstname, user.lastname, user.email, user.password, user.premium, user.avatar_id, user.roles, avatar.icons
+    FROM user
+    JOIN avatar ON user.avatar_id = avatar.id
+    WHERE user.email = ?
+  `,
+      [user.email]
+    );
   }
 }
 
