@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 const SignInContext = createContext();
 
 export function SignInContextProvider({ children }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("user"));
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userAvatar, setUserAvatar] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user"));
+  const [userAvatar, setUserAvatar] = useState(localStorage.getItem("user"));
 
   const values = useMemo(
     () => ({

@@ -1,11 +1,11 @@
-import axios from "axios";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "../styles/ProfilePicture.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
+import instanceAxios from "../services/instanceAxios";
 
 export default function ProfilePicture() {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const { user, isLoggedIn, setUserAvatar, userAvatar } = useSignInContext();
+  const { user, isLoggedIn, userAvatar, setUserAvatar } = useSignInContext();
 
   const avatars = [
     "black_cat.png",
@@ -29,31 +29,17 @@ export default function ProfilePicture() {
     "the_skull.png",
     "the_wolf.png",
   ];
-
   useEffect(() => {
-    axios
-      .get(`${BACKEND_URL}/profile`)
-      .then((res) => {
-        const persistedUser = res.data[0];
-        setUserAvatar(persistedUser.avatar.icons); // Set the icons value to the userAvatar state variable
+    instanceAxios
+      .get(`/profile`)
+      .then((response) => {
+        const userData = response.data;
+        setUserAvatar(userData.icons);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [isLoggedIn, setUserAvatar]);
-
-  // const handlePicture = async (event) => {
-  //   event.preventDefault();
-  //   if (user && isLoggedIn)
-  //     try {
-  //       const res = await
-  //       const picture = { ...res.data, avatar: res.data.avatar };
-
-  //       setUserAvatar(res.data.avatar_id);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  // };
+  }, []);
 
   const randomIndex = Math.floor(Math.random() * avatars.length);
 
@@ -62,17 +48,22 @@ export default function ProfilePicture() {
   return (
     <div className={styles.avatar}>
       {isLoggedIn && user && (
-        <img
-          src={userAvatar}
-          alt="avatar"
-          className={styles["avatar-profile-image"]}
-        />
+        <Link to="/profile">
+          <img
+            src={`${
+              import.meta.env.VITE_BACKEND_URL
+            }/assets/images/avatar_icons/${userAvatar}`}
+            alt="avatar"
+            className={styles["avatar-profile-image"]}
+          />
+        </Link>
       )}
       {!isLoggedIn && (
         <img
           src={`${
             import.meta.env.VITE_BACKEND_URL
-          }/assets/images/avatar_icons/${randomAvatar}`}
+          }/import Profile from '../pages/Profile';
+assets/images/avatar_icons/${randomAvatar}`}
           alt="avatar"
           className={styles["avatar-image"]}
         />

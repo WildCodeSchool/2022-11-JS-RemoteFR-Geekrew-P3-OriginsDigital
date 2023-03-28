@@ -63,7 +63,7 @@ const deleteUser = (req, res) => {
 
 const getOneUser = (req, res) => {
   models.user
-    .getUser(req.body)
+    .getUser(req.email)
     .then(([user]) => {
       if (user[0] != null) {
         const persistedUser = user[0];
