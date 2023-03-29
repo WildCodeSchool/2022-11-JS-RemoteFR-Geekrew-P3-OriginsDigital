@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 const FormContext = createContext();
 
 export function FormContextProvider({ children }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState(localStorage.getItem("user"));
+  const [lastName, setLastName] = useState(localStorage.getItem("user"));
+  const [userName, setUserName] = useState(localStorage.getItem("user"));
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const infos = useMemo(

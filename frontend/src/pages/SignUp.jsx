@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
+import instanceAxios from "../services/instanceAxios";
 import { useFormContext } from "../contexts/FormContext";
 import { useSignInContext } from "../contexts/SignInContext";
 import logoName from "../assets/logo_name.svg";
@@ -16,7 +16,6 @@ import ConfirmPassword from "../components/ConfirmPassword";
 import styles from "../styles/SignUp.module.scss";
 
 function SignUp() {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isChecked, setIsChecked] = useState(false);
   const [response, setResponse] = useState(null);
   const {
@@ -55,7 +54,7 @@ function SignUp() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`${BACKEND_URL}/sign-up`, data, response);
+      await instanceAxios.post(`/sign-up`, data, response);
       setResponse(data);
       navigate("/sign-up-confirmation");
     } catch (error) {

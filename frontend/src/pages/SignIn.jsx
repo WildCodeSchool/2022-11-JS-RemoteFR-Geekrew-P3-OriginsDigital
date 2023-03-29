@@ -1,9 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
 import { useSignInContext } from "../contexts/SignInContext";
 import logoName from "../assets/logo_name.svg";
+import instanceAxios from "../services/instanceAxios";
 
 import Email from "../components/Email";
 import Password from "../components/Password";
@@ -11,8 +11,8 @@ import Password from "../components/Password";
 import styles from "../styles/SignIn.module.scss";
 
 function SignIn() {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const { email, setEmail, password, setPassword } = useSignInContext();
+  const { email, setEmail, password, setPassword, setIsLoggedIn } =
+    useSignInContext();
   const [response, setResponse] = useState("");
 
   const navigate = useNavigate();
@@ -26,9 +26,19 @@ function SignIn() {
     event.preventDefault();
     if (email && password)
       try {
-        const res = await axios.post(`${BACKEND_URL}/sign-in`, data, response);
-        setResponse(res.data);
-        navigate("/");
+        const res = await instanceAxios.post(`/sign-in`, data, response);
+        const user = { ...res.data, roles: res.data.roles };
+        setResponse(user);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        if (user.roles === "admin") {
+          setIsLoggedIn(true);
+          navigate("/admin");
+        }
+        if (user.roles === "user") {
+          setIsLoggedIn(true);
+          navigate("/");
+        }
         toast.success("✨ Welcome ✨");
       } catch (error) {
         console.error(error);
