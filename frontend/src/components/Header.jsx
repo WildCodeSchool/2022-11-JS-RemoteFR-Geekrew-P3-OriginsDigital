@@ -3,8 +3,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronBackOutline } from "react-ionicons";
 import styles from "../styles/Header.module.scss";
 import logo from "../assets/logo.svg";
+import { useSignInContext } from "../contexts/SignInContext";
+import ProfilePicture from "./ProfilePicture";
 
 export default function Header() {
+  const { isLoggedIn } = useSignInContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -53,14 +56,17 @@ export default function Header() {
               <img className={styles.logohead} src={logo} alt="logo" />
             </div>
           )}
-        <div className="divlogo">
-          <button
-            className={styles.btnhead}
-            type="button"
-            onClick={handleSignin}
-          >
-            CONNEXION
-          </button>
+        <div className={styles.divlogo}>
+          {isLoggedIn && <ProfilePicture />}
+          {!isLoggedIn && (
+            <button
+              className={styles.btnhead}
+              type="button"
+              onClick={handleSignin}
+            >
+              CONNEXION
+            </button>
+          )}
         </div>
       </div>
     </div>

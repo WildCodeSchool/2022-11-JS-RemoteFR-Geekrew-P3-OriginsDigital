@@ -38,7 +38,14 @@ function Video() {
   return (
     <div className={styles.contvid}>
       <div className={styles.videobox}>
-        <ReactPlayer controls className={styles.video} url={video.url} />
+        <ReactPlayer
+          controls
+          className={styles.video}
+          url={video.url}
+          height="100%"
+          width="100%"
+          // aspectRatio="16:9"
+        />
       </div>
       <button
         type="button"

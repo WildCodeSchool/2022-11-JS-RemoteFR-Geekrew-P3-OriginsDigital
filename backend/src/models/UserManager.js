@@ -53,6 +53,18 @@ class UserManager extends AbstractManager {
       user.id,
     ]);
   }
+
+  getUser(user) {
+    return this.database.query(
+      `
+    SELECT user.id, user.username, user.firstname, user.lastname, user.email, user.password, user.premium, user.avatar_id, user.roles, avatar.name, avatar.icons
+    FROM user
+    JOIN avatar ON user.avatar_id = avatar.id
+    WHERE user.email = ?
+  `,
+      [user]
+    );
+  }
 }
 
 module.exports = UserManager;

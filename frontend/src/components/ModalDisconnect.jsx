@@ -2,11 +2,34 @@ import React, { useLayoutEffect } from "react";
 import ReactDom from "react-dom";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import axios from "axios";
+import { useSignInContext } from "../contexts/SignInContext";
+import { useFormContext } from "../contexts/FormContext";
 
 import newLocal from "../styles/modal/modalDisconnectStyles";
 
 function Modal({ isShowing, hide }) {
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const { setUser, setIsLoggedIn, setUserAvatar, setEmail } =
+    useSignInContext();
+  const { setUserName, setFirstName, setLastName } = useFormContext();
+  const handleDisconnection = () => {
+    axios
+      .get(`${BACKEND_URL}/log-out`)
+      .then(() => {
+        localStorage.clear();
+        setUserAvatar("");
+        setIsLoggedIn("");
+        setUserName("");
+        setUser("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
 
   useLayoutEffect(() => {
     if (!isShowing) {
@@ -35,9 +58,8 @@ function Modal({ isShowing, hide }) {
                   <button
                     type="button"
                     className="yes"
-                    onClick={() => {
-                      navigate("/");
-                    }}
+                    onClick={handleDisconnection}
+                    to="/"
                   >
                     Yes
                   </button>

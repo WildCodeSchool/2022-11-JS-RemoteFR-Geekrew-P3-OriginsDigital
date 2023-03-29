@@ -4,14 +4,13 @@ const authorization = (req, res, next) => {
   try {
     const token = req.cookies.auth_token;
 
-    if (!token) throw new Error();
+    if (!token) throw new Error("helllllo");
 
     const data = decodeJWT(token);
-
     req.userId = data.id;
     req.email = data.email;
-    req.admin = [];
-    req.admin.push(data.admin);
+    req.roles = [];
+    req.roles.push(data.roles);
     return next();
   } catch (e) {
     res.sendStatus(401);

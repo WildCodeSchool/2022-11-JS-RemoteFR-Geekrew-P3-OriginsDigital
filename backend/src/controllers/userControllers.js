@@ -61,4 +61,28 @@ const deleteUser = (req, res) => {
     });
 };
 
-module.exports = { addUser, updateUser, getUserByEmail, deleteUser };
+const getOneUser = (req, res) => {
+  models.user
+    .getUser(req.email)
+    .then(([user]) => {
+      if (user[0] != null) {
+        const persistedUser = user[0];
+        delete persistedUser.password;
+        res.send(user[0]);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+module.exports = {
+  addUser,
+  updateUser,
+  getUserByEmail,
+  deleteUser,
+  getOneUser,
+};
