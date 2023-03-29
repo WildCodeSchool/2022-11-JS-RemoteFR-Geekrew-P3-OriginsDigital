@@ -3,7 +3,7 @@
 .contvid {
   display: flex;
   flex-direction: column;
-  
+  padding-bottom: 5rem;
 }
 
 .videobox {
@@ -48,7 +48,7 @@
     margin-right: 1.2rem;
 }
 .descvid {
-    font: $text-font;
+    font-family: $text-font;
     font-size: 1rem;
     margin-top: 1rem;
     margin-left: 1.2rem;

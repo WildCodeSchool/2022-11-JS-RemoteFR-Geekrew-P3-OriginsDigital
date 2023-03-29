@@ -42,7 +42,8 @@ export default function Header() {
           location.pathname !== "/payments" &&
           location.pathname !== "/payments/confirmation" &&
           location.pathname !== "/sign-in" &&
-          location.pathname !== "/sign-up" && (
+          location.pathname !== "/sign-up" &&
+          location.pathname !== "/search" && (
             <div
               className={styles.divlogo}
               onClick={handleHome}
