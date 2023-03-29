@@ -39,7 +39,7 @@ export default function ProfilePicture() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [userAvatar]);
 
   const randomIndex = Math.floor(Math.random() * avatars.length);
 
@@ -60,10 +60,8 @@ export default function ProfilePicture() {
       )}
       {!isLoggedIn && (
         <img
-          src={`${
-            import.meta.env.VITE_BACKEND_URL
-          }/import Profile from '../pages/Profile';
-assets/images/avatar_icons/${randomAvatar}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}
+          /assets/images/avatar_icons/${randomAvatar}`}
           alt="avatar"
           className={styles["avatar-image"]}
         />
