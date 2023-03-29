@@ -163,6 +163,12 @@ CREATE TABLE IF NOT EXISTS `origins_digital`.`favorite` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+ALTER TABLE `origins_digital`.`favorite`
+DROP PRIMARY KEY,
+ADD COLUMN `id` INT NOT NULL AUTO_INCREMENT FIRST,
+ADD INDEX `idx_favorite_id` (`id`),
+ADD CONSTRAINT `pk_favorite_id` PRIMARY KEY (`id`);
+
 
 -- -----------------------------------------------------
 -- Table `origins_digital`.`recently_viewed`

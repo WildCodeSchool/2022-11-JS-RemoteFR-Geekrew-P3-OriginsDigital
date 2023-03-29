@@ -20,7 +20,7 @@ class FavoriteManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT v.category_id, v.title, v.url, v.thumbnail, v.free, f.video_id, c.name AS category_name FROM favorite AS f
+      `SELECT v.category_id, v.title, v.url, v.thumbnail, v.free, f.video_id, f.user_id, c.name AS category_name FROM favorite AS f
     JOIN video AS v ON f.video_id = v.id
     JOIN category AS c ON v.category_id = c.id`
     );
@@ -46,10 +46,10 @@ class FavoriteManager extends AbstractManager {
     );
   }
 
-  delete(id, userId) {
+  delete(videoId) {
     return this.database.query(
-      `delete from ${this.table} where favorite.user_id = ? and favorite.video_id = ?`,
-      [id, userId]
+      `delete from ${this.table} where favorite.video_id = ?`,
+      [videoId]
     );
   }
 }
