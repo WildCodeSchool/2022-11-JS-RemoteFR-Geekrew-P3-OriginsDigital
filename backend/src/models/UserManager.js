@@ -19,20 +19,35 @@ class UserManager extends AbstractManager {
     );
   }
 
+  // update(user) {
+  //   return this.database.query(
+  //     `UPDATE ${this.table}
+  //     SET firstname = ?, lastname = ?, username = ?, email = ?, password = ?, avatar_id = ?
+  //     WHERE id = ?`,
+  //     [
+  //       user.firstName,
+  //       user.lastName,
+  //       user.userName,
+  //       user.email,
+  //       user.password,
+  //       user.avatar_id,
+  //       user.id,
+  //     ]
+  //   );
+  // }
+
   update(user) {
+    const sql = [];
+    const data = Object.keys(user).map((elem) => {
+      sql.push(
+        `${elem.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`)} = ?`
+      );
+      return user[elem];
+    });
+
     return this.database.query(
-      `UPDATE ${this.table}
-      SET firstname = ?, lastname = ?, username = ?, email = ?, password = ?, avatar_id = ?
-      WHERE id = ?`,
-      [
-        user.firstName,
-        user.lastName,
-        user.userName,
-        user.email,
-        user.password,
-        user.avatar_id,
-        user.id,
-      ]
+      `update ${this.table} set ${sql.join(",")} where id = ?`,
+      [...data, user.id]
     );
   }
 

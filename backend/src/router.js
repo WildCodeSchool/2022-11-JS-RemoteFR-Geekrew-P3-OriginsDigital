@@ -12,6 +12,7 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const categoryControllers = require("./controllers/categoryControllers");
 const authorization = require("./middleware/authorization");
 const userControllers = require("./controllers/userControllers");
+const avatarController = require("./controllers/avatarController");
 
 // const verifyUser = require("./middleware/verifyUser");
 
@@ -36,6 +37,10 @@ router.get("/profile", authorization, userControllers.getOneUser);
 router.get("/log-out", logout, userControllers.getUserByEmail);
 router.delete("/account-delete", userControllers.deleteUser);
 router.get("/admin", rolesCheck, userControllers.getUserByEmail);
+router.put("/user/:id", authorization, userControllers.updateUser);
+
+router.get("/avatars", avatarController.browse);
+router.get("/avatars/:id", avatarController.read);
 
 router.get("/categories", categoryControllers.browse);
 router.get("/categories/:id", categoryControllers.read);
