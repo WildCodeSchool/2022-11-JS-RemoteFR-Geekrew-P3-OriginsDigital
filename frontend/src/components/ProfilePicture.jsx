@@ -47,8 +47,8 @@ export default function ProfilePicture() {
 
   return (
     <div className={styles.avatar}>
-      {isLoggedIn && user && (
-        <Link to="/profile">
+      {isLoggedIn && user && user.roles && (
+        <Link to={user.roles === "admin" ? "/admin" : "/profile"}>
           <img
             src={`${
               import.meta.env.VITE_BACKEND_URL

@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import instanceAxios from "../services/instanceAxios";
 import styles from "../styles/Admin.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
+import ProfilePicture from "../components/ProfilePicture";
 
 function Admin() {
   const { setUser } = useSignInContext();
@@ -19,10 +20,11 @@ function Admin() {
 
   return (
     <div className={styles["admin-profile"]}>
+      <ProfilePicture />
       <div className={styles.tabs}>
         <div className={styles.btnlink}>
-          <NavLink to="/upload-video" className={styles["btn-admin"]}>
-            Upload Video
+          <NavLink to="/add-video" className={styles["btn-admin"]}>
+            Add Video
           </NavLink>
         </div>
         <div className={styles.btnlink}>

@@ -29,6 +29,7 @@ import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Admin from "./pages/Admin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PasswordForgot from "./pages/PasswordForgot";
+import AddVideo from "./pages/AddVideo";
 
 function App() {
   const { user } = useSignInContext();
@@ -46,6 +47,14 @@ function App() {
         <Route path="/sign-up-confirmation" element={<SignUpConfirmation />} />
         <Route path="/videos/:id" element={<Video />} />
         <Route path="/videos" element={<Video />} />
+        <Route
+          element={
+            <ProtectedRoute
+              isAllowed={user && user.roles && user.roles.includes("user")}
+              redirectPath="/profile"
+            />
+          }
+        />
         <Route path="/profile" element={<Profile />} />
         <Route path="/account" element={<Account />} />
         <Route path="/legal" element={<LegalSpace />} />
@@ -65,10 +74,21 @@ function App() {
             <ProtectedRoute
               isAllowed={user && user.roles && user.roles.includes("admin")}
               redirectPath="/admin"
+              element={<Admin />}
             />
           }
         />
         <Route path="/admin" element={<Admin />} />
+        <Route
+          element={
+            <ProtectedRoute
+              isAllowed={user && user.roles && user.roles.includes("admin")}
+              redirectPath="/add-video"
+              element={<AddVideo />}
+            />
+          }
+        />
+        <Route path="/add-video" element={<AddVideo />} />
       </Routes>
       <ToastContainer theme="dark" />
       <Navbar />
