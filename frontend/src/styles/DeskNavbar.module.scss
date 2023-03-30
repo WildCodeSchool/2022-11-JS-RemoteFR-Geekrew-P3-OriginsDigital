@@ -1,5 +1,27 @@
 @import "variables";
 
+.contnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: transparent;
+    will-change: box-shadow;
+    z-index: 10;
+    margin-bottom: 5rem;
+}
+
+.contnav.shadow {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(22, 24, 25, 1);
+}
+
+.small-avatar {
+    height: 70px;
+    margin: 1rem 0.75rem 0.75rem 0.5rem;
+}
+
 @media screen and (max-width: 992px) {
     .contnav {
         display: none;
@@ -17,7 +39,6 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        align-items: flex-end;
     }
     
     .logohead {
@@ -54,7 +75,7 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        margin: auto 1rem auto 1rem;
+        margin: auto 1.5rem auto 1.5rem;
         text-decoration: none;
         list-style-type: none;
     }

@@ -103,6 +103,7 @@ const newLocal = `
 .no:hover {
   cursor: pointer;
   transform: scale(1.05);
+  color: #d16208;
 }
           `;
 

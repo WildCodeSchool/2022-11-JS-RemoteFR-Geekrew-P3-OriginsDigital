@@ -118,7 +118,6 @@ export default function Account() {
 
   return (
     <div className={styles.container}>
-      <div>Account</div>
       <div className={styles["avatar-container"]}>
         <ProfilePicture className={styles["medium-avatar"]} />
         <div

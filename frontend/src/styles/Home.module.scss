@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
@@ -19,7 +20,7 @@ body {
 
 .main {
   display: flex;
-  margin: 2rem; 
+  margin: 2rem;
   justify-content: space-between;
 }
 

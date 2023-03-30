@@ -10,8 +10,6 @@ function Modal({ isShowing, hide }) {
   const [currentUserAvatar, setCurrentUserAvatar] = useState("");
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // console.log("user avatar ==", currentUserAvatar);
-
   const { userId, setUserId } = useSignInContext();
 
   useEffect(() => {
@@ -37,7 +35,6 @@ function Modal({ isShowing, hide }) {
       .get(`/profile`)
       .then((response) => {
         const userData = response.data;
-        // console.log(userData);
         setCurrentUserAvatar(userData.avatar_id);
       })
       .catch((error) => {
@@ -75,7 +72,6 @@ function Modal({ isShowing, hide }) {
   };
 
   const handleCloseClick = () => {
-    // console.log(selectedImage);
     const data = {
       avatar_id: selectedImage,
     };
@@ -92,8 +88,6 @@ function Modal({ isShowing, hide }) {
 
     window.location.reload();
   };
-
-  // console.error(selectedImage);
 
   return isShowing
     ? ReactDom.createPortal(
