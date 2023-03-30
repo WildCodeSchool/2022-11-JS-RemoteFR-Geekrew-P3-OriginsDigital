@@ -1,35 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { TrashBinOutline } from "react-ionicons";
 import { useSignInContext } from "../contexts/SignInContext";
+import { useFavoriteContext } from "../contexts/FavoriteContext";
 import instanceAxios from "../services/instanceAxios";
 
 import styles from "../styles/Favorites.module.scss";
 
 export default function Favorites() {
-  const [favorites, setFavorites] = useState([]);
   const { userId, setUserId } = useSignInContext();
+  const { favorites, setFavorites } = useFavoriteContext();
+
+  useEffect(() => {
+    instanceAxios
+      .get(`/favorites`)
+      .then((res) => res.data)
+      .then((data) => {
+        const userFav = data.filter((fav) => fav.user_id === userId);
+        setFavorites(userFav);
+      });
+    instanceAxios.get(`/profile`).then((response) => {
+      const userData = response.data;
+      setUserId(userData.id);
+    });
+  }, [favorites]);
+
   const onPressDelete = (id) => {
     instanceAxios
       .delete(`/favorites/${id}`)
       .then(() => setFavorites(favorites.filter((f) => f.id !== id)))
       .catch((error) => console.error(error));
   };
-
-  useEffect(() => {
-    instanceAxios.get(`/profile`).then((response) => {
-      const userData = response.data;
-      setUserId(userData.id);
-      instanceAxios
-        .get(`/favorites`)
-        .then((res) => res.data)
-        .then((data) => {
-          const userFav = data.filter((fav) => fav.user_id === userId);
-          setFavorites(userFav);
-        });
-    });
-  }, [favorites]);
-
   return (
     <div className={styles.container}>
       <div className={styles.title}>Favorites</div>

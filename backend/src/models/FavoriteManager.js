@@ -5,10 +5,11 @@ class FavoriteManager extends AbstractManager {
     super({ table: "favorite" });
   }
 
-  insert(video) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      video.title,
-    ]);
+  insert(userId, videoId) {
+    return this.database.query(
+      `insert into ${this.table} (user_id, video_id, date_added) values (?, ?, NOW())`,
+      [userId, videoId]
+    );
   }
 
   update(video) {

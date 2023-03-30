@@ -5,6 +5,7 @@ import { SignInContextProvider } from "./contexts/SignInContext";
 import App from "./App";
 
 import "./styles/index.scss";
+import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <SignInContextProvider>
-        <App />
+        <FavoriteContextProvider>
+          <App />
+        </FavoriteContextProvider>
       </SignInContextProvider>
     </BrowserRouter>
   </React.StrictMode>
