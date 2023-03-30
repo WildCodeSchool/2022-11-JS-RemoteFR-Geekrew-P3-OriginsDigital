@@ -30,6 +30,17 @@ class VideoManager extends AbstractManager {
       [id]
     );
   }
+
+  updateLike(id, likes, dislikes, isLiked, isDisliked, userId) {
+    return this.database.query(
+      `UPDATE video v
+     JOIN user_likes ul ON v.id = ul.video_id
+     SET v.likes = ?, v.dislikes = ?, ul.liked = ?, ul.disliked = ?
+     WHERE v.id = ?
+     AND ul.user_id = ?`,
+      [likes, dislikes, isLiked, isDisliked, userId, id]
+    );
+  }
 }
 
 module.exports = VideoManager;

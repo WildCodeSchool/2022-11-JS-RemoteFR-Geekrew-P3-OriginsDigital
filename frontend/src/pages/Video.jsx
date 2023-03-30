@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
-import axios from "axios";
 import {
   ThumbsUpOutline,
+  ThumbsUpSharp,
   ThumbsDownOutline,
+  ThumbsDownSharp,
   BookmarkOutline,
   Bookmark,
 } from "react-ionicons";
+import instanceAxios from "../services/instanceAxios";
 import styles from "../styles/Video.module.scss";
 
 function Video() {
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
   const { id } = useParams();
   const [video, setVideo] = useState({});
   const [isFavorite, setIsFavorite] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/videos/${id}`)
+    instanceAxios
+      .get(`/videos/${id}`)
       .then((res) => res.data)
       .then((data) => {
         setVideo(data);
@@ -35,6 +39,40 @@ function Video() {
     navigate(path);
   };
 
+  const handleLike = () => {
+    if (!isLiked) {
+      setLikeCount(likeCount + 1);
+      setIsLiked(true);
+      setIsDisliked(false);
+      if (isDisliked) {
+        setDislikeCount(dislikeCount - 1);
+      }
+      instanceAxios.put(`/videos/${id}/like`, {
+        likes: likeCount + 1,
+        dislikes: isDisliked ? dislikeCount - 1 : dislikeCount,
+        isLiked: true,
+        isDisliked: false,
+      });
+    }
+  };
+
+  const handleDislike = () => {
+    if (!isDisliked) {
+      setDislikeCount(dislikeCount + 1);
+      setIsDisliked(true);
+      setIsLiked(false);
+      if (isLiked) {
+        setLikeCount(likeCount - 1);
+      }
+      instanceAxios.put(`$/videos/${id}/like`, {
+        likes: isLiked ? likeCount - 1 : likeCount,
+        dislikes: dislikeCount + 1,
+        isLiked: false,
+        isDisliked: true,
+      });
+    }
+  };
+
   return (
     <div className={styles.contvid}>
       <div className={styles.videobox}>
@@ -44,7 +82,6 @@ function Video() {
           url={video.url}
           height="100%"
           width="100%"
-          // aspectRatio="16:9"
         />
       </div>
       <button
@@ -58,21 +95,41 @@ function Video() {
       <h2 className={styles.videotitle}>{video.title}</h2>
       <div className={styles.boxlike}>
         <div className={styles.likes}>
-          <ThumbsUpOutline
-            color="#ffffff"
-            height="30px"
-            width="40px"
-            onClick={() => setLikeCount(likeCount + 1)}
-            className={styles.like}
-          />
+          {isLiked ? (
+            <ThumbsUpSharp
+              color="#ffffff"
+              height="30px"
+              width="40px"
+              onClick={handleLike}
+              className={styles.like}
+            />
+          ) : (
+            <ThumbsUpOutline
+              color="#ffffff"
+              height="30px"
+              width="40px"
+              onClick={handleLike}
+              className={styles.like}
+            />
+          )}
           <span className={styles.likeCount}>{likeCount}</span>
-          <ThumbsDownOutline
-            color="#ffffff"
-            height="30px"
-            width="40px"
-            onClick={() => setDislikeCount(dislikeCount + 1)}
-            className={styles.dislike}
-          />
+          {isDisliked ? (
+            <ThumbsDownSharp
+              color="#ffffff"
+              height="30px"
+              width="40px"
+              onClick={handleDislike}
+              className={styles.dislike}
+            />
+          ) : (
+            <ThumbsDownOutline
+              color="#ffffff"
+              height="30px"
+              width="40px"
+              onClick={handleDislike}
+              className={styles.dislike}
+            />
+          )}
           <span className={styles.likeCount}>{dislikeCount}</span>
         </div>
         <div className={styles.favories}>
