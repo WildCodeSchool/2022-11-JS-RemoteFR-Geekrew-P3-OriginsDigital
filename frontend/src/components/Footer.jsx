@@ -20,7 +20,7 @@ function Footer() {
           </a>
         </div>
         <div className={styles.linkedinlink}>
-          <a href={linkLogo}>
+          <a href="https://fr.linkedin.com/company/origins-digital-emg">
             <img
               src={linkLogo}
               alt="LinkedIn logo"
