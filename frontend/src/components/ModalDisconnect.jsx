@@ -53,7 +53,7 @@ function Modal({ isShowing, hide }) {
                     <span>&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">Do you want to disconnect ?</div>
+                <div className="modal-body">Want to leave us already?</div>
                 <div className="buttons-confirm">
                   <button
                     type="button"

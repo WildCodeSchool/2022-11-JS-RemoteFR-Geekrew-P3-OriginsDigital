@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import styles from "../styles/ProfilePicture.module.scss";
 import { useSignInContext } from "../contexts/SignInContext";
 import instanceAxios from "../services/instanceAxios";
 
-export default function ProfilePicture() {
+export default function ProfilePicture({ className }) {
   const {
     user,
     isLoggedIn,
@@ -33,10 +34,14 @@ export default function ProfilePicture() {
               import.meta.env.VITE_BACKEND_URL
             }/assets/images/avatar_icons/${userAvatar}`}
             alt="avatar"
-            className={styles["avatar-profile-image"]}
+            className={`${styles["avatar-profile-image"]} ${className}`}
           />
         </Link>
       )}
     </div>
   );
 }
+
+ProfilePicture.propTypes = {
+  className: PropTypes.string.isRequired,
+};

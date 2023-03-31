@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { PencilOutline, CloseOutline } from "react-ionicons";
 import { useFormContext } from "../contexts/FormContext";
+import { useSignInContext } from "../contexts/SignInContext";
 import instanceAxios from "../services/instanceAxios";
 
 import ProfilePicture from "../components/ProfilePicture";
@@ -26,6 +27,8 @@ export default function Account() {
   const emailInput = useRef(null);
   const oldPasswordInput = useRef(null);
 
+  const { userId, setUserId } = useSignInContext();
+
   useEffect(() => {
     instanceAxios
       .get(`/profile`)
@@ -34,6 +37,7 @@ export default function Account() {
         setUserName(userData.username);
         setUsernameValue(userData.username);
         setEmailValue(userData.email);
+        setUserId(userData.id);
       })
       .catch((error) => {
         console.error(error);
@@ -92,13 +96,30 @@ export default function Account() {
 
   const onPressApply = () => {
     setApply(true);
+
+    const data = {
+      username: usernameValue,
+      email: emailValue,
+    };
+
+    instanceAxios
+      .put(`/user/${userId}`, data)
+      .then(() => {
+        const newUsername = data.username ? data.username : userName;
+        setUsernameValue(newUsername);
+        setUserName(newUsername);
+        const newEmail = data.email ? data.email : emailValue;
+        setEmailValue(newEmail);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <div className={styles.container}>
-      <div>Account</div>
       <div className={styles["avatar-container"]}>
-        <ProfilePicture />
+        <ProfilePicture className={styles["medium-avatar"]} />
         <div
           className={styles.pencil}
           onClick={toggle}

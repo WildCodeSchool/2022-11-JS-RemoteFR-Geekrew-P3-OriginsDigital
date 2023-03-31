@@ -44,6 +44,11 @@ const UserManager = require("./UserManager");
 models.user = new UserManager();
 models.user.setDatabase(pool);
 
+const AvatarManager = require("./AvatarManager");
+
+models.avatar = new AvatarManager();
+models.avatar.setDatabase(pool);
+
 const FavoriteManager = require("./FavoriteManager");
 
 models.favorite = new FavoriteManager();
