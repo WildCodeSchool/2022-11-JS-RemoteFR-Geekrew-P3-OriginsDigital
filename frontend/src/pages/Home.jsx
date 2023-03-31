@@ -14,7 +14,8 @@ import styles from "../styles/Home.module.scss";
 export default function Home() {
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedImages, setSelectedImages] = useState(videos.slice(0, 3));
+  const [carouselImages, setCarouselImages] = useState(videos);
+  const [popularImages, setPopularImages] = useState(videos);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,13 +30,34 @@ export default function Home() {
   }, []);
 
   const handleRandomize = () => {
-    const randomIndex = Math.floor(Math.random() * 31);
-    const randomizedImages = videos.slice(randomIndex, randomIndex + 3);
-    setSelectedImages(randomizedImages);
+    const videosArr = videos;
+    const carouselArr = [];
+    const popularArr = [];
+
+    while (carouselArr.length < 3) {
+      const randomIndex = Math.floor(Math.random() * videosArr.length);
+
+      if (!carouselArr.includes(videos[randomIndex])) {
+        carouselArr.push(videos[randomIndex]);
+      }
+    }
+
+    while (popularArr.length < 6) {
+      const randomIndex = Math.floor(Math.random() * videosArr.length);
+
+      if (!popularArr.includes(videos[randomIndex])) {
+        popularArr.push(videos[randomIndex]);
+      }
+    }
+
+    setCarouselImages(carouselArr);
+    setPopularImages(popularArr);
   };
 
   useEffect(() => {
-    handleRandomize();
+    if (videos.length) {
+      handleRandomize();
+    }
   }, [videos]);
 
   const onPressCategory = (e) => {
@@ -46,28 +68,57 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles["carousel-container"]}>
-        <Swiper
-          pagination
-          autoplay={{
-            delay: 3000,
-          }}
-          spaceBetween={20}
-          modules={[Pagination, Autoplay]}
-          className={styles["main-carousel"]}
-        >
-          {selectedImages.map((video) => (
-            <SwiperSlide key={video.id}>
-              <NavLink key={video.id} to={`/videos/${video.id}`}>
-                <img
-                  src={video.thumbnail}
-                  alt={video.description}
-                  className={styles["main-carousel"]}
-                />
-              </NavLink>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className={styles.main}>
+        <div className={styles["carousel-container"]}>
+          <Swiper
+            pagination
+            autoplay={{
+              delay: 3000,
+            }}
+            spaceBetween={20}
+            modules={[Pagination, Autoplay]}
+            className={styles["main-carousel"]}
+          >
+            {carouselImages.map((video) => (
+              <SwiperSlide key={video.id}>
+                <NavLink key={video.id} to={`/videos/${video.id}`}>
+                  <img
+                    src={video.thumbnail}
+                    alt={video.description}
+                    className={styles["main-carousel"]}
+                  />
+                </NavLink>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className={styles["popular-images-container"]}>
+          <h1 className={styles["popular-title"]}>Popular</h1>
+          <div>
+            <div className={styles.row}>
+              {popularImages.slice(0, 3).map((video) => (
+                <NavLink key={video.id} to={`/videos/${video.id}`}>
+                  <img
+                    src={video.thumbnail}
+                    alt={video.description}
+                    className={styles["popular-img"]}
+                  />
+                </NavLink>
+              ))}
+            </div>
+            <div className={styles.row}>
+              {popularImages.slice(3, 6).map((video) => (
+                <NavLink key={video.id} to={`/videos/${video.id}`}>
+                  <img
+                    src={video.thumbnail}
+                    alt={video.description}
+                    className={styles["popular-img"]}
+                  />
+                </NavLink>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       {categories.map((category) => {
         return (

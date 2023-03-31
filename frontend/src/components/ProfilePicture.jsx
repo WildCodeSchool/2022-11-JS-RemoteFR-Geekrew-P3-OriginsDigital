@@ -1,6 +1,12 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "../styles/ProfilePicture.module.scss";
+import { useSignInContext } from "../contexts/SignInContext";
+import instanceAxios from "../services/instanceAxios";
 
 export default function ProfilePicture() {
+  const { user, isLoggedIn, userAvatar, setUserAvatar } = useSignInContext();
+
   const avatars = [
     "black_cat.png",
     "dark_pumpkin.png",
@@ -23,6 +29,17 @@ export default function ProfilePicture() {
     "the_skull.png",
     "the_wolf.png",
   ];
+  useEffect(() => {
+    instanceAxios
+      .get(`/profile`)
+      .then((response) => {
+        const userData = response.data;
+        setUserAvatar(userData.icons);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [userAvatar]);
 
   const randomIndex = Math.floor(Math.random() * avatars.length);
 
@@ -30,13 +47,25 @@ export default function ProfilePicture() {
 
   return (
     <div className={styles.avatar}>
-      <img
-        src={`${
-          import.meta.env.VITE_BACKEND_URL
-        }/assets/images/avatar_icons/${randomAvatar}`}
-        alt="avatar"
-        className={styles["avatar-image"]}
-      />
+      {isLoggedIn && user && (
+        <Link to="/profile">
+          <img
+            src={`${
+              import.meta.env.VITE_BACKEND_URL
+            }/assets/images/avatar_icons/${userAvatar}`}
+            alt="avatar"
+            className={styles["avatar-profile-image"]}
+          />
+        </Link>
+      )}
+      {!isLoggedIn && (
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}
+          /assets/images/avatar_icons/${randomAvatar}`}
+          alt="avatar"
+          className={styles["avatar-image"]}
+        />
+      )}
     </div>
   );
 }

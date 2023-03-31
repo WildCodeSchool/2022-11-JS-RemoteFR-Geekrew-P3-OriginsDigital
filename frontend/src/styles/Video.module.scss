@@ -3,13 +3,13 @@
 .contvid {
   display: flex;
   flex-direction: column;
-  
 }
 
 .videobox {
   display: flex;
   justify-content: center;
   margin: 2rem;
+height: 195px;
 }
 .video {
     top: 0;
@@ -71,18 +71,23 @@
 
 @media screen and (min-width: 993px) {
     .contvid {
-        height: 100%;
         width: 60%;
         align-self: center;
+        justify-content: space-between;
         padding-bottom: 4rem;
-        margin-bottom: 4rem;
     }    
+
+    .videobox {
+        height: 530px;
+        margin: 0;
+    }
 
     .cattitle {
         font-weight: 600;
         margin-left: 0;
         font-size: 2rem;
         margin-bottom: 0.75rem;
+        margin-top: 3rem;
     }
 
     .videotitle {
@@ -116,9 +121,16 @@
             rgb(255, 116, 2, 0.1) 0px -0.625px 1.5625px;
     }
     
-    .videobox{
-        height: 100%;
-        width: 100%;
+    // .video {
+    //     min-height: 100%;
+    // }
+
+    .containervid {
+        display: flex;
     }
 
+    .containertext {
+        display: flex;
+        flex-direction: column;
+    }
 }
