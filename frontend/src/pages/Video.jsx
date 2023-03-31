@@ -76,7 +76,6 @@ function Video() {
           url={video.url}
           height="100%"
           width="100%"
-          // aspectRatio="16:9"
         />
       </div>
       <button
