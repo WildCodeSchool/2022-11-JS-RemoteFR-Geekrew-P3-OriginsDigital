@@ -30,6 +30,9 @@ import Admin from "./pages/Admin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PasswordForgot from "./pages/PasswordForgot";
 import AddVideo from "./pages/AddVideo";
+import ManageVideo from "./pages/ManageVideo";
+import ManageCategory from "./pages/ManageCategory";
+import AddPages from "./pages/AddPages";
 
 function App() {
   const { user } = useSignInContext();
@@ -89,6 +92,9 @@ function App() {
           }
         />
         <Route path="/add-video" element={<AddVideo />} />
+        <Route path="/manage-categories" element={<ManageCategory />} />
+        <Route path="/manage-video" element={<ManageVideo />} />
+        <Route path="/add-pages" element={<AddPages />} />
       </Routes>
       <ToastContainer theme="dark" />
       <Navbar />
