@@ -1,15 +1,46 @@
-import React, { useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import ReactDom from "react-dom";
 import PropTypes from "prop-types";
+import { useSignInContext } from "../contexts/SignInContext";
+import instanceAxios from "../services/instanceAxios";
 import newLocal from "../styles/modal/modalPicturesStyles";
 import ImagesList from "./ImagesList";
 
 function Modal({ isShowing, hide }) {
+  const [currentUserAvatar, setCurrentUserAvatar] = useState("");
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const { userId, setUserId } = useSignInContext();
+
+  useEffect(() => {
+    instanceAxios
+      .get(`/profile`)
+      .then((response) => {
+        const userData = response.data;
+        setUserId(userData.id);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   useLayoutEffect(() => {
     if (!isShowing) {
       document.getElementById("root").classList.remove("no-scroll");
     } else document.getElementById("root").classList.add("no-scroll");
   });
+
+  useEffect(() => {
+    instanceAxios
+      .get(`/profile`)
+      .then((response) => {
+        const userData = response.data;
+        setCurrentUserAvatar(userData.avatar_id);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const avatars = [
     "black_cat.png",
@@ -36,6 +67,28 @@ function Modal({ isShowing, hide }) {
 
   const url = `${import.meta.env.VITE_BACKEND_URL}/assets/images/avatar_icons/`;
 
+  const handleImageClick = (id) => {
+    setSelectedImage(id);
+  };
+
+  const handleCloseClick = () => {
+    const data = {
+      avatar_id: selectedImage,
+    };
+
+    instanceAxios
+      .put(`/user/${userId}`, data)
+      .then(() => {
+        const newAvatar = data.avatar_id ? data.avatar_id : currentUserAvatar;
+        setCurrentUserAvatar(newAvatar);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    window.location.reload();
+  };
+
   return isShowing
     ? ReactDom.createPortal(
         <>
@@ -47,13 +100,20 @@ function Modal({ isShowing, hide }) {
                   <button
                     type="button"
                     className="modal-close-button"
-                    onClick={hide}
+                    onClick={() => {
+                      hide();
+                      handleCloseClick();
+                    }}
                   >
                     <span>&times;</span>
                   </button>
                 </div>
                 <div className="images">
-                  <ImagesList avatars={avatars} url={url} />
+                  <ImagesList
+                    avatars={avatars}
+                    url={url}
+                    onImageClick={handleImageClick}
+                  />
                 </div>
               </div>
             </div>

@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
@@ -19,7 +20,7 @@ body {
 
 .main {
   display: flex;
-  margin: 2rem; 
+  margin: 2rem;
   justify-content: space-between;
 }
 
@@ -135,10 +136,10 @@ body {
       height: 25rem;
       width: 40rem;
       border: solid 1px #ff7402;
-        background: linear-gradient(to bottom, #fc4f0c, #ff9842);
-        box-shadow: 0px 0px 50px rgba(255, 116, 2, 0.2),
-          0px 0px 20px rgba(255, 116, 2, 0.1),
-          0px 0px 10px rgba(255, 116, 2, 0.05);
+      background: linear-gradient(to bottom, #fc4f0c, #ff9842);
+      box-shadow: 0px 0px 50px rgba(255, 116, 2, 0.2),
+        0px 0px 20px rgba(255, 116, 2, 0.1),
+        0px 0px 10px rgba(255, 116, 2, 0.05);
     }
 
     .popular-images-container {

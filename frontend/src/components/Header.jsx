@@ -57,7 +57,7 @@ export default function Header() {
             </div>
           )}
         <div className={styles.divlogo}>
-          {isLoggedIn && <ProfilePicture />}
+          {isLoggedIn && <ProfilePicture className={styles["small-avatar"]} />}
           {!isLoggedIn && (
             <button
               className={styles.btnhead}

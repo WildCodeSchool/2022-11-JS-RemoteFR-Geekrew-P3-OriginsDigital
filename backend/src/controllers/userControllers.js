@@ -1,4 +1,5 @@
 const models = require("../models");
+const { encodeJWT } = require("../helpers/jwt.helper");
 
 const addUser = (req, res) => {
   const user = req.body;
@@ -17,11 +18,23 @@ const addUser = (req, res) => {
 const updateUser = (req, res) => {
   const user = req.body;
 
-  models.user
+  user.id = parseInt(req.params.id, 10);
 
+  models.user
     .update(user)
     .then(([result]) => {
-      res.location(`/user/${result.insertId}`).sendStatus(201);
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        delete req.user.password;
+        delete req.user.iat;
+        delete req.user.exp;
+
+        const token = encodeJWT({ ...req.user, ...user });
+        res.cookie("auth_token", token, { httpOnly: true, secure: false });
+
+        res.status(204).json({ user });
+      }
     })
     .catch((err) => {
       console.error(err);

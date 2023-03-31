@@ -11,6 +11,7 @@ const authorization = (req, res, next) => {
     req.email = data.email;
     req.roles = [];
     req.roles.push(data.roles);
+    req.user = data;
     return next();
   } catch (e) {
     res.sendStatus(401);
