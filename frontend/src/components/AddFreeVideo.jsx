@@ -17,7 +17,7 @@ function AddVideoFree({ free, setFree }) {
         name="free"
         type="number"
         placeholder="Free 0 or not 1 "
-        value={free}
+        value={free || ""}
         onChange={handleChangeFree}
       />
     </div>
@@ -25,8 +25,11 @@ function AddVideoFree({ free, setFree }) {
 }
 
 AddVideoFree.propTypes = {
-  free: PropTypes.string.isRequired,
+  free: PropTypes.string,
   setFree: PropTypes.func.isRequired,
+};
+AddVideoFree.defaultProps = {
+  free: "",
 };
 
 export default AddVideoFree;

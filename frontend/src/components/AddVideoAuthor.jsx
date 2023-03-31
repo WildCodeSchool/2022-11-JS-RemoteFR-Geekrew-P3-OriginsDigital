@@ -16,7 +16,7 @@ function AddVideoAuthor({ author, setAuthor }) {
         name="author"
         type="text"
         placeholder="Author"
-        value={author}
+        value={author || ""}
         onChange={handleAuthor}
       />
     </div>
@@ -24,8 +24,11 @@ function AddVideoAuthor({ author, setAuthor }) {
 }
 
 AddVideoAuthor.propTypes = {
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   setAuthor: PropTypes.func.isRequired,
+};
+AddVideoAuthor.defaultProps = {
+  author: "",
 };
 
 export default AddVideoAuthor;

@@ -16,7 +16,7 @@ function AddVideoUrl({ url, setUrl }) {
         name="url"
         type="text"
         placeholder="Url"
-        value={url}
+        value={url || ""}
         onChange={handleUrl}
       />
     </div>
@@ -24,8 +24,11 @@ function AddVideoUrl({ url, setUrl }) {
 }
 
 AddVideoUrl.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   setUrl: PropTypes.func.isRequired,
+};
+AddVideoUrl.defaultProps = {
+  url: "",
 };
 
 export default AddVideoUrl;

@@ -17,15 +17,18 @@ function AddVideoTitle({ title, setTitle }) {
         name="title"
         type="text"
         placeholder="Title"
-        value={title}
+        value={title || ""}
         onChange={handleTitle}
       />
     </div>
   );
 }
 AddVideoTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   setTitle: PropTypes.func.isRequired,
+};
+AddVideoTitle.defaultProps = {
+  title: "",
 };
 
 export default AddVideoTitle;

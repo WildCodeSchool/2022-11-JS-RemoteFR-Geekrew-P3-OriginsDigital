@@ -15,7 +15,7 @@ function AddVideoDesc({ desc, setDesc }) {
         name="description"
         type="text"
         placeholder="Description"
-        value={desc}
+        value={desc || ""}
         onChange={handleDesc}
       />
     </div>
@@ -23,8 +23,11 @@ function AddVideoDesc({ desc, setDesc }) {
 }
 
 AddVideoDesc.propTypes = {
-  desc: PropTypes.string.isRequired,
+  desc: PropTypes.string,
   setDesc: PropTypes.func.isRequired,
+};
+AddVideoDesc.defaultProps = {
+  desc: "",
 };
 
 export default AddVideoDesc;

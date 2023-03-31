@@ -5,7 +5,12 @@ import { useSignInContext } from "../contexts/SignInContext";
 import instanceAxios from "../services/instanceAxios";
 
 export default function ProfilePicture() {
-  const { user, isLoggedIn, userAvatar, setUserAvatar } = useSignInContext();
+  const {
+    user,
+    isLoggedIn,
+    userAvatar = "",
+    setUserAvatar,
+  } = useSignInContext();
 
   useEffect(() => {
     instanceAxios

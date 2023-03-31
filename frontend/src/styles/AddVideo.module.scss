@@ -99,6 +99,23 @@
         }
     }
 
+    .add-video-input-time{
+        display: flex;
+            background-color: #484a4b;
+            height: 2.5rem;
+            color: #6e7575;
+            border: none;
+            width: 20rem;
+            font-size: 1rem;
+            border-radius: 1rem;
+            padding-left: 1rem;
+            margin-top: 1rem;
+        
+            &:hover {
+                opacity: 0.8;
+            }
+    }
+
 .add-video-button {
     display: flex;
     flex-direction: column;

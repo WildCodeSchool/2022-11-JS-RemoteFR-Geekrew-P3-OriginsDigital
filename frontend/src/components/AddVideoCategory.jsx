@@ -16,7 +16,7 @@ function AddVideoCategory({ category, setCategory }) {
         name="category"
         type="number"
         placeholder="category id"
-        value={category}
+        value={category || ""}
         onChange={handleCategory}
       />
     </div>
@@ -24,8 +24,11 @@ function AddVideoCategory({ category, setCategory }) {
 }
 
 AddVideoCategory.propTypes = {
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
   setCategory: PropTypes.func.isRequired,
+};
+AddVideoCategory.defaultProps = {
+  category: "",
 };
 
 export default AddVideoCategory;

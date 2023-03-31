@@ -15,7 +15,7 @@ function AddVideoThumbnail({ thumbnail, setThumbnail }) {
         name="thumbnail"
         type="url"
         placeholder="Thumbnail url"
-        value={thumbnail}
+        value={thumbnail || ""}
         onChange={handleThumbnail}
       />
     </div>
@@ -23,8 +23,11 @@ function AddVideoThumbnail({ thumbnail, setThumbnail }) {
 }
 
 AddVideoThumbnail.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string,
   setThumbnail: PropTypes.func.isRequired,
+};
+AddVideoThumbnail.defaultProps = {
+  thumbnail: "",
 };
 
 export default AddVideoThumbnail;

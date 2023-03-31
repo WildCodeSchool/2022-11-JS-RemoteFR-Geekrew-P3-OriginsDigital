@@ -12,11 +12,12 @@ function AddVideoDuration({ duration, setDuration }) {
   return (
     <div className={styles["add-video-input-group"]}>
       <input
-        className={styles["add-video-input"]}
+        className={styles["add-video-input-time"]}
         name="duration"
         type="time"
+        step="1"
         placeholder="Duration"
-        value={duration}
+        value={duration || ""}
         onChange={handleDuration}
       />
     </div>
@@ -24,8 +25,11 @@ function AddVideoDuration({ duration, setDuration }) {
 }
 
 AddVideoDuration.propTypes = {
-  duration: PropTypes.string.isRequired,
+  duration: PropTypes.string,
   setDuration: PropTypes.func.isRequired,
+};
+AddVideoDuration.defaultProps = {
+  duration: "",
 };
 
 export default AddVideoDuration;
