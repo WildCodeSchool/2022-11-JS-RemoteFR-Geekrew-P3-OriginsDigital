@@ -6,6 +6,7 @@ import { UploadContextProvider } from "./contexts/UploadContext";
 import App from "./App";
 
 import "./styles/index.scss";
+import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <SignInContextProvider>
         <UploadContextProvider>
-          <App />
+          <FavoriteContextProvider>
+            <App />
+          </FavoriteContextProvider>
         </UploadContextProvider>
       </SignInContextProvider>
     </BrowserRouter>

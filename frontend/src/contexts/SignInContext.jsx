@@ -11,6 +11,7 @@ export function SignInContextProvider({ children }) {
   const [userAvatar, setUserAvatar] = useState(
     localStorage.getItem("user") || ""
   );
+  const [userId, setUserId] = useState(localStorage.getItem("user"));
 
   const values = useMemo(
     () => ({
@@ -24,6 +25,8 @@ export function SignInContextProvider({ children }) {
       setIsLoggedIn,
       userAvatar,
       setUserAvatar,
+      userId,
+      setUserId,
     }),
     [
       email,
@@ -36,6 +39,8 @@ export function SignInContextProvider({ children }) {
       setIsLoggedIn,
       userAvatar,
       setUserAvatar,
+      userId,
+      setUserId,
     ]
   );
 
