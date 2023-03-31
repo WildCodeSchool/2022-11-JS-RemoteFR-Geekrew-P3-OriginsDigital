@@ -31,14 +31,34 @@ class VideoManager extends AbstractManager {
     );
   }
 
-  updateLike(id, likes, dislikes, isLiked, isDisliked, userId) {
+  updateLike(id, likes, dislikes) {
     return this.database.query(
       `UPDATE video v
-     JOIN user_likes ul ON v.id = ul.video_id
-     SET v.likes = ?, v.dislikes = ?, ul.liked = ?, ul.disliked = ?
-     WHERE v.id = ?
-     AND ul.user_id = ?`,
-      [likes, dislikes, isLiked, isDisliked, userId, id]
+     SET v.likes = ?, v.dislikes = ?
+     WHERE v.id = ?;`,
+      [likes, dislikes, id]
+    );
+  }
+
+  insertUserLike(isLiked, isDisliked, userId, id) {
+    return this.database.query(
+      `INSERT INTO user_likes (liked, disliked, user_id, video_id) 
+      VALUES ( ?, ?, ?, ?);`,
+      [isLiked, isDisliked, userId, id]
+    );
+  }
+
+  updateUserLike(isLiked, isDisliked, userId, id) {
+    return this.database.query(
+      `UPDATE user_likes ul SET ul.liked = ?, ul.disliked = ? WHERE ul.video_id = ? AND ul.user_id = ?;`,
+      [isLiked, isDisliked, id, userId]
+    );
+  }
+
+  browseLikeState(id, userId) {
+    return this.database.query(
+      `select * FROM user_likes where video_id = ? AND user_id = ?;`,
+      [id, userId]
     );
   }
 }

@@ -112,15 +112,38 @@ const readVideoById = (req, res) => {
 
 const updateVideoById = (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const { likes, dislikes, isLiked, isDisliked, userId } = req.body;
+  const { likes, dislikes, isLiked, isDisliked } = req.body;
   models.video
-    .updateLike(id, likes, dislikes, isLiked, isDisliked, userId)
+    .updateLike(id, likes, dislikes)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        models.video
+          .updateUserLike(isLiked, isDisliked, req.userId, id)
+          .then((results) => {
+            if (results.affectedRows === 0) {
+              models.video.insertUserLike(isLiked, isDisliked, req.userId, id);
+              res.sendStatus(201);
+            }
+          });
       }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const browseLikeById = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  models.video
+    .browseLikeState(id, req.userId)
+    .then(([rows]) => {
+      const liked = rows.length > 0;
+      const disliked = rows[0]?.disliked || false;
+      res.json({ liked, disliked });
     })
     .catch((err) => {
       console.error(err);
@@ -137,4 +160,5 @@ module.exports = {
   browseByCategory,
   readVideoById,
   updateVideoById,
+  browseLikeById,
 };

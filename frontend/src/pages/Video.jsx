@@ -31,6 +31,16 @@ function Video() {
         setLikeCount(data.likes);
         setDislikeCount(data.dislikes);
       });
+    instanceAxios
+      .get(`/videos/${id}/like`)
+      .then((res) => res.data)
+      .then((data) => {
+        setIsLiked(data.liked);
+        setIsDisliked(data.disliked);
+      })
+      .catch((res) => {
+        res.sendStatus(500);
+      });
   }, [id]);
 
   const onPressCategory = (e) => {
@@ -47,11 +57,26 @@ function Video() {
       if (isDisliked) {
         setDislikeCount(dislikeCount - 1);
       }
+      // instanceAxios.put(`/videos/${id}/like`, {
+      //   likes: likeCount + 1,
+      //   dislikes: isDisliked ? dislikeCount - 1 : dislikeCount,
+      //   isLiked: true,
+      //   isDisliked: false,
+      // });
       instanceAxios.put(`/videos/${id}/like`, {
         likes: likeCount + 1,
         dislikes: isDisliked ? dislikeCount - 1 : dislikeCount,
         isLiked: true,
         isDisliked: false,
+      });
+    } else {
+      setLikeCount(likeCount - 1);
+      setIsLiked(false);
+      instanceAxios.put(`/videos/${id}/like`, {
+        likes: likeCount - 1,
+        dislikes: isDisliked ? dislikeCount : dislikeCount,
+        isLiked: false,
+        isDisliked,
       });
     }
   };
@@ -64,11 +89,26 @@ function Video() {
       if (isLiked) {
         setLikeCount(likeCount - 1);
       }
-      instanceAxios.put(`$/videos/${id}/like`, {
+      // instanceAxios.put(`/videos/${id}/like`, {
+      //   likes: isLiked ? likeCount - 1 : likeCount,
+      //   dislikes: dislikeCount + 1,
+      //   isLiked: false,
+      //   isDisliked: true,
+      // });
+      instanceAxios.put(`/videos/${id}/like`, {
         likes: isLiked ? likeCount - 1 : likeCount,
         dislikes: dislikeCount + 1,
         isLiked: false,
         isDisliked: true,
+      });
+    } else {
+      setDislikeCount(dislikeCount - 1);
+      setIsDisliked(false);
+      instanceAxios.put(`/videos/${id}/like`, {
+        likes: isLiked ? likeCount : likeCount,
+        dislikes: dislikeCount - 1,
+        isLiked,
+        isDisliked: false,
       });
     }
   };
