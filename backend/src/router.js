@@ -14,15 +14,12 @@ const authorization = require("./middleware/authorization");
 const userControllers = require("./controllers/userControllers");
 const avatarController = require("./controllers/avatarController");
 
-// const verifyUser = require("./middleware/verifyUser");
-
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
-// router.get("/videos", videoControllers.browse);
 router.get("/videos", videoControllers.browseByCategory);
 router.get("/videos/:id", videoControllers.readVideoById);
 router.put("/videos/:id", videoControllers.edit);
@@ -52,11 +49,6 @@ router.get("/favorites", favoriteControllers.browse);
 router.get("/favorites/:id", favoriteControllers.read);
 router.put("/favorites/:id", favoriteControllers.edit);
 router.post("/favorites", favoriteControllers.add);
-router.delete(
-  "/favorites/:id",
-  authorization,
-  // verifyUser,
-  favoriteControllers.destroy
-);
+router.delete("/favorites/:id", authorization, favoriteControllers.destroy);
 
 module.exports = router;
