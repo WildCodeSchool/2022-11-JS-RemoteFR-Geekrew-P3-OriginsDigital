@@ -75,7 +75,7 @@ function UploadVideo() {
   return (
     <div className={styles["add-video-form-container"]}>
       <div className={styles["add-video-pages"]}>
-        <h1 className={styles["add-video-form-h1"]}>Add a New Video </h1>
+        <h1 className={styles["add-video-form-h1"]}>Add New Video </h1>
         <form className={styles["add-video-forms"]} onSubmit={handleUpload}>
           <AddVideoTitle title={title} setTitle={setTitle} />
           <AddVideoCategory category={category} setCategory={setCategory} />

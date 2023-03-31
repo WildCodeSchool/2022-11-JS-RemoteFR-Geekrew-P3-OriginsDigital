@@ -24,7 +24,6 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 4rem;
     margin-top: 4rem;
     padding-bottom: 7rem;
 }
@@ -47,6 +46,7 @@
 
 .add-video-form-h1{
     align-self: center;
+    white-space: nowrap;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
@@ -66,14 +66,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .add-video-input {
     display: flex;
     background-color: #484a4b;
+    color: inherit;
     height: 2.5rem;
     border: none;
-    width: 20rem;
+    width: 100%;
     font-size: 1rem;
     border-radius: 1rem;
     padding-left: 1rem;
@@ -86,9 +88,10 @@
 .add-video-input-desc{
         display: flex;
         background-color: #484a4b;
+        color: inherit;
         height: 5rem;
         border: none;
-        width: 20rem;
+        width: 100%;
         font-size: 1rem;
         border-radius: 1rem;
         padding-left: 1rem;
@@ -103,9 +106,9 @@
         display: flex;
             background-color: #484a4b;
             height: 2.5rem;
-            color: #6e7575;
+            color: inherit;
             border: none;
-            width: 20rem;
+            width: 100%;
             font-size: 1rem;
             border-radius: 1rem;
             padding-left: 1rem;
