@@ -14,14 +14,14 @@ function SignUpConfirmation() {
       <h1 className={styles["confirmation-title"]}>Congratulations</h1>
 
       <p className={styles["confirmation-p"]}>
-        Short loin in pig, capicola cow pork belly ham hock pastrami picanha.
-        Jerky rump do, shankle flank tongue ut spare ribs in cupidatat filet
-        mignon occaecat est laborum. Boudin excepteur sunt, bacon pork belly
-        exercitation tri-tip capicola fatback duis irure in pig. Laboris sed
-        venison ham hock salami porchetta. Ullamco quis buffalo pastrami
-        meatloaf strip steak porchetta hamburger. Pork chop exercitation rump,
-        swine lorem prosciutto tenderloin est pancetta kevin magna adipisicing
-        chicken corned beef spare ribs.
+        You have successfully signed up for Origins Digital, the premier online
+        streaming video site for coding and programming tutorials.
+        <br /> <br /> As a member of Origins Digital, you now have access to an
+        extensive library of streaming videos that cover a wide range of topics
+        related to coding, programming, and software development.
+        <br /> <br /> From beginner-level tutorials on programming languages
+        like Python and Java and more, to enhance your coding skills and
+        knowledge.
       </p>
       <p className={styles["confirmation-illustration"]}>😄</p>
       <div className={styles["button-sign-up-confirmation"]}>

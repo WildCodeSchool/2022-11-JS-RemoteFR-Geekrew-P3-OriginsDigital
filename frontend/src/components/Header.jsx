@@ -50,7 +50,8 @@ export default function Header() {
           location.pathname !== "/add-video" &&
           location.pathname !== "/manage-video" &&
           location.pathname !== "/manage-categories" &&
-          location.pathname !== "/add-pages" && (
+          location.pathname !== "/add-pages" &&
+          location.pathname !== "/sign-up-confirmation" && (
             <div
               className={styles.divlogo}
               onClick={handleHome}
