@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
   padding-top: 5rem;
+  flex-grow: 1;
 }
 
 .title {
@@ -39,6 +40,11 @@
   align-self: center;
   margin-bottom: 2rem;
   margin-top: 0.5rem;
+}
+
+.trashbin-button {
+  background: none;
+  border: none;
 }
 
 .video-title {

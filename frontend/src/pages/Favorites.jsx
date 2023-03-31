@@ -50,8 +50,9 @@ export default function Favorites() {
                 <button
                   type="button"
                   onClick={() => onPressDelete(favorite.video_id)}
+                  className={styles["trashbin-button"]}
                 >
-                  <TrashBinOutline color="#00000" height="25px" width="25px" />
+                  <TrashBinOutline color="#ffffff" height="25px" width="25px" />
                 </button>
               </div>
             </div>
