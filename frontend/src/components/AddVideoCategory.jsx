@@ -15,6 +15,8 @@ function AddVideoCategory({ category, setCategory }) {
         className={styles["add-video-input"]}
         name="category"
         type="number"
+        min="1"
+        max="12"
         placeholder="category id"
         value={category || ""}
         onChange={handleCategory}

@@ -162,6 +162,9 @@
         max-width: 25rem;
         margin: 0px;
         box-shadow: rgb(255, 116, 2, 0.25) 0px 100px 100px, rgb(255, 116, 2, 0.18) 0px -20px 50px, rgb(255, 116, 2, 0.18) 0px 10px 15px, rgb(255, 116, 2, 0.25) 0px 20px 20px, rgb(255, 116, 2, 0.15) 0px -5px 10px;
+        margin-top: 12rem;
+                margin-bottom: 5rem;
+                    margin-top: 16rem;
     }
 
     .add-video-form-h1{
@@ -178,13 +181,13 @@
         justify-content: center;
         border: none;
         border-radius: 2rem;
-        height: 3rem;
-        margin-bottom: 3rem;
         font-size: 1rem;
         background-color: #ff7402;
         color: #fff;
         width: 12.5rem;
         font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 0;
 
         &:hover {
             opacity: 0.8;

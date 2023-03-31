@@ -16,6 +16,8 @@ function AddVideoFree({ free, setFree }) {
         id="free"
         name="free"
         type="number"
+        min="0"
+        max="1"
         placeholder="Free 0 or not 1 "
         value={free || ""}
         onChange={handleChangeFree}
