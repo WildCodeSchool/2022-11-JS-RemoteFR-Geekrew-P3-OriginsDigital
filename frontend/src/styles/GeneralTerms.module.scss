@@ -3,8 +3,7 @@
 .accordion-arrows {
 	width: 100%;
 	margin-top: 10%;
-	margin-bottom: 10%;
-    padding: 5% 5% 3.5rem 5%;
+    padding: 5% 5% 7rem 5%;
     box-sizing: border-box;
 }
 
@@ -145,7 +144,9 @@ input:checked + .box .box-title:before {
 	.accordion-arrows {
 		margin-top: 0;
 		margin-bottom: 0;
-		padding: 12rem
+		padding: 12rem;
+		padding-bottom: 3rem;
+		// padding: 30% 5% 3rem 5%;
 	}
 }
 	
