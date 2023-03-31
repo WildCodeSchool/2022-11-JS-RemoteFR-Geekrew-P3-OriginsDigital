@@ -32,9 +32,13 @@
 }
 
 .title-container {
+  display: flex;
+  justify-content: space-between;
   width: 320px;
   flex-direction: row;
-  margin-top: 0.75rem;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 
 .video-title {
@@ -43,7 +47,6 @@
 
 .trashbin {
   display: flex;
-  margin-top: -1rem;
-  margin-bottom: 4rem;
   justify-content: flex-end;
+  align-self: center;
 }

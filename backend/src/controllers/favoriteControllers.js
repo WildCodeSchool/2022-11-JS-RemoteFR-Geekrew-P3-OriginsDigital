@@ -49,10 +49,10 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const favorite = req.body;
-
+  const userId = req.body.user_id;
+  const videoId = req.body.video_id;
   models.favorite
-    .insert(favorite)
+    .insert(userId, videoId)
     .then(([result]) => {
       res.location(`/favorite/${result.insertId}`).sendStatus(201);
     })
