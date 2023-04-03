@@ -1,0 +1,172 @@
+@import 'variables';
+
+.help-arrows {
+	width: 100%;
+	margin-bottom: 10%;
+    padding: 5% 5% 3.5rem 5%;
+	padding-bottom: 6rem;
+    box-sizing: border-box;
+}
+
+.help-arrows input {
+	display: none;
+}
+
+.header-box {
+	color: $white;
+	font-size: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.headbox-title {
+    font-family: $title-font;
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem 0;
+    text-align: center;
+    text-shadow: 2px 0 10px $orange;
+}
+
+.headbox-content{
+    font-family: $text-font;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+}
+
+.box {
+	display: block;
+	margin-top: 0.7rem;
+	position: relative;
+  	height: auto;
+    width: 100%;
+    transition: all .15s ease-in-out;
+	border-radius: 1rem;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    
+}
+
+.box {
+	box-title:last-child {
+	margin-bottom: 2rem;
+}
+}
+
+.box-title {
+	background-color: $grey;
+	border-radius: 1rem 1rem 0 0;
+	margin: 0;
+	font-size: 1rem;
+	color: $orange-light;
+	cursor: initial;
+	text-align:left;
+	width: 90%;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	
+}
+
+.box-content {
+	width: 99%;
+	padding: 30px 20px;
+	font-size: 0.8rem;
+    line-height: 1.5rem;
+	color: $white;
+	display: none;
+	background-color: $grey-light;
+	border-radius: 0 0 1rem 1rem;
+	overflow: hidden;
+	
+}
+
+.box-close {
+	position: absolute;
+	height: 64px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	display: none;
+}
+
+input:checked + .box {
+	height: auto;
+	margin: 16px 0;
+  	box-shadow: 5px 5px 5px $orange;
+}
+
+input:checked + .box .box-title {
+	border-bottom: 1px solid $orange;
+}
+
+input:checked + .box .box-content,
+input:checked + .box .box-close {
+	display: inline-block;
+}
+
+.help-arrows .box-title {
+	padding-left: 44px;
+	width: 100%;
+}
+
+.help-arrows .box-title:before {
+	position: absolute;
+	display: block;
+	content: '\00bb';
+	font-size: 28pt;
+	left: 20px;
+	top: 4px;
+	transition: transform .20s ease-in-out;
+	color: $orange-light;
+}
+
+input:checked + .box .box-title:before {
+	transform: rotate(90deg);
+}
+
+@media screen and (min-width: 993px) {
+	.help-arrows {
+		margin: 0;
+		padding: 0;
+		margin: auto;
+		width: 35%;
+	}
+
+	.header-box {
+			margin-top: 20%;
+	}
+
+	.box-title:hover {
+	box-shadow: rgb(255, 116, 2, 0.25) 0px 20px 20.5px,
+			rgb(255, 116, 2, 0.12) 0px -6px 15px,
+			rgb(255, 116, 2, 0.12) 0px 2px 3px,
+			rgb(255, 116, 2, 0.17) 0px 4px 4.5px,
+			rgb(255, 116, 2, 0.09) 0px -1.5px 2.5px;
+	}
+
+	.headbox-title {
+		font-size: 3rem;
+		text-shadow: 3px 0 15px $orange;
+	}
+
+	.box-content {
+		font-size: 0.9rem;
+	}
+}

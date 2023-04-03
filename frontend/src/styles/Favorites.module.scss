@@ -1,0 +1,58 @@
+@import "variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 5rem;
+  flex-grow: 1;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    margin-top: 2.5rem
+}
+
+.favorites {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.favorites {
+    img {
+        height: auto;
+        width: 20rem;
+        border-radius: 0.4rem;
+    }
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  flex-direction: row;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+.trashbin-button {
+  background: none;
+  border: none;
+}
+
+.video-title {
+  width: 80%;
+}
+
+.trashbin {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}

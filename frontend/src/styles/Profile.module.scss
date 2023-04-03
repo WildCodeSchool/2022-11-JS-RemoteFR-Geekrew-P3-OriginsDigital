@@ -1,0 +1,71 @@
+@import 'variables';
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 75%;
+  margin: 2rem;
+  padding: 1rem;
+  align-content: center;
+  // min-height: 70%;
+  width: auto;
+  background-color: $grey;
+  border-radius: 2rem;
+  border: solid 1px $orange-light;
+  margin-top: 3rem;
+  margin-bottom: 9rem;
+}
+
+.big-avatar {
+  height: 170px;
+}
+
+.username {
+  font-size: 1.3rem;
+  align-self: center;
+}
+
+.tabs {
+  align-self: center;
+  padding-inline: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: -1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.btnlink {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px $white;
+  box-sizing: content-box;
+  width: 100%;
+  text-align: center;
+}
+
+.btnlink-name {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btnlink-name:hover {
+  color: $orange-extra-light;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 993px) {
+  .user-profile {
+      height: 100%;
+    align-self: center;
+    width: 929px;
+    min-height: 80%;
+    margin-top: 8rem;
+    }
+
+    .btnlink {
+      padding-bottom: 1.5rem;
+    }
+}

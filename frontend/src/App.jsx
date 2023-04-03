@@ -1,23 +1,81 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useLocation, Routes, Route } from "react-router-dom";
+import { useSignInContext } from "./contexts/SignInContext";
+import { FormContextProvider } from "./contexts/FormContext";
 
-// import Header from "./components/Header";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
-// import Navbar from "./components/Navbar";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import SignUpConfirmation from "./pages/SignUpConfirmation";
+import Video from "./pages/Video";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Profile from "./pages/Profile";
+import LegalSpace from "./pages/LegalSpace";
+import TermsOfUse from "./pages/TermsOfUse";
+import TermsOfSale from "./pages/TermsOfSale";
+import Account from "./pages/Account";
+import Help from "./pages/Help";
+import DeskNavbar from "./components/DeskNavbar";
+import Subscribe from "./pages/Subscribe";
+import SubscribesTerms from "./pages/SubscribesTerms";
+import Payment from "./pages/Payment";
+import PaymentConfirmation from "./pages/PaymentConfirmation";
+import Admin from "./pages/Admin";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PasswordForgot from "./pages/PasswordForgot";
 
 function App() {
+  const { user } = useSignInContext();
+  const location = useLocation();
   return (
-    <>
-      {/* <Header /> */}
+    <FormContextProvider>
+      <Header />
+      <DeskNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up-confirmation" element={<SignUpConfirmation />} />
+        <Route path="/videos/:id" element={<Video />} />
+        <Route path="/videos" element={<Video />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/legal" element={<LegalSpace />} />
+        <Route path="/gtcu" element={<TermsOfUse />} />
+        <Route path="/gtcs" element={<TermsOfSale />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/subscribes" element={<Subscribe />} />
+        <Route path="/subscribes/terms" element={<SubscribesTerms />} />
+        <Route path="/payments" element={<Payment />} />
+        <Route
+          path="/payments/confirmation"
+          element={<PaymentConfirmation />}
+        />
+        <Route path="/password" element={<PasswordForgot />} />
+        <Route
+          element={
+            <ProtectedRoute
+              isAllowed={user && user.roles && user.roles.includes("admin")}
+              redirectPath="/admin"
+            />
+          }
+        />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
-      {/* <Navbar /> */}
-    </>
+      <ToastContainer theme="dark" />
+      <Navbar />
+      {location.pathname !== "/sign-up" && location.pathname !== "/sign-in" && (
+        <Footer />
+      )}
+    </FormContextProvider>
   );
 }
 

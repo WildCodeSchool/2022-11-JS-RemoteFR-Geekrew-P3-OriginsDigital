@@ -1,0 +1,133 @@
+@import "variables";
+
+.contvid {
+  display: flex;
+  flex-direction: column;
+}
+
+.videobox {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+height: 195px;
+}
+.video {
+    top: 0;
+    left: 0;
+}
+
+.videoThumbnail {
+    border-radius: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+.catbtn {
+    background: none;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+}
+.cattitle {
+    font-weight: 400;
+    color: $orange;
+    margin-left: 1.2rem;
+}
+.videotitle {
+    font: $title-font;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+.boxlike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+.descvid {
+    font: $text-font;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.likeCount {
+    margin-right: 1rem;
+}
+
+.likes {
+        display: flex;
+        align-items: center;
+}
+
+.cattitle, .like, .dislike, .favorite {
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 993px) {
+    .contvid {
+        width: 60%;
+        align-self: center;
+        justify-content: space-between;
+        padding-bottom: 4rem;
+    }    
+
+    .videobox {
+        height: 530px;
+        margin: 0;
+    }
+
+    .cattitle {
+        font-weight: 600;
+        margin-left: 0;
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+        margin-top: 3rem;
+    }
+
+    .videotitle {
+        font-family: $title-font;
+        font-weight: 500;
+        margin-top: 0rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        margin-bottom: 1rem;
+    }
+
+    .boxlike {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .descvid {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .videoThumbnail {
+    box-shadow: rgb(255, 116, 2, 0.1875) 0px 25px 25px,
+            rgb(255, 116, 2, 0.125) 0px -3.125px 7.8125px,
+            rgb(255, 116, 2, 0.125) 0px 1.5625px 2.34375px,
+            rgb(255, 116, 2, 0.1875) 0px 2.5px 2.5px,
+            rgb(255, 116, 2, 0.1) 0px -0.625px 1.5625px;
+    }
+    
+
+    .containervid {
+        display: flex;
+    }
+
+    .containertext {
+        display: flex;
+        flex-direction: column;
+    }
+}

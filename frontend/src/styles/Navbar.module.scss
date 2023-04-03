@@ -1,0 +1,33 @@
+@import "variables";
+
+.cont {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav-cont {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 8%;
+  width: 100%;
+  background-color: $grey;
+  align-items: center;
+
+  .navul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .cont {
+    display: none;
+  }
+}

@@ -1,0 +1,56 @@
+@import "variables";
+
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  align-content: center;
+  min-height: 80%;
+  width: 80%;
+  background-color: #232526;
+  border-radius: 2rem;
+  border: solid 1px #ff7402;
+
+  .confirmation-title {
+    align-self: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #ffffff;
+  }
+  .confirmation-p {
+    vertical-align: top;
+    font-size: 0.8rem;
+    max-width: 70%;
+    text-align: center;
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  .confirmation-illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    justify-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .button-sign-up-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .confirmation-btn {
+    padding: 0.75 0.75 0.75 0.75rem;
+    border: none;
+    border-radius: 1rem;
+    height: 2.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #ff7402;
+    color: #fff;
+    width: 45%;
+  }
+}

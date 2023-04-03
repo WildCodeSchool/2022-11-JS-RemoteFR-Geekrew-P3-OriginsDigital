@@ -1,0 +1,65 @@
+@import "variables";
+
+@media screen and (max-width: 992px) {
+  .footercontain{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .footercontain {
+    display: flex;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $grey;
+}
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
+
+  .origins-title {
+    margin: 1rem;
+    font-family: $text-font;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .legallink{
+    margin: 1rem;
+  }
+
+  .legallink a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: $text-font;
+    font-size: 1rem;
+    &:hover {
+      color: $orange-light;
+    }
+  }
+
+  .emg-logo {
+    width: auto;
+    height: 2rem;
+    color: #ffffff;
+    margin: 1rem;
+  }
+
+  .linkedin-logo {
+    width: auto;
+    height: 2rem;
+    color: #ffffff;
+    margin: 1rem;
+  }
+}
+
+

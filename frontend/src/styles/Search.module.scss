@@ -1,0 +1,157 @@
+@import "variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 6rem;
+}
+
+.search-bar,
+.select {
+  background-color: $black;
+  border: 0.2rem solid $grey-light;
+  border-radius: 0.3rem;
+  color: inherit;
+  font-size: 0.9rem;
+}
+
+.search-bar {
+  padding: 0.4rem;
+  padding-left: 0.4rem;
+  width: 15.5rem;
+  margin-top: 5rem;
+  box-shadow: rgb(255, 116, 2, 0.125) 0px 10px 10.25px,
+    rgb(255, 116, 2, 0.06) 0px -3px 7.5px,
+    rgb(255, 116, 2, 0.06) 0px 1px 1.5px,
+    rgb(255, 116, 2, 0.085) 0px 2px 2.25px,
+    rgb(255, 116, 2, 0.045) 0px -0.75px 1.25px;
+}
+
+.select {
+  padding: 0.33rem;
+  width: 11rem;
+  margin-top: 2.5rem;
+  box-shadow: rgb(255, 116, 2, 0.125) 0px 10px 10.25px,
+    rgb(255, 116, 2, 0.06) 0px -3px 7.5px,
+    rgb(255, 116, 2, 0.06) 0px 1px 1.5px,
+    rgb(255, 116, 2, 0.085) 0px 2px 2.25px,
+    rgb(255, 116, 2, 0.045) 0px -0.75px 1.25px;
+}
+
+.select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.search-bar::placeholder, .select {
+  color: rgba(255, 255, 255, 0.6)
+} 
+
+.browse {
+  font-weight: 300;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  width: max-content;
+  text-shadow: 3px 0 15px $orange;
+}
+
+.videos-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+  width: min-content;
+}
+
+.thumbnails {
+  a {
+    img {
+      height: 10.5rem;
+      width: auto;
+      border-radius: 0.4rem;
+    }
+  }
+
+    a {
+      text-decoration: none;
+      color: $white;
+      margin-bottom: 2rem;
+    }
+}
+
+.navlink-thumbnail:hover {
+  img {
+    transform: translateY(1.8px);
+    box-shadow: rgb(255, 116, 2, 0.17) 0px 10px 10.25px,
+      rgb(255, 116, 2, 0.12) 0px -3px 7.5px,
+      rgb(255, 116, 2, 0.12) 0px 1px 1.5px,
+      rgb(255, 116, 2, 0.14) 0px 2px 2.25px,
+      rgb(255, 116, 2, 0.09) 0px -0.75px 1.25px;
+  }
+}
+
+.title {
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 993px) {
+  
+  .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    grid-gap: 3rem;
+    justify-items: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: min-content;
+  }
+
+  .browse {
+    display: flex;
+    justify-self: center;
+    grid-column: 1 / -1;
+    text-align: center;
+    width: max-content;
+    font-size: 2.5rem;
+  }
+
+  .select {
+    margin: 2rem;
+    width: 20rem;
+    height: 2.5rem;
+  }
+
+  .search-bar {
+    width: 20rem;
+    height: 2.5rem;
+  }
+
+
+.thumbnails {
+  a {
+    img {
+      margin-bottom: 0;
+      width: min-content;
+      overflow: hidden;
+    }
+  }
+} 
+
+.thumbnails {
+    img{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      }
+  }
+}
