@@ -45,7 +45,13 @@ export default function Header() {
           location.pathname !== "/payments" &&
           location.pathname !== "/payments/confirmation" &&
           location.pathname !== "/sign-in" &&
-          location.pathname !== "/sign-up" && (
+          location.pathname !== "/sign-up" &&
+          location.pathname !== "/admin" &&
+          location.pathname !== "/add-video" &&
+          location.pathname !== "/manage-video" &&
+          location.pathname !== "/manage-categories" &&
+          location.pathname !== "/add-pages" &&
+          location.pathname !== "/sign-up-confirmation" && (
             <div
               className={styles.divlogo}
               onClick={handleHome}
@@ -64,7 +70,7 @@ export default function Header() {
               type="button"
               onClick={handleSignin}
             >
-              CONNEXION
+              SIGN IN
             </button>
           )}
         </div>

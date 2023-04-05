@@ -23,7 +23,7 @@ router.delete("/items/:id", itemControllers.destroy);
 router.get("/videos", videoControllers.browseByCategory);
 router.get("/videos/:id", videoControllers.readVideoById);
 router.put("/videos/:id", videoControllers.edit);
-router.post("/videos", videoControllers.add);
+router.post("/add-videos", videoControllers.add);
 router.delete("/videos/:id", videoControllers.destroy);
 
 router.put("/sign-up", userControllers.updateUser);

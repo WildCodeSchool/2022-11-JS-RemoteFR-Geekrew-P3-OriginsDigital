@@ -21,8 +21,8 @@ function Admin() {
     <div className={styles["admin-profile"]}>
       <div className={styles.tabs}>
         <div className={styles.btnlink}>
-          <NavLink to="/upload-video" className={styles["btn-admin"]}>
-            Upload Video
+          <NavLink to="/add-video" className={styles["btn-admin"]}>
+            Add Video
           </NavLink>
         </div>
         <div className={styles.btnlink}>

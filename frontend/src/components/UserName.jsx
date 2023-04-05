@@ -27,8 +27,20 @@ function UserName({ userName, setUserName }) {
         name="userName"
         type="text"
         placeholder="Username"
-        value={userName}
+        value={userName || ""}
         onChange={handleChangeUserName}
+        onTouchStart={(e) => {
+          e.preventDefault();
+        }}
+        onTouchMove={(e) => {
+          e.preventDefault();
+        }}
+        onWheel={(e) => {
+          e.preventDefault();
+        }}
+        onScroll={(e) => {
+          e.preventDefault();
+        }}
       />
       {!isValidUserName && (
         <span className={styles["sign-span"]}>
@@ -39,8 +51,11 @@ function UserName({ userName, setUserName }) {
   );
 }
 UserName.propTypes = {
-  userName: PropTypes.string.isRequired,
+  userName: PropTypes.string,
   setUserName: PropTypes.func.isRequired,
+};
+UserName.defaultProps = {
+  userName: "",
 };
 
 export default UserName;
