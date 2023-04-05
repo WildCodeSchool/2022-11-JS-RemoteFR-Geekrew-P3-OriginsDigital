@@ -13,7 +13,6 @@ import { useSignInContext } from "../contexts/SignInContext";
 import { useFavoriteContext } from "../contexts/FavoriteContext";
 import instanceAxios from "../services/instanceAxios";
 
-import instanceAxios from "../services/instanceAxios";
 import styles from "../styles/Video.module.scss";
 
 function Video() {
@@ -56,7 +55,18 @@ function Video() {
   }, [id]);
 
   useEffect(() => {
-    instanceAxios
+    instanceAxios.get(`/profile`).then((response) => {
+      const userData = response.data;
+      setUserId(userData.id);
+      instanceAxios
+        .get(`/videos/${id}`)
+        .then((res) => res.data)
+        .then((data) => {
+          setVideo(data);
+          setLikeCount(data.likes);
+          setDislikeCount(data.dislikes);
+        });
+      instanceAxios
         .get(`/favorites`)
         .then((res) => res.data)
         .then((data) => {
@@ -80,12 +90,7 @@ function Video() {
       if (isDisliked) {
         setDislikeCount(dislikeCount - 1);
       }
-      // instanceAxios.put(`/videos/${id}/like`, {
-      //   likes: likeCount + 1,
-      //   dislikes: isDisliked ? dislikeCount - 1 : dislikeCount,
-      //   isLiked: true,
-      //   isDisliked: false,
-      // });
+
       instanceAxios.put(`/videos/${id}/like`, {
         likes: likeCount + 1,
         dislikes: isDisliked ? dislikeCount - 1 : dislikeCount,
@@ -112,12 +117,7 @@ function Video() {
       if (isLiked) {
         setLikeCount(likeCount - 1);
       }
-      // instanceAxios.put(`/videos/${id}/like`, {
-      //   likes: isLiked ? likeCount - 1 : likeCount,
-      //   dislikes: dislikeCount + 1,
-      //   isLiked: false,
-      //   isDisliked: true,
-      // });
+
       instanceAxios.put(`/videos/${id}/like`, {
         likes: isLiked ? likeCount - 1 : likeCount,
         dislikes: dislikeCount + 1,
