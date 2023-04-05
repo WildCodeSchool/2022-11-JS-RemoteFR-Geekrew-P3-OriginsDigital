@@ -36,7 +36,7 @@ export default function Profile() {
           </NavLink>
         </div>
         <div className={styles.btnlink}>
-          <NavLink to="/subscribes" className={styles["btnlink-name"]}>
+          <NavLink to="/subscribe" className={styles["btnlink-name"]}>
             Subscribe
           </NavLink>
         </div>
