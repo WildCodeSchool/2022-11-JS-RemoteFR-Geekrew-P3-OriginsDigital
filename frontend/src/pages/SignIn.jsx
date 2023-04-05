@@ -39,6 +39,7 @@ function SignIn() {
           setIsLoggedIn(true);
           navigate("/");
         }
+        window.location.reload();
         toast.success("✨ Welcome ✨");
       } catch (error) {
         console.error(error);

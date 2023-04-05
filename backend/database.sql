@@ -15,7 +15,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema origins_digital
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `origins_digital` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
-USE `origins_digital` ;
 
 -- -----------------------------------------------------
 -- Table `origins_digital`.`avatar`
@@ -97,7 +96,6 @@ CREATE TABLE IF NOT EXISTS `origins_digital`.`video` (
   `author` VARCHAR(255) NOT NULL,
   `url` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`, `category_id`),
-  INDEX `fk_video_category_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `fk_video_category`
     FOREIGN KEY (`category_id`)
     REFERENCES `origins_digital`.`category` (`id`))
@@ -148,12 +146,11 @@ INSERT INTO video VALUES
 -- Table `origins_digital`.`favorite`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `origins_digital`.`favorite` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `video_id` INT NOT NULL,
   `date_added` DATE NOT NULL,
-  PRIMARY KEY (`user_id`, `video_id`),
-  INDEX `fk_user_has_video_video1_idx` (`video_id` ASC) VISIBLE,
-  INDEX `fk_user_has_video_user1_idx` (`user_id` ASC) VISIBLE,
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_has_video_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `origins_digital`.`user` (`id`),
@@ -162,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `origins_digital`.`favorite` (
     REFERENCES `origins_digital`.`video` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
-
 
 -- -----------------------------------------------------
 -- Table `origins_digital`.`recently_viewed`
@@ -175,8 +171,6 @@ CREATE TABLE IF NOT EXISTS `origins_digital`.`recently_viewed` (
   `date_viewed` DATE NOT NULL,
   `timer` TIME NOT NULL,
   PRIMARY KEY (`user_id`, `video_id`, `video_category_id`, `video_tags_id`),
-  INDEX `fk_user_has_video_video2_idx` (`video_id` ASC, `video_category_id` ASC, `video_tags_id` ASC) VISIBLE,
-  INDEX `fk_user_has_video_user2_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_has_video_user2`
     FOREIGN KEY (`user_id`)
     REFERENCES `origins_digital`.`user` (`id`),
@@ -258,7 +252,6 @@ CREATE TABLE IF NOT EXISTS `origins_digital`.`video_tags` (
   `video_id` INT NOT NULL,
   `tags_id` INT NOT NULL,
   PRIMARY KEY (`video_id`, `tags_id`),
-  INDEX `fk_video_tags_tags1_idx` (`tags_id` ASC) VISIBLE,
   CONSTRAINT `fk_video_tags_tags1`
     FOREIGN KEY (`tags_id`)
     REFERENCES `origins_digital`.`tags` (`id`),

@@ -9,6 +9,7 @@ export function SignInContextProvider({ children }) {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user"));
   const [userAvatar, setUserAvatar] = useState(localStorage.getItem("user"));
+  const [userId, setUserId] = useState(localStorage.getItem("user"));
 
   const values = useMemo(
     () => ({
@@ -22,6 +23,8 @@ export function SignInContextProvider({ children }) {
       setIsLoggedIn,
       userAvatar,
       setUserAvatar,
+      userId,
+      setUserId,
     }),
     [
       email,
@@ -34,6 +37,8 @@ export function SignInContextProvider({ children }) {
       setIsLoggedIn,
       userAvatar,
       setUserAvatar,
+      userId,
+      setUserId,
     ]
   );
 

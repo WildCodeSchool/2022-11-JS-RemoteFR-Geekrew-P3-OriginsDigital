@@ -27,7 +27,7 @@ export default function Profile() {
 
   return (
     <div className={styles["user-profile"]}>
-      <ProfilePicture />
+      <ProfilePicture className={styles["big-avatar"]} />
       <h1 className={styles.username}>{userName}</h1>
       <div className={styles.tabs}>
         <div className={styles.btnlink}>

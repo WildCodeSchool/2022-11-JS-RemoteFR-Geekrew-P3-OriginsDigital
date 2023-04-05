@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { PencilOutline, CloseOutline } from "react-ionicons";
+import { useFormContext } from "../contexts/FormContext";
+import { useSignInContext } from "../contexts/SignInContext";
+import instanceAxios from "../services/instanceAxios";
 
 import ProfilePicture from "../components/ProfilePicture";
 import useModal from "../components/useModal";
@@ -9,11 +12,12 @@ import styles from "../styles/Account.module.scss";
 
 export default function Account() {
   const { isShowing, toggle } = useModal();
+  const { userName, setUserName } = useFormContext();
   const [editUsername, setEditUsername] = useState(false);
   const [editEmail, setEditEmail] = useState(false);
   const [editPassword, setEditPassword] = useState(false);
-  const [usernameValue, setUsernameValue] = useState("username");
-  const [emailValue, setEmailValue] = useState("email");
+  const [usernameValue, setUsernameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
   const [oldPasswordValue, setOldPasswordValue] = useState("");
   const [newPasswordValue, setNewPasswordValue] = useState("");
   const [confirmNewPasswordValue, setConfirmNewPasswordValue] = useState("");
@@ -22,6 +26,23 @@ export default function Account() {
   const usernameInput = useRef(null);
   const emailInput = useRef(null);
   const oldPasswordInput = useRef(null);
+
+  const { userId, setUserId } = useSignInContext();
+
+  useEffect(() => {
+    instanceAxios
+      .get(`/profile`)
+      .then((response) => {
+        const userData = response.data;
+        setUserName(userData.username);
+        setUsernameValue(userData.username);
+        setEmailValue(userData.email);
+        setUserId(userData.id);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const onEditUsername = () => {
     setEditUsername(true);
@@ -75,13 +96,30 @@ export default function Account() {
 
   const onPressApply = () => {
     setApply(true);
+
+    const data = {
+      username: usernameValue,
+      email: emailValue,
+    };
+
+    instanceAxios
+      .put(`/user/${userId}`, data)
+      .then(() => {
+        const newUsername = data.username ? data.username : userName;
+        setUsernameValue(newUsername);
+        setUserName(newUsername);
+        const newEmail = data.email ? data.email : emailValue;
+        setEmailValue(newEmail);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <div className={styles.container}>
-      <div>Account</div>
       <div className={styles["avatar-container"]}>
-        <ProfilePicture />
+        <ProfilePicture className={styles["medium-avatar"]} />
         <div
           className={styles.pencil}
           onClick={toggle}
@@ -92,7 +130,7 @@ export default function Account() {
           <PencilOutline color="#00000" height="22px" width="25px" />
         </div>
       </div>
-      <p>Username</p>
+      <p>{userName}</p>
       <div className={styles.tabs}>
         <div className={styles.btnlink}>
           <div className={styles["btnlink-name"]}>Username</div>

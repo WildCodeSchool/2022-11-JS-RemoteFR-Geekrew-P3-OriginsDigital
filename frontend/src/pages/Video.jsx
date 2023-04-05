@@ -9,18 +9,40 @@ import {
   BookmarkOutline,
   Bookmark,
 } from "react-ionicons";
+import { useSignInContext } from "../contexts/SignInContext";
+import { useFavoriteContext } from "../contexts/FavoriteContext";
+import instanceAxios from "../services/instanceAxios";
+
 import instanceAxios from "../services/instanceAxios";
 import styles from "../styles/Video.module.scss";
 
 function Video() {
+  const { userId, setUserId } = useSignInContext();
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
   const { id } = useParams();
+  const parsedId = parseInt(id, 10);
   const [video, setVideo] = useState({});
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [setIsFavorite] = useState(false);
+  const { favorites, setFavorites } = useFavoriteContext();
   const navigate = useNavigate();
+
+  const onPressAdd = () => {
+    instanceAxios.post(`/favorites`, {
+      user_id: userId,
+      video_id: video.id,
+    });
+    setIsFavorite(true);
+  };
+
+  const onPressDelete = () => {
+    setIsFavorite(false);
+    instanceAxios
+      .delete(`/favorites/${id}`)
+      .catch((error) => console.error(error));
+  };
 
   useEffect(() => {
     instanceAxios
@@ -31,17 +53,18 @@ function Video() {
         setLikeCount(data.likes);
         setDislikeCount(data.dislikes);
       });
-    instanceAxios
-      .get(`/videos/${id}/like`)
-      .then((res) => res.data)
-      .then((data) => {
-        setIsLiked(data.liked);
-        setIsDisliked(data.disliked);
-      })
-      .catch((res) => {
-        res.sendStatus(500);
-      });
   }, [id]);
+
+  useEffect(() => {
+    instanceAxios
+        .get(`/favorites`)
+        .then((res) => res.data)
+        .then((data) => {
+          const userFav = data.filter((fav) => fav.user_id === userId);
+          setFavorites(userFav);
+        });
+    });
+  }, [favorites]);
 
   const onPressCategory = (e) => {
     const category = e.target.textContent;
@@ -173,13 +196,13 @@ function Video() {
           <span className={styles.likeCount}>{dislikeCount}</span>
         </div>
         <div className={styles.favories}>
-          {isFavorite ? (
+          {favorites.some((elem) => elem.video_id === parsedId) ? (
             <Bookmark
               color="#ffffff"
               height="35px"
               width="35px"
               className={styles.favorite}
-              onClick={() => setIsFavorite(false)}
+              onClick={() => onPressDelete(video.id)}
             />
           ) : (
             <BookmarkOutline
@@ -187,7 +210,7 @@ function Video() {
               height="35px"
               width="35px"
               className={styles.favorite}
-              onClick={() => setIsFavorite(true)}
+              onClick={() => onPressAdd(userId, video)}
             />
           )}
         </div>
