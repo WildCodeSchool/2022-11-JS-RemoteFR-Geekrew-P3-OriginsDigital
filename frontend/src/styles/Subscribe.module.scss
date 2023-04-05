@@ -74,3 +74,13 @@
     color: white;
     font-size: 1rem;
 }
+
+@media screen and (min-width: 993px) {
+    .contSub {
+        padding: 15rem;
+    }
+
+    .btnSub {
+        height: 6rem;
+    }
+}

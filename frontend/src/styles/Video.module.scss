@@ -1,16 +1,18 @@
 @import "variables";
 
 .contvid {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
 }
 
 .videobox {
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
-height: 195px;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    height: 195px;
 }
+
 .video {
     top: 0;
     left: 0;
@@ -21,17 +23,20 @@ height: 195px;
     box-sizing: border-box;
     width: 100%;
 }
+
 .catbtn {
     background: none;
     border: none;
     width: fit-content;
     height: fit-content;
 }
+
 .cattitle {
     font-weight: 400;
     color: $orange;
     margin-left: 1.2rem;
 }
+
 .videotitle {
     font: $title-font;
     font-weight: 400;
@@ -39,6 +44,7 @@ height: 195px;
     margin-left: 1.2rem;
     margin-right: 1.2rem;
 }
+
 .boxlike {
     display: flex;
     flex-direction: row;
@@ -47,6 +53,7 @@ height: 195px;
     margin-left: 1.2rem;
     margin-right: 1.2rem;
 }
+
 .descvid {
     font: $text-font;
     font-size: 1rem;
@@ -60,11 +67,14 @@ height: 195px;
 }
 
 .likes {
-        display: flex;
-        align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-.cattitle, .like, .dislike, .favorite {
+.cattitle,
+.like,
+.dislike,
+.favorite {
     cursor: pointer;
 }
 
@@ -75,7 +85,7 @@ height: 195px;
         align-self: center;
         justify-content: space-between;
         padding-bottom: 4rem;
-    }    
+    }
 
     .videobox {
         height: 530px;
@@ -114,13 +124,13 @@ height: 195px;
     }
 
     .videoThumbnail {
-    box-shadow: rgb(255, 116, 2, 0.1875) 0px 25px 25px,
+        box-shadow: rgb(255, 116, 2, 0.1875) 0px 25px 25px,
             rgb(255, 116, 2, 0.125) 0px -3.125px 7.8125px,
             rgb(255, 116, 2, 0.125) 0px 1.5625px 2.34375px,
             rgb(255, 116, 2, 0.1875) 0px 2.5px 2.5px,
             rgb(255, 116, 2, 0.1) 0px -0.625px 1.5625px;
     }
-    
+
 
     .containervid {
         display: flex;
