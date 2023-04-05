@@ -70,7 +70,7 @@ export default function Header() {
               type="button"
               onClick={handleSignin}
             >
-              CONNEXION
+              SIGN IN
             </button>
           )}
         </div>
