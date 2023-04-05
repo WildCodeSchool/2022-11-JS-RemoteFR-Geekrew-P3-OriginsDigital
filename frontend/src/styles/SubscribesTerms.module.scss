@@ -21,7 +21,7 @@
     width: 100%;
     height: 4rem;
     position: absolute;
-    bottom: 50px;
+    bottom: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,17 +35,25 @@
     justify-content: center;
 }
 .btnSubTerms {
-    height: 1.5rem;
     border-radius: 1rem;
     margin-right: 1rem;
-    padding-top: 0.1rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    padding-left: 0.5rem;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     cursor: pointer;
-    background-color: #ff7402;
+    background: none;
+    border-radius: 0.7rem;
     color: #fff;
+    border: solid 1px grey;
     font-size: 1rem;
+    cursor: not-allowed;
+}
+.btnSubTerms--checked {
+    border-color: #ff7402;
+    cursor: pointer;
+}
+.btnSubTerms--checked:hover {
+    color: #ff7402;
 }
 .divCheck {
     display: flex;
@@ -105,3 +113,11 @@
      transform: scale(1) rotateY(360deg);
     }
    }
+
+@media screen and (min-width: 993px) {
+    .contTerms {
+        padding-top: 5rem;
+        margin-top: 3rem;
+        padding-inline: 10rem;
+    }
+}

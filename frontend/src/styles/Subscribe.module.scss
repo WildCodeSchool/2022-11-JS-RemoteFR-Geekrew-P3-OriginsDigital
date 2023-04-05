@@ -10,19 +10,27 @@
     margin-right: 1rem;
     margin-bottom: 2rem;
     margin-left: 1rem;
+    padding-top: 5rem;
 }
 .secondTitle {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 .subCard {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-inline: 25rem;
+    padding-top: 2rem;
+}
+
+.standCard, .proCard {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .standCard, .standCardSub {
@@ -39,6 +47,7 @@
 }
 .standCardSub {
     border: 2px solid;
+    cursor: pointer;
 }
 .textp {
     text-align: center;
@@ -53,6 +62,7 @@
     width: 100%;
     background-color: $grey-light;
     border-radius: 2.5rem;
+    cursor: pointer;
 }
 .proCardSub {
     border: 2px solid;
@@ -62,8 +72,8 @@
     text-align: center;
 }
 .textPop {
-    color: $green;
-    font-size: 0.8rem;
+    color: $blue;
+    font-size: 1.15rem;
     margin-bottom: 1rem;
 }
 .btnSub {
@@ -71,6 +81,13 @@
     width: 100%;
     height: 4rem;
     background-color: $orange;
+    background: none;
+    border: solid 2px $orange;
     color: white;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    padding: 2rem;
+    cursor: pointer;
+}
+.btnSub:hover {
+    background: $orange;
 }

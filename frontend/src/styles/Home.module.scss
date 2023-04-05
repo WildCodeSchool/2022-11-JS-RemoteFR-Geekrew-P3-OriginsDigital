@@ -146,6 +146,7 @@ body {
       display: flex;
       flex-direction: column;
       width: 50%;
+      margin-left: auto;
     }
 
     .popular-title {
@@ -231,5 +232,10 @@ body {
 @media screen and (max-width: 1600px) {
   .popular-images-container {
     display: none;
+  }
+
+  .carousel-container {
+    height: 100%;
+    width: 100%;
   }
 }
