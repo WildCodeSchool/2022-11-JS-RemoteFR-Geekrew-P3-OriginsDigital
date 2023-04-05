@@ -73,9 +73,7 @@ function SubscribesTerms() {
         </div>
         <div className={styles.divBoxBtn}>
           <button
-            className={`${styles.btnSubTerms} ${
-              isChecked ? styles["btnSubTerms--checked"] : ""
-            }`}
+            className={styles.btnSubTerms}
             type="button"
             disabled={!isChecked}
             onClick={handleContinueClick}

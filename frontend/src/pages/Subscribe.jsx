@@ -41,7 +41,7 @@ function Subscribe() {
         >
           <p className={styles.textp}>
             Standard Plan <br /> <br />
-            <strong>0$</strong> /month
+            <strong>0$</strong>/month
           </p>
         </div>
         <div
@@ -54,9 +54,9 @@ function Subscribe() {
           onClick={handleSelectProPlan}
         >
           <p className={styles.textPro}>
-            <strong>Recommended</strong> <br /> <br />
+            Recommended <br /> <br />
             Pro Plan <br />
-            <strong>10$</strong> /month <br /> <br />
+            <strong>10$</strong>/month <br /> <br />
           </p>
           <p className={styles.textPop}>get access to all content!</p>
         </div>
