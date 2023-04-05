@@ -10,48 +10,66 @@
     margin-bottom: 6rem;
     overflow: scroll;
 }
+
 .titleTerms {
     margin-bottom: 2rem;
 }
+
 .textTerms {
     margin-bottom: 2rem;
 }
+
 .checkbox {
     background-color: $grey-light;
     width: 100%;
     height: 4rem;
     position: absolute;
-    bottom: 50px;
+    bottom: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .checkAgree {
     color: black;
 }
+
 .divBoxBtn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .btnSubTerms {
-    height: 1.5rem;
     border-radius: 1rem;
     margin-right: 1rem;
-    padding-top: 0.1rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    padding-left: 0.5rem;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     cursor: pointer;
-    background-color: #ff7402;
+    background: none;
+    border-radius: 0.7rem;
     color: #fff;
+    border: solid 1px grey;
     font-size: 1rem;
+    cursor: not-allowed;
 }
+
+.btnSubTerms--checked {
+    border-color: #ff7402;
+    cursor: pointer;
+}
+
+.btnSubTerms--checked:hover {
+    color: #ff7402;
+}
+
 .divCheck {
     display: flex;
     align-items: center;
     margin-left: 1rem;
 }
+
 .checkAgree {
     position: relative;
     width: 20px;
@@ -60,9 +78,9 @@
     appearance: none;
     background-color: #bbb;
     transition: all .3s;
-   }
-   
-   .checkAgree::before {
+}
+
+.checkAgree::before {
     content: '';
     position: absolute;
     border: solid #fff;
@@ -77,31 +95,39 @@
     transform: rotate(0deg);
     transition: all .3s;
     transform-origin: center center;
-   }
-   
-   .checkAgree:checked {
+}
+
+.checkAgree:checked {
     animation: a .3s ease-in forwards;
     background-color: rgb(120, 190, 120);
-   }
-   
-   .checkAgree:checked::before {
+}
+
+.checkAgree:checked::before {
     opacity: 1;
     transform: rotate(405deg);
-   }
-   
-   @keyframes a {
+}
+
+@keyframes a {
     0% {
-     opacity: 1;
-     transform: scale(1) rotateY(0deg);
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
     }
-   
+
     50% {
-     opacity: 0;
-     transform: scale(.8) rotateY(180deg);
+        opacity: 0;
+        transform: scale(.8) rotateY(180deg);
     }
-   
+
     100% {
-     opacity: 1;
-     transform: scale(1) rotateY(360deg);
+        opacity: 1;
+        transform: scale(1) rotateY(360deg);
     }
-   }
+}
+
+@media screen and (min-width: 993px) {
+    .contTerms {
+        padding-top: 5rem;
+        margin-top: 3rem;
+        padding-inline: 10rem;
+    }
+}
