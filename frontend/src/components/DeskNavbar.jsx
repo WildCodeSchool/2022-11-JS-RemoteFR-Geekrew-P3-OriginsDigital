@@ -60,7 +60,7 @@ export default function DeskNavbar() {
             type="button"
             onClick={handleSignin}
           >
-            SIGN IN
+            CONNEXION
           </button>
         )}
       </div>

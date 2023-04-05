@@ -39,18 +39,6 @@ function Password({ password, setPassword }) {
             placeholder="Password"
             value={password}
             onChange={handleChangePassword}
-            onTouchStart={(e) => {
-              e.preventDefault();
-            }}
-            onTouchMove={(e) => {
-              e.preventDefault();
-            }}
-            onWheel={(e) => {
-              e.preventDefault();
-            }}
-            onScroll={(e) => {
-              e.preventDefault();
-            }}
             autoComplete="new-password"
           />
           <button type="button" className={styles["password-button"]}>

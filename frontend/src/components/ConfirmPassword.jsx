@@ -26,18 +26,6 @@ function ConfirmPassword({ setConfirmPassword, confirmPassword, password }) {
             placeholder="Confirm password"
             value={confirmPassword}
             onChange={handleChangeConfirmPassword}
-            onTouchStart={(e) => {
-              e.preventDefault();
-            }}
-            onTouchMove={(e) => {
-              e.preventDefault();
-            }}
-            onWheel={(e) => {
-              e.preventDefault();
-            }}
-            onScroll={(e) => {
-              e.preventDefault();
-            }}
             autoComplete="new-password"
             required
           />

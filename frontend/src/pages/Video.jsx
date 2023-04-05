@@ -20,6 +20,7 @@ function Video() {
   const { id } = useParams();
   const parsedId = parseInt(id, 10);
   const [video, setVideo] = useState({});
+  const [setIsFavorite] = useState(false);
   const { favorites, setFavorites } = useFavoriteContext();
   const navigate = useNavigate();
 
@@ -28,9 +29,11 @@ function Video() {
       user_id: userId,
       video_id: video.id,
     });
+    setIsFavorite(true);
   };
 
   const onPressDelete = () => {
+    setIsFavorite(false);
     instanceAxios
       .delete(`/favorites/${id}`)
       .catch((error) => console.error(error));

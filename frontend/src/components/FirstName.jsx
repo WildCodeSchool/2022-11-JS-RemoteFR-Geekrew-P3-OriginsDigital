@@ -27,20 +27,8 @@ function FirstName({ setFirstName, firstName }) {
         name="firstName"
         type="text"
         placeholder="Firstname"
-        value={firstName || ""}
+        value={firstName}
         onChange={handleChangeFirstName}
-        onTouchStart={(e) => {
-          e.preventDefault();
-        }}
-        onTouchMove={(e) => {
-          e.preventDefault();
-        }}
-        onWheel={(e) => {
-          e.preventDefault();
-        }}
-        onScroll={(e) => {
-          e.preventDefault();
-        }}
       />
       {!isValidFirstName && (
         <span className={styles["sign-span"]}>
@@ -51,11 +39,8 @@ function FirstName({ setFirstName, firstName }) {
   );
 }
 FirstName.propTypes = {
-  firstName: PropTypes.string,
+  firstName: PropTypes.string.isRequired,
   setFirstName: PropTypes.func.isRequired,
-};
-FirstName.defaultProps = {
-  firstName: "",
 };
 
 export default FirstName;

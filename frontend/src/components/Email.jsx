@@ -28,21 +28,8 @@ function Email({ email, setEmail }) {
         name="email"
         type="text"
         placeholder="Email"
-        value={email || ""}
+        value={email}
         onChange={handleChangeEmail}
-        autoComplete="username"
-        onTouchStart={(e) => {
-          e.preventDefault();
-        }}
-        onTouchMove={(e) => {
-          e.preventDefault();
-        }}
-        onWheel={(e) => {
-          e.preventDefault();
-        }}
-        onScroll={(e) => {
-          e.preventDefault();
-        }}
       />
       {!isValidEmail && (
         <span className={styles["sign-span"]}>Please enter a valid email</span>
@@ -50,11 +37,8 @@ function Email({ email, setEmail }) {
     </div>
   );
 }
-Email.defaultProps = {
-  email: "",
-};
 Email.propTypes = {
-  email: PropTypes.string,
+  email: PropTypes.string.isRequired,
   setEmail: PropTypes.func.isRequired,
 };
 
