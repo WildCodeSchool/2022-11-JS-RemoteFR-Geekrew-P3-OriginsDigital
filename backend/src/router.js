@@ -31,6 +31,7 @@ router.post("/sign-up", hashingPassword, userControllers.addUser);
 
 router.post("/sign-in", login);
 router.get("/profile", authorization, userControllers.getOneUser);
+
 router.get("/log-out", logout, userControllers.getUserByEmail);
 router.delete("/account-delete", userControllers.deleteUser);
 router.get("/admin", rolesCheck, userControllers.getUserByEmail);
