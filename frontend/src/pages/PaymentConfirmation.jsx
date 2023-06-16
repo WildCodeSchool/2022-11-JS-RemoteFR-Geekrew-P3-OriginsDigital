@@ -8,7 +8,7 @@ function PaymentConfirmation() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 10000);
     return () => {
       clearTimeout(timeout);
     };
@@ -16,10 +16,10 @@ function PaymentConfirmation() {
 
   return (
     <div className={styles.contPayConf}>
-      <h1 className={styles.titlePayConf}>Confirmation de paiement</h1>
-      <p className={styles.textPayConf}>Merci pour votre paiement!</p>
+      <h1 className={styles.titlePayConf}>Payment confirmation</h1>
+      <p className={styles.textPayConf}>Thank you for your purchase!</p>
       <p className={styles.textPayConfRedi}>
-        Vous serez redirigé vers la page d'accueil dans quelques secondes.
+        You will be redirected to the home page in a few seconds.
       </p>
     </div>
   );
