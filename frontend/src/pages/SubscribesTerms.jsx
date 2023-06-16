@@ -21,44 +21,41 @@ function SubscribesTerms() {
       <h1 className={styles.titleTerms}>Premium</h1>
       <div className={styles.divTextTerms}>
         <p className={styles.textTerms}>
-          1. Acceptation des conditions d'utilisation : Les utilisateurs doivent
-          accepter les conditions d'utilisation avant de pouvoir accéder à la
-          plateforme de vidéo. En utilisant la plateforme de vidéo, les
-          utilisateurs acceptent les conditions d'utilisation. <br /> <br /> 2.
-          Droits d'auteur et propriété intellectuelle : Tous les contenus de
-          plateforme sont protégés par des droits d'auteur et des lois sur la
-          propriété intellectuelle. Les utilisateurs ne peuvent pas utiliser le
-          contenu de la plateforme de vidéo à des fins commerciales
-          l'autorisation préalable des détenteurs de droits d'auteur. <br />
-          <br /> 3. inappropriés Les utilisateurs ne doivent pas télécharger,
-          publier ou partager du contenu inapproprié, diffamatoire,
-          discriminatoire, offensant, illégal ou nuisible sur la plateforme de
-          vidéo. <br />
-          <br /> 4. Utilisation responsable : Les utilisateurs doivent utiliser
-          utiliser la plateforme de vidéo de manière responsable et ne doivent
-          pas utiliser la plateforme pour harceler, harceler, intimider ou nuire
-          à d'autres utilisateurs. <br />
-          <br /> 5. Confidentialité plateforme de vidéo des données personnelles
-          sur les utilisateurs, et ces données sont protégées conformément aux
-          applicables sur la confidentialité. Les utilisateurs doivent respecter
-          la vie privée des autres utilisateurs et ne doivent pas divulguer les
-          informations personnelles d'autres personnes sans leur autorisation.
-          <br /> <br /> 6. Utilisation de cookies : La plateforme de vidéo
-          utilise des cookies améliorer l'expérience utilisateur. Les
-          utilisateurs doivent accepter l'utilisation de cookies pour utiliser
-          la plateforme de vidéo. <br />
-          <br /> 7. Responsabilité : La plateforme de vidéo n'assume aucune
-          responsabilité pour les pertes causés par l'utilisation de la
-          plateforme, sauf en cas de faute intentionnelle ou de négligence
-          grave. <br />
-          <br /> 8. Modification des conditions d'utilisation : La plateforme de
-          vidéo se réserve le droit de modifier les conditions d'utilisation à
-          tout moment. Les utilisateurs seront informés de ces modifications et
-          devront accepter les nouvelles conditions d'utilisation pour continuer
-          à utiliser la plateforme. <br />
-          <br /> 9. Résiliation : La plateforme de vidéo se réserve le droit de
-          l'accès des utilisateurs à la plateforme violation des conditions
-          d'utilisation.
+          1.Acceptance of Terms of Use: Users must accept the terms of use
+          before you can access the video platform. By using the video platform,
+          users accept the terms of use.
+          <br /> <br /> 2. Copyright and Intellectual Property: All the platform
+          contents are protected by copyright and intellectual property laws.
+          Users cannot not use the content of the video platform for purposes
+          the prior authorization of the rights holders author.
+          <br />
+          <br /> 3.Users should not download, post or share inappropriate,
+          defamatory, discriminatory, offensive, illegal or harmful on the
+          platform of video.
+          <br />
+          <br /> 4. Responsible Use: Users should use use the video platform
+          responsibly and must not not use the platform to harass, harass,
+          intimidate or harm to other users. <br />
+          <br /> 5. Privacy personal data video platform about users, and this
+          data is protected in accordance with the applicable to
+          confidentiality. Users must respect the privacy of other users and
+          must not disclose the other people's personal information without
+          their permission.
+          <br /> <br /> 6.Use of cookies: The video platform uses cookies to
+          improve the user experience. THE users must accept the use of cookies
+          to use the video platform.
+          <br />
+          <br /> 7. Liability: The video platform assumes no liability for
+          losses caused by the use of the platform, except in cases of willful
+          misconduct or negligence severe.
+          <br />
+          <br /> 8. Modification of the conditions of use: The platform of video
+          reserves the right to modify the conditions of use at any time. Users
+          will be informed of these changes and will need to accept the new
+          terms of use to continue to use the platform.
+          <br />
+          <br /> 9. Termination: The video platform reserves the right to user
+          access to the platform breach of terms of use.
         </p>
       </div>
       <div className={styles.checkbox}>
