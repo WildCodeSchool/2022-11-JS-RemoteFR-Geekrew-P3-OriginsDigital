@@ -34,6 +34,8 @@
     margin-bottom: 2rem;
     height: 50%;
     width: 100%;
+    max-width: 55%;
+    min-width: 14rem;
     background-color: $grey-light;
     border-radius: 2.5rem;
 }
@@ -51,6 +53,8 @@
     margin-bottom: 2rem;
     height: 200px;
     width: 100%;
+    max-width: 55%;
+    min-width: 14rem;
     background-color: $grey-light;
     border-radius: 2.5rem;
 }
@@ -69,8 +73,20 @@
 .btnSub {
     border-radius: 1rem;
     width: 100%;
+    max-width: 55%;
+    min-width: 14rem;
     height: 4rem;
     background-color: $orange;
     color: white;
     font-size: 1rem;
+    padding: 0.5rem;
+}
+
+@media screen and (min-width: 993px) {
+   .standCard, .proCard, .btnSub {
+    padding: 1rem;
+    width: 20rem;
+    max-width: 40%;
+    min-width: 30%;
+   }
 }
