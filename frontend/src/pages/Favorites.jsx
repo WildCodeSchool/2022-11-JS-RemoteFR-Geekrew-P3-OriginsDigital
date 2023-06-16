@@ -35,29 +35,40 @@ export default function Favorites() {
     <div className={styles.container}>
       <div className={styles.title}>Favorites</div>
       <div className={styles.favorites}>
-        {favorites.map((favorite) => (
-          <div key={favorite.id} className={styles["videos-container"]}>
-            <Link to={`/videos/${favorite.video_id}`}>
-              <img
-                key={favorite.id}
-                src={favorite.thumbnail}
-                alt={favorite.description}
-              />
-            </Link>
-            <div className={styles["title-container"]}>
-              <div className={styles["video-title"]}>{favorite.title}</div>
-              <div className={styles.trashbin}>
-                <button
-                  type="button"
-                  onClick={() => onPressDelete(favorite.video_id)}
-                  className={styles["trashbin-button"]}
-                >
-                  <TrashBinOutline color="#ffffff" height="25px" width="25px" />
-                </button>
+        {favorites.length === 0 ? (
+          <p>
+            No favorites found. You need to log in to add videos to your
+            favorites.
+          </p>
+        ) : (
+          favorites.map((favorite) => (
+            <div key={favorite.id} className={styles["videos-container"]}>
+              <Link to={`/videos/${favorite.video_id}`}>
+                <img
+                  key={favorite.id}
+                  src={favorite.thumbnail}
+                  alt={favorite.description}
+                />
+              </Link>
+              <div className={styles["title-container"]}>
+                <div className={styles["video-title"]}>{favorite.title}</div>
+                <div className={styles.trashbin}>
+                  <button
+                    type="button"
+                    onClick={() => onPressDelete(favorite.video_id)}
+                    className={styles["trashbin-button"]}
+                  >
+                    <TrashBinOutline
+                      color="#ffffff"
+                      height="25px"
+                      width="25px"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
